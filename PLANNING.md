@@ -66,6 +66,15 @@ Dogs aren't allowed inside the ski area boundary per the town's official uphill-
 **Lobo Peak Overlook, Wolf Creek Pass (Friday transit).**
 Exists and would be a nice add near the summit, but the final approach to it is gravel. Fails paved-only. The USFS picnic area right at the summit, directly off US-160, is the substitute — same idea, no detour, no dirt.
 
+**Strings Music Festival and the free Music on the Mountain concert series (Steamboat week).**
+Both are Steamboat's marquee live-music draws, and both are over before the visit — Strings runs June 28–Aug 13, the free series' last show is Aug 14 (Lyrics Born). Don't re-check these for the Aug 24–27 window; check next year's dates instead if this trip repeats.
+
+**Art in the Park (Steamboat week).**
+Steamboat's craft/art fair. July 11–12, 2026 — over a month before the visit. Not a live option for this window.
+
+**Farmers Market as a Mon–Thu stop.**
+Main Street Steamboat's farmers market runs Saturdays only (Yampa St, June–Sept). The Saturday before the visit (Aug 22) is still in transit; the Saturday after (Aug 29) is after departure. Doesn't fit a Sun-checkin/Fri-checkout week no matter how it's arranged.
+
 **First Baptist Church as the Aug 28 show venue.**
 One search result attributed the Mike Dillon Band show to "First Baptist Church" in Pagosa Springs rather than Motel SOCO. Checked directly against Bandsintown's own event page (not a search snippet) and against the venue's own booking — Motel SOCO / El Camino Lounge is correct. Treat the church attribution as bad data if it resurfaces.
 
@@ -77,7 +86,9 @@ One search result attributed the Mike Dillon Band show to "First Baptist Church"
 - **Skipping Ridgway.** Colorado Boy doesn't open until 2pm Saturday; you pass through around 11:45.
 - **Fish Creek Falls stays leashed.** One source claims off-leash is fine past the first quarter-mile; the more consistent and official-sounding line is leash required throughout. Went with the conservative read rather than the convenient one.
 - **Emerald Mountain / Blackmer is leashed, not off-leash.** Steamboat's city council closed it to off-leash dogs in 2019 on a CPW recommendation. Older trip reports calling it off-leash are out of date — don't trust them if this resurfaces in a future search.
-- **Butcherknife Brewing kept in, with a call-ahead flag** rather than dropped outright. Weak, unconfirmed signal it may have closed in early 2026. If a future check confirms closure, Storm Peak's downtown "Bus Stop" location is the direct swap — already dog-confirmed, no research needed.
+- **Wednesday evening moved to Snow Bowl's free Wednesday Sessions** (Float Like a Buffalo plays Aug 26) instead of Butcherknife Brewing. Two birds: it's live music, and it sidesteps Butcherknife's unconfirmed-closure risk entirely rather than requiring a phone call. Butcherknife is kept as the swap option for anyone who'd rather have the brewery — same call-ahead flag applies if it's used (970-879-2337).
+- **Monday evening moved to Timber & Torch** (live music ~5:30–8pm, dog-friendly patio, Steamboat Square) instead of Storm Peak Brewing. Storm Peak kept as the weather-fallback swap since it's the only spot this week with an indoor dog option — Timber & Torch's seating is outdoor-by-a-fire, not indoor.
+- **Steamboat Art Museum added as an optional Thursday stop**, not a group one. No dog policy confirmed anywhere searched, and museums are a poor bet for off-leash-adjacent activities generally — framed in the guide as a solo duck-in while the other person holds the dog outside, not a planned joint stop.
 - **Twin Lakes added as a detour on the Friday drive.** Not on the direct route (a ~6-7 mile paved spur off US-24 near Leadville), but CDOT resurfaced that exact stretch, so it's fully paved and short enough to not threaten the 7pm show deadline.
 - **Eddyline over Cool River Cafe for Buena Vista lunch.** Eddyline's fenced dog patio and brewpub menu fit the day better; Cool River is the faster in-and-out if Eddyline's slow.
 
@@ -87,7 +98,7 @@ One search result attributed the Mike Dillon Band show to "First Baptist Church"
 - **Fuel** — Durango before leaving Friday; Rifle before turning north Sunday. CO-13 is 88 miles with essentially no services.
 - **Cash** — Ore House pet fee is cash at check-in, and check-in is contactless.
 - **COtrip, Friday Aug 28 morning** — Wolf Creek Pass specifically. Conditions at 10,857 feet can turn fast even in late August. This is the day with a fixed 7pm deadline and no built-in slack, so a closure or major delay here has nowhere to absorb the time.
-- **Butcherknife Brewing** — call 970-879-2337 before driving out Wednesday evening. Unconfirmed possible closure.
+- **Butcherknife Brewing** — only relevant if using it as the swap instead of Snow Bowl Wednesday. Call 970-879-2337 first; unconfirmed possible closure.
 - **Weather for Aug 24–28** — more than a month out at time of planning; the table below only covers the original Aug 21–23 leg. Re-check closer to departure, especially for the Friday pass-crossing day.
 
 ## Weather at time of planning

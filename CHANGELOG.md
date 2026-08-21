@@ -1,5 +1,11 @@
 # Changelog
 
+## rev-7 — live music added to the Steamboat week
+- Monday evening: Storm Peak Brewing → Timber & Torch (live music, dog-friendly fire-pit patio, Steamboat Square). Storm Peak kept as the weather-fallback swap.
+- Wednesday evening: Butcherknife Brewing → Snow Bowl's free Wednesday Sessions (Float Like a Buffalo, Aug 26 — live music, dedicated dog turf, bowling backup). Butcherknife kept as the swap for anyone who'd rather have the brewery.
+- Thursday: added Steamboat Art Museum (Oil Painters of America exhibit, through Aug 29) as an optional solo stop — no confirmed dog policy, framed as a duck-in rather than a group activity.
+- Checked and ruled out Strings Music Festival and the free Music on the Mountain concert series — both wrap up before Aug 24. Also ruled out Art in the Park (July, not August) and the farmers market (Saturdays only, doesn't land inside a Sun–Fri week).
+
 ## rev-6 — show set time corrected to 7pm
 - Bandsintown's event page listed 8pm; direct confirmation puts the set at 7pm. Updated the Friday itinerary, watch list, and planning notes accordingly — 7pm is now the deadline the whole drive day is built backward from.
 

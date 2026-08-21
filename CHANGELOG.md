@@ -1,5 +1,8 @@
 # Changelog
 
+## rev-9 — Butcherknife Brewing confirmed open
+- Confirmed directly on Google — the unconfirmed-closure flag is resolved. Removed the call-ahead warning and its watch-list entry; kept as the Wednesday swap option for Snow Bowl.
+
 ## rev-8 — Backcountry Provisions dog policy confirmed
 - Confirmed via BringFido's dedicated listing: dog-friendly outdoor seating. Removes the "ask when you order" hedge from Wednesday's lunch stop.
 

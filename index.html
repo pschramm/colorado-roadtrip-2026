@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Durango → Steamboat · Fri–Sun</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ground:#DCE0D8;
+  --ground-2:#D2D7CD;
+  --ink:#1B2228;
+  --oxide:#93402C;
+  --slate:#4A5A66;
+  --bone:#F1F0EA;
+  --moss:#6B7A5A;
+  --rule:rgba(27,34,40,.16);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--ground);
+  color:var(--ink);
+  font-family:"Newsreader",Georgia,serif;
+  font-size:17px;
+  line-height:1.5;
+  font-weight:400;
+}
+.wrap{max-width:720px;margin:0 auto;padding:0 20px 80px}
+
+/* ---------- hero ---------- */
+header{padding:36px 0 8px}
+.eyebrow{
+  font-family:"JetBrains Mono",monospace;
+  font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--slate);margin:0 0 14px;
+}
+h1{
+  font-family:"Bricolage Grotesque",system-ui,sans-serif;
+  font-weight:800;font-size:clamp(38px,11vw,64px);
+  line-height:.92;letter-spacing:-.03em;margin:0 0 6px;
+}
+h1 .arrow{color:var(--oxide);font-weight:400}
+.standfirst{
+  font-size:19px;line-height:1.45;margin:16px 0 0;max-width:46ch;
+  color:#2A343C;
+}
+.standfirst em{font-style:italic;color:var(--oxide)}
+
+/* ---------- elevation profile ---------- */
+.profile{margin:30px 0 6px}
+.profile svg{width:100%;height:auto;display:block;overflow:visible}
+.profile-caption{
+  font-family:"JetBrains Mono",monospace;font-size:10.5px;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--slate);
+  display:flex;justify-content:space-between;margin-top:8px;
+}
+
+/* ---------- nav ---------- */
+nav{
+  position:sticky;top:0;z-index:10;
+  background:var(--ground);
+  border-bottom:1px solid var(--rule);
+  display:flex;gap:0;margin:18px -20px 0;padding:0 20px;
+}
+nav a{
+  flex:1;text-align:center;padding:13px 4px 11px;
+  font-family:"JetBrains Mono",monospace;font-size:11.5px;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:var(--slate);text-decoration:none;
+  border-bottom:2px solid transparent;
+}
+nav a:focus-visible{outline:2px solid var(--oxide);outline-offset:-2px}
+nav a.on{color:var(--ink);border-bottom-color:var(--oxide)}
+
+/* ---------- day ---------- */
+.day{padding-top:38px;scroll-margin-top:52px}
+.day-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:4px}
+.day-head h2{
+  font-family:"Bricolage Grotesque",sans-serif;
+  font-weight:800;font-size:30px;letter-spacing:-.02em;margin:0;
+}
+.day-meta{
+  font-family:"JetBrains Mono",monospace;font-size:11px;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--slate);
+}
+.day-note{margin:8px 0 22px;color:#2A343C;max-width:52ch}
+
+/* ---------- stops ---------- */
+.stop{
+  display:grid;
+  grid-template-columns:58px 1fr;
+  gap:0 16px;
+  padding:18px 0;
+  border-top:1px solid var(--rule);
+}
+.stop:last-child{border-bottom:1px solid var(--rule)}
+.t{
+  font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:600;
+  color:var(--ink);padding-top:3px;letter-spacing:-.02em;
+}
+.elev{
+  font-family:"JetBrains Mono",monospace;font-size:10px;
+  color:var(--slate);display:block;font-weight:400;margin-top:3px;
+}
+.body h3{
+  font-family:"Bricolage Grotesque",sans-serif;
+  font-weight:600;font-size:19px;letter-spacing:-.01em;
+  margin:0 0 3px;line-height:1.2;
+}
+.addr{
+  font-family:"JetBrains Mono",monospace;font-size:11px;
+  color:var(--slate);margin:0 0 7px;
+}
+.body p{margin:0;font-size:16.5px;line-height:1.5;color:#2A343C}
+.tag{
+  display:inline-block;vertical-align:2px;margin-left:7px;
+  font-family:"JetBrains Mono",monospace;font-size:9.5px;
+  letter-spacing:.1em;text-transform:uppercase;
+  padding:2px 6px;border:1px solid var(--oxide);color:var(--oxide);
+}
+.tag.moss{border-color:var(--moss);color:var(--moss)}
+.stop.light .body h3{color:var(--oxide)}
+
+/* ---------- asides ---------- */
+.swap{
+  margin:16px 0 0;padding:14px 16px;
+  background:var(--ground-2);border-left:2px solid var(--moss);
+}
+.swap .lbl{
+  font-family:"JetBrains Mono",monospace;font-size:10px;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--moss);
+  display:block;margin-bottom:5px;
+}
+.swap p{margin:0;font-size:16px}
+
+/* ---------- watch list ---------- */
+.watch{margin-top:52px;border-top:2px solid var(--ink);padding-top:22px}
+.watch h2{
+  font-family:"Bricolage Grotesque",sans-serif;font-weight:800;
+  font-size:24px;margin:0 0 16px;letter-spacing:-.02em;
+}
+.watch ul{list-style:none;margin:0;padding:0}
+.watch li{
+  padding:13px 0;border-bottom:1px solid var(--rule);
+  display:grid;grid-template-columns:88px 1fr;gap:14px;align-items:start;
+}
+.watch .k{
+  font-family:"JetBrains Mono",monospace;font-size:10px;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--oxide);
+  padding-top:4px;
+}
+.watch li p{margin:0;font-size:16px;color:#2A343C}
+
+footer{
+  margin-top:40px;font-size:14px;color:var(--slate);
+  font-family:"JetBrains Mono",monospace;line-height:1.6;
+}
+@media (max-width:420px){
+  .stop{grid-template-columns:50px 1fr;gap:0 12px}
+  .watch li{grid-template-columns:1fr;gap:4px}
+  .watch .k{padding-top:0}
+}
+@media (prefers-reduced-motion:no-preference){
+  .day{transition:opacity .3s}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">Fri 21 – Sun 23 August · 435 miles · dog aboard</p>
+  <h1>Durango <span class="arrow">→</span> Steamboat</h1>
+  <p class="standfirst">Three days, two beds, and one long descent out of the San Juans. You lose <em>6,400 feet</em> between Molas Pass and Grand Junction, then claw a little of it back on the way into Steamboat.</p>
+</header>
+
+<div class="profile" aria-label="Elevation profile of the route, from Durango at 6,512 feet, up over Red Mountain Pass at 11,018 feet, down to Grand Junction at 4,586 feet, then up to Steamboat Springs at 6,732 feet.">
+<svg viewBox="0 0 680 150" role="img">
+  <defs>
+    <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#93402C" stop-opacity=".22"/>
+      <stop offset="100%" stop-color="#93402C" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <!-- day dividers -->
+  <line x1="170" y1="8" x2="170" y2="126" stroke="#1B2228" stroke-opacity=".18" stroke-dasharray="2 4"/>
+  <line x1="510" y1="8" x2="510" y2="126" stroke="#1B2228" stroke-opacity=".18" stroke-dasharray="2 4"/>
+  <!-- profile -->
+  <path d="M0,86 L60,52 L120,20 L170,44 L215,14 L260,10 L320,56 L370,72 L430,100 L470,126 L540,110 L580,92 L620,98 L680,80"
+        fill="none" stroke="#93402C" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M0,86 L60,52 L120,20 L170,44 L215,14 L260,10 L320,56 L370,72 L430,100 L470,126 L540,110 L580,92 L620,98 L680,80 L680,150 L0,150 Z"
+        fill="url(#fade)"/>
+  <!-- markers -->
+  <circle cx="0" cy="86" r="3.5" fill="#1B2228"/>
+  <circle cx="170" cy="44" r="3.5" fill="#1B2228"/>
+  <circle cx="260" cy="10" r="3.5" fill="#93402C"/>
+  <circle cx="470" cy="126" r="3.5" fill="#4A5A66"/>
+  <circle cx="540" cy="110" r="3.5" fill="#1B2228"/>
+  <circle cx="680" cy="80" r="3.5" fill="#1B2228"/>
+  <g font-family="JetBrains Mono, monospace" font-size="9.5" fill="#4A5A66">
+    <text x="0" y="142">Durango</text>
+    <text x="140" y="142">Silverton</text>
+    <text x="228" y="6" fill="#93402C">Red Mtn 11,018</text>
+    <text x="424" y="142">Grand Jct 4,586</text>
+    <text x="512" y="142">New Castle</text>
+    <text x="620" y="142">Steamboat</text>
+  </g>
+</svg>
+  <div class="profile-caption"><span>Friday</span><span>Saturday</span><span>Sunday</span></div>
+</div>
+
+<nav>
+  <a href="#fri" class="on">Fri · Silverton</a>
+  <a href="#sat">Sat · New Castle</a>
+  <a href="#sun">Sun · Steamboat</a>
+</nav>
+
+<!-- ============ FRIDAY ============ -->
+<section class="day" id="fri">
+  <div class="day-head">
+    <h2>Friday</h2>
+    <span class="day-meta">85 mi · 2h10 driving · Altus Lodge</span>
+  </div>
+  <p class="day-note">The shortest day of the three and the only one with slack in it. Self check-in means no arrival window to hit, so the afternoon can run long — and the two lakes now bookend it.</p>
+
+  <div class="stop">
+    <div class="t">12:00<span class="elev">6,512′</span></div>
+    <div class="body">
+      <h3>Leave Durango</h3>
+      <p>Fill the tank here. Silverton's fuel is thin and expensive, and you won't want to think about it again until Rifle on Sunday.</p>
+    </div>
+  </div>
+
+  <div class="stop">
+    <div class="t">12:25<span class="elev">8,100′</span></div>
+    <div class="body">
+      <h3>Haviland Lake<span class="tag moss">Dog swim</span></h3>
+      <p class="addr">Paved spur east off US-550, mile 18</p>
+      <p>Eighteen miles up and barely off the highway. Small, quiet, easy shoreline — the dog gets his swim before the day gets long, and you're back on the road in forty minutes.</p>
+    </div>
+  </div>
+
+  <div class="stop">
+    <div class="t">1:15<span class="elev">~8,800′</span></div>
+    <div class="body">
+      <h3>The Nugget Mountain Bar</h3>
+      <p class="addr">48721 US-550, near Purgatory</p>
+      <p>26 miles up. Filet mignon sliders and garlic fries are what people order. Fire pits and a lot of outdoor seating — ask about the dog on the patio when you pull in. Kitchen stops at 8, so it's lunch or never.</p>
+    </div>
+  </div>
+
+  <div class="stop">
+    <div class="t">2:30<span class="elev">10,640′</span></div>
+    <div class="body">
+      <h3>Engineer Mountain Trailhead</h3>
+      <p class="addr">Coal Bank Pass, on US-550</p>
+      <p>The lot is right at the top of the pass, so it costs no detour. Open wildflower meadows with Engineer's spire dead ahead. Walk as far as you feel like and turn around.</p>
+      <div class="swap">
+        <span class="lbl">If cells are building</span>
+        <p>You're above treeline here and it's the exposed part of the day. Turn back early rather than pushing the meadow — nothing after this needs the light.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="stop">
+    <div class="t">3:45<span class="elev">9,318′</span></div>
+    <div class="body">
+      <h3>Drop bags · Altus Lodge</h3>
+      <p class="addr">Greene St, Silverton</p>
+      <p>Codes are in hand and self check-in is live, so this is a drop-and-go rather than an appointment. No A/C at 9,300 feet is fine — the low is around 50° — but ask for a fan if the room is stuffy. Everything below is walkable from here.</p>
+    </div>
+  </div>
+
+  <div class="stop">
+    <div class="t">5:00<span class="elev">9,318′</span></div>
+    <div class="body">
+      <h3>Avalanche Brewing</h3>
+      <p class="addr">Greene St, Silverton</p>
+      <p>The beer-first of Silverton's two. Reviewers rate the flights well above the food, and outdoor tables have umbrellas — one guest specifically mentions sitting out there with a dog. Hours weren't published, so check the door.</p>
+    </div>
+  </div>
+
+  <div class="stop">
+    <div class="t">5:45<span class="elev">9,318′</span></div>
+    <div class="body">
+      <h3>Golden Block Brewery</h3>
+      <p class="addr">1227 Greene St</p>
+      <p>Brick-oven pizza, open till 9 — the only kitchen in town going past 8. Handlebars (taxidermy saloon) and Lacey Rose (piano player) both close at 8 if you want the room instead of the food.</p>
+    </div>
+  </div>
+
+  <div class="stop light">
+    <div class="t">6:50<span class="elev">10,750′</span></div>
+    <div class="body">
+      <h3>Andrews Lake<span class="tag">Golden hour</span></h3>
+      <p>Twenty minutes south, and on the way to the pass rather than a separate trip. Flat walk to still water — evening is when it goes glassy, which is the whole point of the reflection. 33mm. Little Molas is a mile further and quieter, but that spur is dirt.</p>
+    </div>
+  </div>
+
+  <div class="stop light">
+    <div class="t">7:20<span class="elev">10,910′</span></div>
+    <div class="body">
+      <h3>Molas Pass<span class="tag">Sunset</span></h3>
+      <p>Five minutes further up. Sun goes down around 7:50, looking east across Molas Lake to the Grenadiers. This is the 23mm frame of the trip. Back in town by 8:20; Alpine Tavern is open till 10.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SATURDAY ============ -->
+<section class="day" id="sat">
+  <div class="day-head">
+    <h2>Saturday</h2>
+    <span class="day-meta">250 mi · ~5h driving · Ore House Inn</span>
+  </div>
+  <p class="day-note">The only real driving day, and it's front-loaded — the hardest 23 miles are behind you by nine. After Montrose it flattens into highway, and you drop 4,000 feet, so expect it 20° warmer when you arrive.</p>
+
+  <div class="stop light">
+    <div class="t">8:00<span class="elev">11,018′</span></div>
+    <div class="body">
+      <h3>Red Mountain Pass north<span class="tag">Photos</span></h3>
+      <p>Check COtrip before you load the car. Construction signals run 24/7 with delays up to 20 minutes, and you can't stop inside the work zones. Morning light on the red slopes at Ironton; Crystal Lake and Bear Creek Falls are the reliable pullouts, both on the Ouray side.</p>
+    </div>
+  </div>
+
+  <div class="stop">
+    <div class="t">9:15<span class="elev">7,792′</span></div>
+    <div class="body">
+      <h3>Ouray Perimeter Trail</h3>
+      <p>From the visitor center up to Cascade Falls and back, about 90 minutes — don't attempt the full six-mile loop on a driving day. Box Canyon is on the way. Close-in subjects; this is the 33mm's morning.</p>
+    </div>
+  </div>
+
+  <div class="stop">
+    <div class="t">11:00<span class="elev">7,792′</span></div>
+    <div class="body">
+      <h3>Coffee or second breakfast, Ouray</h3>
+      <p>The Smokehouse at Ouray Riverside opens at 9 and puts a water bowl on the table. Ouray Brewery's rooftop opens at 11 if you'd rather have the view. Don't stop in Ridgway — Colorado Boy doesn't open till 2 on Saturdays.</p>
+    </div>
+  </div>
+
+  <div class="stop">
+    <div class="t">12:30<span class="elev">5,807′</span></div>
+    <div class="body">
+      <h3>Horsefly Brewing<span class="tag moss">Dog patio</span></h3>
+      <p class="addr">846 E Main St, Montrose</p>
+      <p>Opens at 11, covered dog-friendly patio, and it lands exactly when you'll want lunch. If one brewery is going to be the event of the day, make it this one — the afternoon is all interstate.</p>
+    </div>
+  </div>
+
+  <div class="stop">
+    <div class="t">1:30<span class="elev">4,586′</span></div>
+    <div class="body">
+      <h3>Montrose → Grand Junction → I-70</h3>
+      <p>61 miles on US-50, then 88 on the interstate. Roughly 2h45 of steady, unremarkable road. Lowest point of the whole trip and the hottest part of the day.</p>
+    </div>
+  </div>
+
+  <div class="stop">
+    <div class="t">3:45<span class="elev">6,600′</span></div>
+    <div class="body">
+      <h3>Rifle Falls State Park</h3>
+      <p class="addr">Exit Rifle, north on CO-325</p>
+      <p>Seventy feet of triple falls over travertine, fifty yards from the car, with limestone caves behind them. Deeply green and mossy — it rewards a slow shutter, so bring something to brace against. Rain improves it.</p>
+    </div>
+  </div>
+
+  <div class="stop">
+    <div class="t">4:45<span class="elev">6,400′</span></div>
+    <div class="body">
+      <h3>Harvey Gap State Park<span class="tag moss">Dog swim</span></h3>
+      <p>Fifteen minutes back down the same road, so it costs you nothing. Quiet reservoir, shade, easy water access. Last swim of the trip.</p>
+    </div>
+  </div>
+
+  <div class="stop">
+    <div class="t">5:45<span class="elev">5,600′</span></div>
+    <div class="body">
+      <h3>Ore House Inn</h3>
+      <p class="addr">502 W Main St, New Castle · 970-309-8830</p>
+      <p>Contactless check-in from 4pm. <strong>Bring cash for the pet fee</strong>, and make sure the room isn't Merlin's Bunkhouse — that one doesn't take dogs. A/C throughout, full kitchens, 88 Grill downstairs.</p>
+    </div>
+  </div>
+
+  <div class="stop">
+    <div class="t">7:00<span class="elev">5,600′</span></div>
+    <div class="body">
+      <h3>Down Valley Brewing</h3>
+      <p class="addr">589 W Main St · two blocks</p>
+      <p>4.8 across 158 reviews, built into a restored 1952 Texaco station, dog patio, BBQ truck next door, open till 9. The car stays parked.</p>
+      <div class="swap">
+        <span class="lbl">If you want the serious beer</span>
+        <p>Casey Brewing Taproom, 711 Grand Ave, Glenwood — barrel-aged farmhouse ales and sours, the best beer on this route, open till 9 and they let you bring food in. It's 20 minutes east and a drive back on I-70, so decide before the first pour.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SUNDAY ============ -->
+<section class="day" id="sun">
+  <div class="day-head">
+    <h2>Sunday</h2>
+    <span class="day-meta">145 mi · 2h40 · Steamboat check-in</span>
+  </div>
+  <p class="day-note">Ranch country and an easy arrival. Nothing to rush for — but nothing to eat between Rifle and Craig either.</p>
+
+  <div class="stop">
+    <div class="t">8:30<span class="elev">5,600′</span></div>
+    <div class="body">
+      <h3>Down Valley, then Grand River Park</h3>
+      <p>Down Valley opens at 8 with a real coffee bar and breakfast burritos. Grand River Park sits on the Colorado right off the interstate — twenty minutes of paved path on the water before you go.</p>
+    </div>
+  </div>
+
+  <div class="stop">
+    <div class="t">9:45<span class="elev">5,345′</span></div>
+    <div class="body">
+      <h3>West to Rifle<span class="tag">Fuel</span></h3>
+      <p>Thirteen miles back down I-70. <strong>Fill the tank.</strong> CO-13 runs 88 miles to Craig through open country with essentially no services and patchy cell.</p>
+    </div>
+  </div>
+
+  <div class="stop">
+    <div class="t">10:00<span class="elev">~6,600′</span></div>
+    <div class="body">
+      <h3>CO-13 north to Craig</h3>
+      <p>About 1h40 over the Danforth Hills. Empty two-lane, fence lines, big sky — the kind of road that photographs better than it sounds at 10am.</p>
+    </div>
+  </div>
+
+  <div class="stop">
+    <div class="t">12:30<span class="elev">6,732′</span></div>
+    <div class="body">
+      <h3>Steamboat Springs</h3>
+      <p>42 miles east on US-40, about 45 minutes. Mid-afternoon check-in with the whole evening free.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WATCH LIST ============ -->
+<section class="watch">
+  <h2>Before you go</h2>
+  <ul>
+    <li><span class="k">Red Mtn</span><p>Check COtrip Saturday morning. It's the one link with no easy substitute — if it's closed, the detour runs back through Durango, Cortez and Dolores and adds about three hours. Heavy rain on the burn scar above the highway is what closes it.</p></li>
+    <li><span class="k">Fuel</span><p>Durango before you leave Friday. Rifle before you turn north Sunday. Those are the two that matter.</p></li>
+    <li><span class="k">Cash</span><p>The Ore House pet fee is cash at check-in, and check-in is contactless — so there's no front desk to sort it out at 6pm. Call ahead.</p></li>
+    <li><span class="k">Weather</span><p>Friday around 40% in the San Juans, Saturday up to 65% in the Colorado valley, Sunday 30–45%. Afternoon cells, mostly. Rifle Falls is better in rain; Harvey Gap isn't.</p></li>
+    <li><span class="k">Altitude</span><p>Silverton sits at 9,318 feet and most budget rooms have no A/C. Fine at a 50° low, but the first night at altitude after a week in Durango is usually the one that sleeps badly.</p></li>
+    <li><span class="k">Kitchens</span><p>Mountain towns close early. Silverton at 8 (Golden Block till 9), Meeker-sized towns at 8, Down Valley at 9. Plan dinner before the sunset drive, not after.</p></li>
+  </ul>
+</section>
+
+<footer>
+  Elevations approximate. Times assume a relaxed pace.<br>
+  Dog-friendliness noted in good faith — worth a call on anything you're building a stop around.
+</footer>
+
+</div>
+
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav a'));
+  var sections = links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+  function sync(){
+    var y = window.scrollY + 90, i = 0;
+    sections.forEach(function(s, n){ if(s && s.offsetTop <= y) i = n; });
+    links.forEach(function(a, n){ a.classList.toggle('on', n === i); });
+  }
+  window.addEventListener('scroll', sync, {passive:true});
+  sync();
+})();
+</script>
+</body>
+</html>

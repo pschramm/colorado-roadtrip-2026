@@ -1,5 +1,8 @@
 # Changelog
 
+## rev-8 — Backcountry Provisions dog policy confirmed
+- Confirmed via BringFido's dedicated listing: dog-friendly outdoor seating. Removes the "ask when you order" hedge from Wednesday's lunch stop.
+
 ## rev-7 — live music added to the Steamboat week
 - Monday evening: Storm Peak Brewing → Timber & Torch (live music, dog-friendly fire-pit patio, Steamboat Square). Storm Peak kept as the weather-fallback swap.
 - Wednesday evening: Butcherknife Brewing → Snow Bowl's free Wednesday Sessions (Float Like a Buffalo, Aug 26 — live music, dedicated dog turf, bowling backup). Butcherknife kept as the swap for anyone who'd rather have the brewery.

@@ -101,6 +101,16 @@ One search result attributed the Mike Dillon Band show to "First Baptist Church"
 - **COtrip, Friday Aug 28 morning** — Wolf Creek Pass specifically. Conditions at 10,857 feet can turn fast even in late August. This is the day with a fixed 7pm deadline and no built-in slack, so a closure or major delay here has nowhere to absorb the time.
 - **Weather for Aug 24–28** — more than a month out at time of planning; the table below only covers the original Aug 21–23 leg. Re-check closer to departure, especially for the Friday pass-crossing day.
 
+## Precheck, Fri Aug 21 (departure morning)
+
+Checked CDOT/COtrip for all four passes on the itinerary. Real-time conditions still need a same-morning check per the live-checks list above — this is what's known in advance.
+
+- **Red Mountain Pass (Sat)** — reopened July 31 after a flood-driven closure in late July; the 24/7 retaining-wall/tunnel construction between Ouray and Ironton already in this plan is still active, expected complete September 2026. No change to the existing plan or the ~20-min-delay expectation.
+- **Wolf Creek Pass (Fri Aug 28)** — new finding: the eastside tunnel (mile point 174) is closed 24/7 for maintenance May 18–early October 2026. Traffic is on a signed, paved bypass the whole time; CDOT's own language is "brief intermittent delays," 25mph work zone, doubled fines. Added to the guide's Wolf Creek stop and watch list. Not a threat to the 7pm deadline on its own, but worth knowing about before the pass, not at it.
+- **Fremont Pass (CO-91) and Rabbit Ears Pass (US-40)** — no 2026 construction or advisories found for either. Nothing to add.
+
+Re-run this same check the morning of Aug 28 specifically — a precheck a week out doesn't substitute for the day-of COtrip look already called for above.
+
 ## Weather at time of planning
 
 | | Fri | Sat | Sun |

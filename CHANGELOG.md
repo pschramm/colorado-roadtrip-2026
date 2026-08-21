@@ -1,5 +1,11 @@
 # Changelog
 
+## rev-10 — COtrip precheck, all four passes
+- Red Mountain Pass: reopened July 31 after a flood closure; existing 24/7 construction/20-min-delay expectation unchanged.
+- Wolf Creek Pass: new finding — eastside tunnel (mile point 174) closed 24/7 for maintenance through early October 2026, paved bypass in place. Added to the Friday stop and watch list.
+- Fremont Pass and Rabbit Ears Pass: no construction or advisories found. Nothing added.
+- Same-morning COtrip checks (Saturday for Red Mountain, Aug 28 for Wolf Creek) are still the live-checks list's job — this was a week-out precheck, not a substitute.
+
 ## rev-9 — Butcherknife Brewing confirmed open
 - Confirmed directly on Google — the unconfirmed-closure flag is resolved. Removed the call-ahead warning and its watch-list entry; kept as the Wednesday swap option for Snow Bowl.
 

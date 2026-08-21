@@ -1,6 +1,6 @@
-# Durango → Steamboat, Aug 21–23 2026
+# Durango → Steamboat → Pagosa, Aug 21–28 2026
 
-A three-day drive guide, built to be read on a phone with no signal.
+An eight-day trip guide — three days driving in, four based in Steamboat, one more driving out to a show — built to be read on a phone with no signal.
 
 **Live guide:** `https://<username>.github.io/<repo>/`
 

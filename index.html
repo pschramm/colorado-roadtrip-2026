@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Durango → Steamboat · Fri–Sun</title>
+<title>Durango → Steamboat → Pagosa</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -65,12 +65,14 @@ nav{
   background:var(--ground);
   border-bottom:1px solid var(--rule);
   display:flex;gap:0;margin:18px -20px 0;padding:0 20px;
+  overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;
 }
+nav::-webkit-scrollbar{display:none}
 nav a{
-  flex:1;text-align:center;padding:13px 4px 11px;
+  flex:0 0 auto;text-align:center;padding:13px 14px 11px;
   font-family:"JetBrains Mono",monospace;font-size:11.5px;
   letter-spacing:.12em;text-transform:uppercase;
-  color:var(--slate);text-decoration:none;
+  color:var(--slate);text-decoration:none;white-space:nowrap;
   border-bottom:2px solid transparent;
 }
 nav a:focus-visible{outline:2px solid var(--oxide);outline-offset:-2px}
@@ -125,6 +127,15 @@ nav a.on{color:var(--ink);border-bottom-color:var(--oxide)}
 .tag.moss{border-color:var(--moss);color:var(--moss)}
 .stop.light .body h3{color:var(--oxide)}
 
+/* ---------- sub-day divider (multi-day sections) ---------- */
+.subday{
+  margin:36px 0 2px;padding-top:22px;
+  border-top:1px dashed var(--rule);
+  font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:600;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--oxide);
+}
+.day > .subday:first-of-type{margin-top:26px}
+
 /* ---------- asides ---------- */
 .swap{
   margin:16px 0 0;padding:14px 16px;
@@ -173,9 +184,9 @@ footer{
 <div class="wrap">
 
 <header>
-  <p class="eyebrow">Fri 21 – Sun 23 August · 435 miles · dog aboard</p>
-  <h1>Durango <span class="arrow">→</span> Steamboat</h1>
-  <p class="standfirst">Three days, two beds, and one long descent out of the San Juans. You lose <em>6,400 feet</em> between Molas Pass and Grand Junction, then claw a little of it back on the way into Steamboat.</p>
+  <p class="eyebrow">Fri 21 – Fri 28 August · 752 miles · dog aboard</p>
+  <h1>Durango <span class="arrow">→</span> Steamboat <span class="arrow">→</span> Pagosa</h1>
+  <p class="standfirst">Three days in, four spent based in one place, then a mountain-pass gauntlet back south. You lose <em>6,400 feet</em> between Molas Pass and Grand Junction on the way up, and cross <em>three more passes</em> — Rabbit Ears, Fremont, Wolf Creek — on the way back down to a show in Pagosa Springs.</p>
 </header>
 
 <div class="profile" aria-label="Elevation profile of the route, from Durango at 6,512 feet, up over Red Mountain Pass at 11,018 feet, down to Grand Junction at 4,586 feet, then up to Steamboat Springs at 6,732 feet.">
@@ -214,9 +225,11 @@ footer{
 </div>
 
 <nav>
-  <a href="#fri" class="on">Fri · Silverton</a>
-  <a href="#sat">Sat · New Castle</a>
-  <a href="#sun">Sun · Steamboat</a>
+  <a href="#fri" class="on">Fri 21 · Silverton</a>
+  <a href="#sat">Sat 22 · New Castle</a>
+  <a href="#sun">Sun 23 · Steamboat</a>
+  <a href="#week">Mon–Thu · Town</a>
+  <a href="#pagosa">Fri 28 · Pagosa</a>
 </nav>
 
 <!-- ============ FRIDAY ============ -->
@@ -440,6 +453,238 @@ footer{
   </div>
 </section>
 
+<!-- ============ MON–THU: STEAMBOAT ============ -->
+<section class="day" id="week">
+  <div class="day-head">
+    <h2>Mon–Thu</h2>
+    <span class="day-meta">4 days · La Quinta Inn &amp; Suites, 3155 Ingles Ln</span>
+  </div>
+  <p class="day-note">No driving days left — the car stays parked except for errands. Four days, one town, dog off-leash more than he's been all trip. The pattern: a real hike in the morning while it's cool, water in the afternoon, a patio in the evening.</p>
+
+  <div class="subday">Monday · easy warm-up</div>
+
+  <div class="stop">
+    <div class="t">9:00<span class="elev">6,900′</span></div>
+    <div class="body">
+      <h3>Fish Creek Falls<span class="tag moss">Paved · leash</span></h3>
+      <p class="addr">Fish Creek Falls Rd, east end of town · lot opens 6am, parking fee</p>
+      <p>A paved, ADA-grade path from the upper lot down to the lower bridge and the falls — ten minutes, no real elevation lost or gained. <strong>Leash required</strong> the whole way; one source claims off-leash past the first quarter-mile but the official line is leash throughout, so don't test it. Go before 10 — the lot is small and this is the town's single most-visited trail.</p>
+      <div class="swap">
+        <span class="lbl">If legs want more</span>
+        <p>The trail continues to the upper falls, 5 miles round trip and a real climb. Fine for a person, ambitious for an afternoon with a dog and a 9am start elsewhere.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="stop">
+    <div class="t">11:00<span class="elev">6,732′</span></div>
+    <div class="body">
+      <h3>Lincoln Ave, downtown</h3>
+      <p>No fixed stop here on purpose — this is the walk-and-see afternoon. MTN Culture Coffee for a mid-morning cup, whatever storefront looks good for lunch. First look at the town without a schedule attached to it.</p>
+    </div>
+  </div>
+
+  <div class="stop">
+    <div class="t">6:00<span class="elev">6,750′</span></div>
+    <div class="body">
+      <h3>Storm Peak Brewing<span class="tag moss">Dog patio + indoor</span></h3>
+      <p class="addr">1885 Elk River Plaza · open daily 11am–10pm</p>
+      <p>Dogs allowed both on the patio and inside, which makes this the fallback if weather turns — the only spot on the week that doesn't require an outdoor table. Second location downtown (the "Bus Stop") if this one's a haul from wherever the day ends.</p>
+    </div>
+  </div>
+
+  <div class="subday">Tuesday · the real hike</div>
+
+  <div class="stop">
+    <div class="t">8:30<span class="elev">7,200′</span></div>
+    <div class="body">
+      <h3>Emerald Mountain via Blackmer Trail<span class="tag moss">Leash</span></h3>
+      <p class="addr">Blackmer Trailhead, Woodchuck Rd</p>
+      <p>3.8 miles out and back, moderate, about two hours with stops. <strong>Leash required</strong> — Steamboat's city council closed this to off-leash dogs in 2019 on a Colorado Parks &amp; Wildlife recommendation, so ignore anything online that says otherwise. Switchbacks up through aspen to open views over the Yampa Valley.</p>
+    </div>
+  </div>
+
+  <div class="stop">
+    <div class="t">1:00<span class="elev">6,732′</span></div>
+    <div class="body">
+      <h3>The "D" hole<span class="tag moss">Dog swim</span></h3>
+      <p class="addr">Yampa River, next to Bud Werner Memorial Library</p>
+      <p>By late August the runoff's long gone and the river slows into a real swimming hole right downtown. No detour required — it's a five-minute walk from lunch.</p>
+    </div>
+  </div>
+
+  <div class="stop">
+    <div class="t">6:00<span class="elev">6,732′</span></div>
+    <div class="body">
+      <h3>Mountain Tap Brewery<span class="tag moss">Dog patio</span></h3>
+      <p class="addr">910 Yampa St · Tue–Thu 3–8pm</p>
+      <p>Right on the river. Patio only for the dog — no indoor exception here, unlike Storm Peak — so this is the fair-weather pick.</p>
+    </div>
+  </div>
+
+  <div class="subday">Wednesday · water day</div>
+
+  <div class="stop">
+    <div class="t">9:00<span class="elev">6,760′</span></div>
+    <div class="body">
+      <h3>Spring Creek Trail → dog park pond<span class="tag moss">Off-leash swim</span></h3>
+      <p class="addr">Trailhead at Maple Ave &amp; Amethyst Dr</p>
+      <p>The trail itself is leashed and wide, but a half-mile in there's an actual off-leash dog park built around a pond — the closest thing to a free-run swim this week has. Easy 5-mile trail if you keep walking past it, or turn it into a twenty-minute out-and-back for the swim alone.</p>
+    </div>
+  </div>
+
+  <div class="stop">
+    <div class="t">12:00<span class="elev">6,732′</span></div>
+    <div class="body">
+      <h3>Backcountry Provisions</h3>
+      <p class="addr">635 S Lincoln Ave · 7am–5pm daily</p>
+      <p>Deli sandwiches, good for a picnic back at the pond or on a bench downtown. Dog policy on the patio isn't confirmed online — ask when you order.</p>
+    </div>
+  </div>
+
+  <div class="stop">
+    <div class="t">6:00<span class="elev">6,780′</span></div>
+    <div class="body">
+      <h3>Butcherknife Brewing<span class="tag moss">Dog patio</span></h3>
+      <p class="addr">2875 Elk River Rd</p>
+      <p><strong>Call ahead: 970-879-2337.</strong> There's a weak signal from early 2026 that this one may have closed — nothing confirmed, but it's the one stop this week worth a phone call before you drive to it. If it's dark, Storm Peak's Bus Stop location downtown is the fallback.</p>
+    </div>
+  </div>
+
+  <div class="subday">Thursday · wind down</div>
+
+  <div class="stop">
+    <div class="t">9:30<span class="elev">6,900′</span></div>
+    <div class="body">
+      <h3>Burgess Creek Beach</h3>
+      <p class="addr">Base of Steamboat Ski Resort</p>
+      <p>Grassy, shaded, Adirondack chairs, easy water access — the low-key morning before a pack-and-drive Friday. No plan needed here beyond showing up.</p>
+    </div>
+  </div>
+
+  <div class="stop">
+    <div class="t">2:00<span class="elev">6,732′</span></div>
+    <div class="body">
+      <h3>Pack + last errands</h3>
+      <p>Fuel the car for tomorrow — the Friday drive is the longest of the whole trip and there's no reason to start it low. Otherwise: whichever of the last four evenings' patios you liked best, one more time.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FRIDAY: PAGOSA ============ -->
+<section class="day" id="pagosa">
+  <div class="day-head">
+    <h2>Friday</h2>
+    <span class="day-meta">317 mi · ~6h driving · Motel SOCO, Pagosa Springs</span>
+  </div>
+  <p class="day-note">The longest driving day of the trip, and it ends at a fixed point: an 8pm show at the same place you're sleeping. Three passes — Rabbit Ears, Fremont, Wolf Creek — the highest of which (Fremont, 11,318′) tops even Red Mountain from the drive up. Leave early; there's no slack built in if the mountains get weather.</p>
+
+  <div class="profile" aria-label="Elevation profile of the drive from Steamboat Springs at 6,732 feet, over Rabbit Ears Pass at 9,426 feet, down to Kremmling, up over Fremont Pass at 11,318 feet — the highest point of the entire trip — through Leadville and Buena Vista, up over Wolf Creek Pass at 10,857 feet, down to Pagosa Springs at 7,126 feet.">
+    <svg viewBox="0 0 680 150" role="img">
+      <defs>
+        <linearGradient id="fade2" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#93402C" stop-opacity=".22"/>
+          <stop offset="100%" stop-color="#93402C" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+      <path d="M0,121 L47,57 L122,106 L247,12 L260,40 L322,92 L643,23 L680,112"
+            fill="none" stroke="#93402C" stroke-width="2.5" stroke-linejoin="round"/>
+      <path d="M0,121 L47,57 L122,106 L247,12 L260,40 L322,92 L643,23 L680,112 L680,150 L0,150 Z"
+            fill="url(#fade2)"/>
+      <circle cx="0" cy="121" r="3.5" fill="#1B2228"/>
+      <circle cx="47" cy="57" r="3.5" fill="#1B2228"/>
+      <circle cx="122" cy="106" r="3.5" fill="#1B2228"/>
+      <circle cx="247" cy="12" r="3.5" fill="#93402C"/>
+      <circle cx="260" cy="40" r="3.5" fill="#1B2228"/>
+      <circle cx="322" cy="92" r="3.5" fill="#1B2228"/>
+      <circle cx="643" cy="23" r="3.5" fill="#1B2228"/>
+      <circle cx="680" cy="112" r="3.5" fill="#4A5A66"/>
+      <g font-family="JetBrains Mono, monospace" font-size="9.5" fill="#4A5A66">
+        <text x="10" y="46">Rabbit Ears 9,426</text>
+        <text x="195" y="6" fill="#93402C">Fremont Pass 11,318</text>
+        <text x="555" y="15">Wolf Creek 10,857</text>
+        <text x="0" y="142">Steamboat</text>
+        <text x="88" y="142">Kremmling</text>
+        <text x="216" y="142">Leadville</text>
+        <text x="275" y="142">Buena Vista</text>
+        <text x="612" y="142">Pagosa</text>
+      </g>
+    </svg>
+  </div>
+
+  <div class="stop">
+    <div class="t">8:00<span class="elev">6,732′</span></div>
+    <div class="body">
+      <h3>Leave Steamboat</h3>
+      <p>US-40 east over Rabbit Ears Pass, then CO-9 south through Kremmling — the first 99 miles, about 1h50. Fuel in Kremmling; nothing sizeable again until Leadville.</p>
+    </div>
+  </div>
+
+  <div class="stop light">
+    <div class="t">10:15<span class="elev">11,318′</span></div>
+    <div class="body">
+      <h3>Fremont Pass<span class="tag">High point of the trip</span></h3>
+      <p>CO-91 south from Copper Mountain. Three hundred feet higher than Red Mountain Pass on the way up — the actual roof of this whole itinerary, and it happens on a transit day rather than a scenic one.</p>
+    </div>
+  </div>
+
+  <div class="stop">
+    <div class="t">11:00<span class="elev">9,200′</span></div>
+    <div class="body">
+      <h3>Twin Lakes<span class="tag moss">Dog break</span></h3>
+      <p class="addr">CO-82 west from US-24, ~6 miles, paved the whole way</p>
+      <p>A short, fully paved spur off the highway — CDOT resurfaced this exact stretch recently — to a still lake with the Sawatch Range behind it. Ten minutes out of the way for a leg-stretch that's worth more than a gas-station break.</p>
+    </div>
+  </div>
+
+  <div class="stop">
+    <div class="t">12:15<span class="elev">7,965′</span></div>
+    <div class="body">
+      <h3>Eddyline Restaurant<span class="tag moss">Fenced patio</span></h3>
+      <p class="addr">Buena Vista</p>
+      <p>Brewpub with a fenced dog patio, pizza and burgers. Roughly the halfway point of the day and the last real sit-down option before the long stretch down US-285.</p>
+      <div class="swap">
+        <span class="lbl">If Eddyline's slow</span>
+        <p>Cool River Cafe, also Buena Vista — sidewalk patio, breakfast-and-lunch menu, quicker in and out.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="stop">
+    <div class="t">1:30<span class="elev">~7,600′</span></div>
+    <div class="body">
+      <h3>US-285 south through the San Luis Valley</h3>
+      <p>Poncha Springs, then flat, open valley for the better part of two hours. Fuel in Poncha Springs — nothing meaningful again until South Fork.</p>
+    </div>
+  </div>
+
+  <div class="stop light">
+    <div class="t">4:00<span class="elev">10,857′</span></div>
+    <div class="body">
+      <h3>Wolf Creek Pass<span class="tag">Dog break</span></h3>
+      <p>US-160 west out of South Fork. A USFS picnic area with restrooms sits right off the highway at the summit — paved the whole way in, unlike the gravel-approach overlooks lower on the pass, which aren't worth the detour on a driving day like this.</p>
+    </div>
+  </div>
+
+  <div class="stop">
+    <div class="t">4:45<span class="elev">7,126′</span></div>
+    <div class="body">
+      <h3>Motel SOCO</h3>
+      <p class="addr">651 W US Hwy 160, Pagosa Springs · 970-264-1492</p>
+      <p>Pet fee $30/night for one dog, $50 for two — any size. Dogs are welcome across the whole 4-acre property and in the lounge common areas, not just the room, which is more permissive than anywhere else on the trip. Settle in with real slack before the show.</p>
+    </div>
+  </div>
+
+  <div class="stop light">
+    <div class="t">8:00<span class="elev">7,126′</span></div>
+    <div class="body">
+      <h3>The Mike Dillon Band<span class="tag">El Camino Lounge</span></h3>
+      <p class="addr">Motel SOCO, same address</p>
+      <p>Mike Dillon with Kris Myers and Brian Haas. No confirmed door time — assume around 7pm for an 8pm set, but that's convention, not a fact this venue has published. Dogs are fine on the property; whether he's in the room for the set itself is a call to make once you're there.</p>
+    </div>
+  </div>
+</section>
+
 <!-- ============ WATCH LIST ============ -->
 <section class="watch">
   <h2>Before you go</h2>
@@ -450,12 +695,17 @@ footer{
     <li><span class="k">Weather</span><p>Friday around 40% in the San Juans, Saturday up to 65% in the Colorado valley, Sunday 30–45%. Afternoon cells, mostly. Rifle Falls is better in rain; Harvey Gap isn't.</p></li>
     <li><span class="k">Altitude</span><p>Silverton sits at 9,318 feet and most budget rooms have no A/C. Fine at a 50° low, but the first night at altitude after a week in Durango is usually the one that sleeps badly.</p></li>
     <li><span class="k">Kitchens</span><p>Mountain towns close early. Silverton at 8 (Golden Block till 9), Meeker-sized towns at 8, Down Valley at 9. Plan dinner before the sunset drive, not after.</p></li>
+    <li><span class="k">Butcherknife</span><p>Call 970-879-2337 before driving out to it Wednesday — weak signal it may have closed in early 2026. Storm Peak's downtown location is the fallback if so.</p></li>
+    <li><span class="k">Friday drive</span><p>317 miles, ~6 hours, three passes, ending at a fixed 8pm show — the one day this trip with no slack for a late start. Fuel in Kremmling and Poncha Springs; nothing meaningful between them.</p></li>
+    <li><span class="k">Wolf Creek</span><p>Highway conditions can change fast at 10,857 feet even in August. Check COtrip Friday morning same as Red Mountain on the way up — the summit picnic area is the only paved pull-off worth using.</p></li>
+    <li><span class="k">Motel SOCO</span><p>Pet fee is $30/night for one dog, $50 for two, any size — confirm at check-in. Door time for the show isn't published; 7pm is a guess, not a fact.</p></li>
   </ul>
 </section>
 
 <footer>
   Elevations approximate. Times assume a relaxed pace.<br>
-  Dog-friendliness noted in good faith — worth a call on anything you're building a stop around.
+  Dog-friendliness noted in good faith — worth a call on anything you're building a stop around.<br>
+  Aug 21–23: Durango → Steamboat. Aug 24–27: based in Steamboat. Aug 28: Steamboat → Pagosa Springs.
 </footer>
 
 </div>

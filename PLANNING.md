@@ -12,7 +12,7 @@ These drove every decision. Changing one invalidates a lot of what follows.
 - **Friday departure ~noon.** Roughly five usable hours of daylight driving, not nine.
 - **Lodging booked:** Altus Lodge, Silverton (Fri Aug 21). Ore House Inn, New Castle (Sat Aug 22). La Quinta Inn & Suites by Wyndham, 3155 Ingles Ln, Steamboat Springs (Sun Aug 23 – Thu Aug 27; confirm this address if re-checking — an earlier search surfaced a wrong "S Lincoln Ave" address for the same hotel). Motel SOCO, 651 W US Hwy 160, Pagosa Springs (Fri Aug 28).
 - **Camera:** Fuji X-E5, 23mm and 33mm. Wide for passes and lakes, normal for towns, falls, and the dog.
-- **Fixed tentpole: Fri Aug 28, 8pm.** The Mike Dillon Band (feat. Kris Myers, Brian Haas) at Motel SOCO / El Camino Lounge, Pagosa Springs — same address as that night's lodging. This is a hard anchor: the whole Friday drive is built backward from it. Confirmed via the Bandsintown event page directly (not just search snippets, which also surfaced a conflicting "First Baptist Church" venue for the same date — that appears to be bad data; go with the venue's own listing and the direct event URL).
+- **Fixed tentpole: Fri Aug 28, 7pm set.** The Mike Dillon Band (feat. Kris Myers, Brian Haas) at Motel SOCO / El Camino Lounge, Pagosa Springs — same address as that night's lodging. This is a hard anchor: the whole Friday drive is built backward from it. Venue and date confirmed via the Bandsintown event page directly (not just search snippets, which also surfaced a conflicting "First Baptist Church" venue for the same date — that appears to be bad data). **Set time is 7pm per direct confirmation — Bandsintown's own event page listed 8pm, so if this resurfaces from a fresh search, trust the 7pm figure over it**, not the other way around.
 
 ## Route as chosen
 
@@ -24,7 +24,7 @@ These drove every decision. Changing one invalidates a lot of what follows.
 | Mon–Thu | (based in Steamboat, no driving days) | — | — |
 | Fri 28 | Steamboat → US-40 → CO-9 → CO-91 (Fremont Pass) → US-24 → US-285 → US-160 (Wolf Creek Pass) → Pagosa Springs | ~317 | ~5h44 |
 
-Saturday is deliberately the long day of the first leg. Friday Aug 28 is the longest day of the whole trip — longer than Saturday's 250 miles — and it's the one day with a fixed arrival deadline (8pm show) rather than a flexible check-in, so it carries the least slack of any day in the plan.
+Saturday is deliberately the long day of the first leg. Friday Aug 28 is the longest day of the whole trip — longer than Saturday's 250 miles — and it's the one day with a fixed arrival deadline (7pm show) rather than a flexible check-in, so it carries the least slack of any day in the plan.
 
 ## Ruled out — and why
 
@@ -78,7 +78,7 @@ One search result attributed the Mike Dillon Band show to "First Baptist Church"
 - **Fish Creek Falls stays leashed.** One source claims off-leash is fine past the first quarter-mile; the more consistent and official-sounding line is leash required throughout. Went with the conservative read rather than the convenient one.
 - **Emerald Mountain / Blackmer is leashed, not off-leash.** Steamboat's city council closed it to off-leash dogs in 2019 on a CPW recommendation. Older trip reports calling it off-leash are out of date — don't trust them if this resurfaces in a future search.
 - **Butcherknife Brewing kept in, with a call-ahead flag** rather than dropped outright. Weak, unconfirmed signal it may have closed in early 2026. If a future check confirms closure, Storm Peak's downtown "Bus Stop" location is the direct swap — already dog-confirmed, no research needed.
-- **Twin Lakes added as a detour on the Friday drive.** Not on the direct route (a ~6-7 mile paved spur off US-24 near Leadville), but CDOT resurfaced that exact stretch, so it's fully paved and short enough to not threaten the 8pm show deadline.
+- **Twin Lakes added as a detour on the Friday drive.** Not on the direct route (a ~6-7 mile paved spur off US-24 near Leadville), but CDOT resurfaced that exact stretch, so it's fully paved and short enough to not threaten the 7pm show deadline.
 - **Eddyline over Cool River Cafe for Buena Vista lunch.** Eddyline's fenced dog patio and brewpub menu fit the day better; Cool River is the faster in-and-out if Eddyline's slow.
 
 ## Live checks before departure
@@ -86,9 +86,8 @@ One search result attributed the Mike Dillon Band show to "First Baptist Church"
 - **COtrip, Saturday morning** — Red Mountain Pass. 24/7 construction signals, delays up to 20 min, no stopping in work zones. The Gold Mountain burn scar sits above the highway northeast of Ouray and is prone to debris flows after heavy rain. If it closes, the detour is back through Durango, Cortez and Dolores: roughly +3h.
 - **Fuel** — Durango before leaving Friday; Rifle before turning north Sunday. CO-13 is 88 miles with essentially no services.
 - **Cash** — Ore House pet fee is cash at check-in, and check-in is contactless.
-- **COtrip, Friday Aug 28 morning** — Wolf Creek Pass specifically. Conditions at 10,857 feet can turn fast even in late August. This is the day with a fixed 8pm deadline and no built-in slack, so a closure or major delay here has nowhere to absorb the time.
+- **COtrip, Friday Aug 28 morning** — Wolf Creek Pass specifically. Conditions at 10,857 feet can turn fast even in late August. This is the day with a fixed 7pm deadline and no built-in slack, so a closure or major delay here has nowhere to absorb the time.
 - **Butcherknife Brewing** — call 970-879-2337 before driving out Wednesday evening. Unconfirmed possible closure.
-- **Motel SOCO show door time** — not published anywhere found. Confirm closer to the date rather than assuming ~7pm for the 8pm set.
 - **Weather for Aug 24–28** — more than a month out at time of planning; the table below only covers the original Aug 21–23 leg. Re-check closer to departure, especially for the Friday pass-crossing day.
 
 ## Weather at time of planning

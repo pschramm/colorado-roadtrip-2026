@@ -1,5 +1,11 @@
 # Changelog
 
+## rev-12 — Friday reverts to overnight at Motel SOCO
+- The round-trip version from rev-11 lasted a few hours. User confirmed they're staying at Motel SOCO Friday night after all — Friday is one-way (Buena Vista → Pagosa, 159mi/2h50) again, not a 318-mile there-and-back.
+- Removed the late-night-return framing and the second Wolf Creek crossing from the guide, the elevation profile, and the watch list.
+- New open item: the Super 8 Buena Vista booking still covers both Thursday and Friday nights, but Friday night's lodging is now Motel SOCO. That second Super 8 night is probably unused — flagged in the watch list, not resolved.
+- Total trip mileage corrected: 910 → 751 (the round-trip math is gone; Thursday + Friday now sum to almost exactly the original one-shot day's 317 miles, just split in two).
+
 ## rev-11 — Friday drive split into two days via Buena Vista
 - Discovered via calendar (not email — email search came up empty) that La Quinta Steamboat now checks out Thursday, not Friday, and a new Super 8 Buena Vista booking covers Thu+Fri nights.
 - Restructured: Steamboat week shortened to Mon–Wed (3 full days, down from 4). New Thursday section: Steamboat → Buena Vista (157mi/2h54, same Rabbit Ears + Fremont passes as before), ending with meeting Carlos at The Slammer (412 E Main St, dog-friendly, in the old town jailhouse) — this is the new fixed point that makes Buena Vista the destination rather than some other halfway town.

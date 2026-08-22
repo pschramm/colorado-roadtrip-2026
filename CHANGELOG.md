@@ -1,5 +1,13 @@
 # Changelog
 
+## rev-11 — Friday drive split into two days via Buena Vista
+- Discovered via calendar (not email — email search came up empty) that La Quinta Steamboat now checks out Thursday, not Friday, and a new Super 8 Buena Vista booking covers Thu+Fri nights.
+- Restructured: Steamboat week shortened to Mon–Wed (3 full days, down from 4). New Thursday section: Steamboat → Buena Vista (157mi/2h54, same Rabbit Ears + Fremont passes as before), ending with meeting Carlos at The Slammer (412 E Main St, dog-friendly, in the old town jailhouse) — this is the new fixed point that makes Buena Vista the destination rather than some other halfway town.
+- Friday rebuilt as a 318-mile round trip, Buena Vista ↔ Pagosa Springs (159mi/2h50 each way, one pass — Wolf Creek — crossed twice), for the Mike Dillon Band show. Motel SOCO is no longer overnight lodging, just the venue.
+- Twin Lakes moved from the old Friday plan to Thursday, where it actually sits on the route. Eddyline/Cool River Buena Vista lunch dropped from the fixed itinerary (still fine as an option, just no longer written in) since The Slammer owns Thursday evening and Friday's Pagosa time is intentionally open-ended.
+- Flagged plainly rather than solved: Friday's return drive has no bound on how late it runs, since the show has no confirmed end time and the drive back is 159 miles over a mountain pass in the dark.
+- Total trip mileage: 752 → 910 (475 miles for the old Steamboat→Pagosa leg split across two days, vs. 317 for the original one-shot version — worse on miles, better on any single day's brutality).
+
 ## rev-10 — COtrip precheck, all four passes
 - Red Mountain Pass: reopened July 31 after a flood closure; existing 24/7 construction/20-min-delay expectation unchanged.
 - Wolf Creek Pass: new finding — eastside tunnel (mile point 174) closed 24/7 for maintenance through early October 2026, paved bypass in place. Added to the Friday stop and watch list.

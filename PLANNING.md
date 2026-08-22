@@ -10,9 +10,10 @@ These drove every decision. Changing one invalidates a lot of what follows.
 - **Paved roads only.** Regular car. No gravel or dirt, including short spurs.
 - **Steamboat check-in is Sunday.** Friday and Saturday nights both had to be solved on the road.
 - **Friday departure ~noon.** Roughly five usable hours of daylight driving, not nine.
-- **Lodging booked:** Altus Lodge, Silverton (Fri Aug 21). Ore House Inn, New Castle (Sat Aug 22). La Quinta Inn & Suites by Wyndham, 3155 Ingles Ln, Steamboat Springs (Sun Aug 23 – Thu Aug 27; confirm this address if re-checking — an earlier search surfaced a wrong "S Lincoln Ave" address for the same hotel). Motel SOCO, 651 W US Hwy 160, Pagosa Springs (Fri Aug 28).
+- **Lodging booked:** Altus Lodge, Silverton (Fri Aug 21). Ore House Inn, New Castle (Sat Aug 22). La Quinta Inn & Suites by Wyndham, 3155 Ingles Ln, Steamboat Springs (Sun Aug 23 check-in, **checkout Thu Aug 27 morning** — 4 nights, Sun–Wed, confirmed directly from the calendar booking, address confirmed correct against an earlier wrong "S Lincoln Ave" guess). Super 8 by Wyndham, 530 N US-24, Buena Vista (**Thu Aug 27 – Sat Aug 29 checkout, 2 nights**, added Aug 21 evening — this is the new back half of the trip, see below). Motel SOCO, 651 W US Hwy 160, Pagosa Springs is **no longer overnight lodging** — it's the Friday show venue only, visited as a day trip from Buena Vista.
 - **Camera:** Fuji X-E5, 23mm and 33mm. Wide for passes and lakes, normal for towns, falls, and the dog.
-- **Fixed tentpole: Fri Aug 28, 7pm set.** The Mike Dillon Band (feat. Kris Myers, Brian Haas) at Motel SOCO / El Camino Lounge, Pagosa Springs — same address as that night's lodging. This is a hard anchor: the whole Friday drive is built backward from it. Venue and date confirmed via the Bandsintown event page directly (not just search snippets, which also surfaced a conflicting "First Baptist Church" venue for the same date — that appears to be bad data). **Set time is 7pm per direct confirmation — Bandsintown's own event page listed 8pm, so if this resurfaces from a fresh search, trust the 7pm figure over it**, not the other way around.
+- **Fixed tentpole: Fri Aug 28, 7pm set.** The Mike Dillon Band (feat. Kris Myers, Brian Haas) at Motel SOCO / El Camino Lounge, Pagosa Springs. This is a hard anchor the day is built backward from — but as of Aug 21 it's a day-trip destination from Buena Vista, not an overnight. Venue and date confirmed via the Bandsintown event page directly (not just search snippets, which also surfaced a conflicting "First Baptist Church" venue for the same date — that appears to be bad data). **Set time is 7pm per direct confirmation — Bandsintown's own event page listed 8pm, so if this resurfaces from a fresh search, trust the 7pm figure over it**, not the other way around.
+- **New fixed point, Thu Aug 27 evening: meet Carlos at The Slammer, Buena Vista.** Added Aug 21. This is why Thursday's stop is Buena Vista specifically and not some other halfway town.
 
 ## Route as chosen
 
@@ -21,10 +22,11 @@ These drove every decision. Changing one invalidates a lot of what follows.
 | Fri | Durango → US-550 → Silverton | ~85 | 2h10 |
 | Sat | Silverton → Red Mtn → Ouray → Montrose → Grand Jct → I-70 → Rifle Falls → New Castle | ~250 | ~5h |
 | Sun | New Castle → Rifle → CO-13 → Craig → US-40 → Steamboat | ~145 | 2h40 |
-| Mon–Thu | (based in Steamboat, no driving days) | — | — |
-| Fri 28 | Steamboat → US-40 → CO-9 → CO-91 (Fremont Pass) → US-24 → US-285 → US-160 (Wolf Creek Pass) → Pagosa Springs | ~317 | ~5h44 |
+| Mon–Wed | (based in Steamboat, no driving days) | — | — |
+| Thu 27 | Steamboat → US-40 → CO-9 → CO-91 (Fremont Pass) → US-24 → Buena Vista | ~157 | ~2h54 |
+| Fri 28 | Buena Vista → US-285 → US-160 (Wolf Creek Pass) → Pagosa Springs, **and back** | ~318 round trip | ~5h40 |
 
-Saturday is deliberately the long day of the first leg. Friday Aug 28 is the longest day of the whole trip — longer than Saturday's 250 miles — and it's the one day with a fixed arrival deadline (7pm show) rather than a flexible check-in, so it carries the least slack of any day in the plan.
+Saturday is deliberately the long day of the first leg. The original plan pushed Steamboat straight to Pagosa in one 317-mile day; as of Aug 21 that's split into Thursday's shorter 157-mile leg to Buena Vista and Friday's 318-mile round trip to the show and back — worse on total miles (475 vs 317) but no single day is as brutal as the original one-shot Friday, and Thursday evening now has a fixed point of its own (Carlos, The Slammer). The tradeoff: Friday ends very late, well after midnight, since the drive back happens after the show with no confirmed end time.
 
 ## Ruled out — and why
 
@@ -75,6 +77,9 @@ Steamboat's craft/art fair. July 11–12, 2026 — over a month before the visit
 **Farmers Market as a Mon–Thu stop.**
 Main Street Steamboat's farmers market runs Saturdays only (Yampa St, June–Sept). The Saturday before the visit (Aug 22) is still in transit; the Saturday after (Aug 29) is after departure. Doesn't fit a Sun-checkin/Fri-checkout week no matter how it's arranged.
 
+**Overnight at Motel SOCO, Friday night (superseded Aug 21).**
+This was the plan through several revisions of this guide — drive Steamboat to Pagosa in one day, sleep at the show venue. Superseded when a Super 8 Buena Vista booking appeared on the calendar for Thu+Fri nights, and the user confirmed the new shape: split the drive over Thursday (to Buena Vista) and Friday (Buena Vista to Pagosa and back as a day trip), with a Thursday-evening meetup at The Slammer as the reason Buena Vista specifically. Motel SOCO is not cancelled as a destination — it's still the show — but it's off the books as a place to sleep. If this resurfaces (e.g. a future session sees the old "Motel SOCO" address still in a calendar reminder and assumes it's lodging), it isn't — check the actual calendar bookings.
+
 **First Baptist Church as the Aug 28 show venue.**
 One search result attributed the Mike Dillon Band show to "First Baptist Church" in Pagosa Springs rather than Motel SOCO. Checked directly against Bandsintown's own event page (not a search snippet) and against the venue's own booking — Motel SOCO / El Camino Lounge is correct. Treat the church attribution as bad data if it resurfaces.
 
@@ -90,16 +95,18 @@ One search result attributed the Mike Dillon Band show to "First Baptist Church"
 - **Monday evening moved to Timber & Torch** (live music ~5:30–8pm, dog-friendly patio, Steamboat Square) instead of Storm Peak Brewing. Storm Peak kept as the weather-fallback swap since it's the only spot this week with an indoor dog option — Timber & Torch's seating is outdoor-by-a-fire, not indoor.
 - **Steamboat Art Museum added as an optional Thursday stop**, not a group one. No dog policy confirmed anywhere searched, and museums are a poor bet for off-leash-adjacent activities generally — framed in the guide as a solo duck-in while the other person holds the dog outside, not a planned joint stop.
 - **Backcountry Provisions' patio confirmed dog-friendly** via BringFido's dedicated listing (outdoor tables for dogs, matches the address/hours already in the guide) — the earlier "ask when you order" hedge is resolved, no longer an open item.
-- **Twin Lakes added as a detour on the Friday drive.** Not on the direct route (a ~6-7 mile paved spur off US-24 near Leadville), but CDOT resurfaced that exact stretch, so it's fully paved and short enough to not threaten the 7pm show deadline.
-- **Eddyline over Cool River Cafe for Buena Vista lunch.** Eddyline's fenced dog patio and brewpub menu fit the day better; Cool River is the faster in-and-out if Eddyline's slow.
+- **Twin Lakes moved from Friday to Thursday.** Originally a Friday-drive detour; now that Buena Vista is the Thursday destination rather than a Friday waypoint, Twin Lakes sits naturally on Thursday's route instead (~6-7 mile paved CDOT-resurfaced spur off US-24, just past Leadville). Same stop, different day.
+- **Eddyline / Cool River Cafe (Buena Vista) dropped from the written itinerary, not ruled out.** Both were the old Friday halfway-lunch candidates; now that Buena Vista is the Thursday/Friday base rather than a drive-through, either is still a fine dinner option in town — just not written in as a fixed stop, since The Slammer (Carlos) already owns Thursday evening and Friday's plan is a day trip with its own open-ended "dinner in Pagosa" block.
+- **Friday's late-return risk accepted knowingly, not solved.** No confirmed end time for the show means no way to actually bound how late the Wolf Creek return runs. Flagged plainly in the guide rather than papered over with a fake time — this is the one place in the plan where "leave slack" isn't really possible, since the fixed point (the show) is at the far end of the day, not the near end.
 
 ## Live checks before departure
 
 - **COtrip, Saturday morning** — Red Mountain Pass. 24/7 construction signals, delays up to 20 min, no stopping in work zones. The Gold Mountain burn scar sits above the highway northeast of Ouray and is prone to debris flows after heavy rain. If it closes, the detour is back through Durango, Cortez and Dolores: roughly +3h.
 - **Fuel** — Durango before leaving Friday; Rifle before turning north Sunday. CO-13 is 88 miles with essentially no services.
 - **Cash** — Ore House pet fee is cash at check-in, and check-in is contactless.
-- **COtrip, Friday Aug 28 morning** — Wolf Creek Pass specifically. Conditions at 10,857 feet can turn fast even in late August. This is the day with a fixed 7pm deadline and no built-in slack, so a closure or major delay here has nowhere to absorb the time.
-- **Weather for Aug 24–28** — more than a month out at time of planning; the table below only covers the original Aug 21–23 leg. Re-check closer to departure, especially for the Friday pass-crossing day.
+- **COtrip, Thursday Aug 27 morning** — Rabbit Ears and Fremont passes, before leaving Steamboat.
+- **COtrip, Friday Aug 28** — check twice: morning before leaving Buena Vista, and again before leaving Pagosa that night for the dark return. Wolf Creek specifically — conditions at 10,857 feet can turn fast even in late August, and the tunnel bypass work zone is a worse place to hit a surprise at night than in daylight.
+- **Weather for Aug 24–29** — more than a month out at time of planning; the table below only covers the original Aug 21–23 leg. Re-check closer to departure, especially for the two pass-crossing days.
 
 ## Precheck, Fri Aug 21 (departure morning)
 
@@ -110,6 +117,8 @@ Checked CDOT/COtrip for all four passes on the itinerary. Real-time conditions s
 - **Fremont Pass (CO-91) and Rabbit Ears Pass (US-40)** — no 2026 construction or advisories found for either. Nothing to add.
 
 Re-run this same check the morning of Aug 28 specifically — a precheck a week out doesn't substitute for the day-of COtrip look already called for above.
+
+**Note, later the same day (Aug 21 evening):** the plan changed after this precheck — Wolf Creek Pass is now crossed twice on Friday (a Buena Vista round trip) rather than once as part of a longer one-way push. The tunnel-maintenance finding above still applies to both crossings.
 
 ## Weather at time of planning
 

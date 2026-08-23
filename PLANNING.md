@@ -40,7 +40,7 @@ These drove every decision. Changing one invalidates a lot of what follows.
 |---|---|---|---|
 | Fri | Durango → US-550 → Silverton | ~85 | 2h10 |
 | Sat | Silverton → Red Mtn → Ouray → Montrose → Grand Jct → I-70 → Rifle Falls → New Castle | ~250 | ~5h |
-| Sun | New Castle → Rifle → CO-13 → Craig → US-40 → Steamboat | ~145 | 2h40 |
+| Sun | New Castle → Glenwood Springs (brunch/hike/brewery) → Rifle → CO-13 → Craig → US-40 → Steamboat | ~175 | ~3h20 |
 | Mon–Wed | (based in Steamboat, no driving days) | — | — |
 | Thu 27 | Steamboat → US-40 → CO-9 → CO-91 (Fremont Pass) → US-24 → Buena Vista | ~157 | ~2h54 |
 | Fri 28 | Buena Vista → US-285 → US-160 (Wolf Creek Pass) → Pagosa Springs | ~159 | ~2h50 |
@@ -50,6 +50,9 @@ Saturday is deliberately the long day of the first leg. The original plan pushed
 ## Ruled out — and why
 
 Don't re-propose these without a reason the constraint changed.
+
+**Aspen, Sunday morning (Aug 23).**
+Considered as a detour before heading north to Steamboat. New Castle → Aspen is 1h9/53.7mi each way via CO-82 — real, paved, dog-fine road, but a genuine backtrack (Aspen is south of Glenwood, Steamboat is north). Round trip alone is ~2h20 of driving before spending any time there, and Maroon Bells specifically requires its own shuttle reservation system (7am–3pm operating window; dogs allowed on the shuttle and most trails but not the Scenic Loop). Stacked on top of the Glenwood brunch/hike/brewery morning already planned, it didn't fit without cutting one of those. Skipped — not because Aspen isn't worth it, but because the day already had a good morning and Aspen would have doubled it. Revisit if a future version of this trip has a slower Sunday with nothing else planned.
 
 **Telluride / CO-145 (Lizard Head Pass, Dallas Divide).**
 Genuinely the better photography route and it avoids the Red Mountain construction. Lost by choosing Silverton for Friday night — Silverton is on 550, Telluride is on 145, and there's no way to have both without adding ~2h to Saturday. This is the single biggest thing given up. If a future version of this trip starts earlier on Friday or sleeps in Ouray instead, 145 comes back.
@@ -151,6 +154,8 @@ Saturday's storm was the reason the plan moved west rather than lingering in the
 ## Log
 
 One line per change, newest first. This replaced a separate CHANGELOG.md on Aug 22 — same content, one less file to update. For anything that needs real reasoning, put it in "Ruled out" or "Judgment calls" above and just link back to it here.
+
+- **Aug 22** — Sunday rebuilt: added a Glenwood Springs morning (Daily Bread brunch, Wulfsohn Trail, Casey Brewing) before the drive north. Aspen considered and ruled out — see "Ruled out." Mileage 751 → 781.
 
 - **Aug 22** — Merged CHANGELOG.md into this file. Added the "Right now" status block at the top.
 - **Aug 21** — Friday reverts to overnight at Motel SOCO (one-way, 159mi/2h50). The round-trip version below lasted a few hours before the user corrected it. Mileage: 910 → 751.

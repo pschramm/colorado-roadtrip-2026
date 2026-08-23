@@ -29,7 +29,11 @@ The guide loads fonts from Google Fonts. Everything else is inline, so it render
 
 To retime a stop, edit the `<div class="t">` value. To add one, copy an adjacent `.stop` block. The elevation profile at the top is a hand-plotted SVG path — if the route changes materially, the path coordinates need updating too, or delete the block.
 
-**Archiving (added Aug 22).** Each day section carries a `data-until="YYYY-MM-DD"` attribute — the last date that day covers. A script at the bottom of the page compares that against the viewer's own device clock and collapses any day whose date has fully passed down to just its heading and note, with a "Show details" toggle. A "Show archived days" link appears in the header once at least one day is archived. Everything inside a day except `.day-head` and `.day-note` needs to live inside a `<div class="day-body">…</div>` for this to work — copy that wrapper along with the stops if you add a new day section. This is day-granularity only for now: the Mon–Wed Steamboat section archives as one block once Wednesday passes, not day-by-day within it.
+**Archiving (added Aug 22, extended same day).** Anything tagged `data-until="YYYY-MM-DD"` gets checked against the viewer's own device clock on every page load and archived once that date has fully passed — nothing on the page hardcodes "today." Two things carry this attribute:
+- **Day sections** (`<section class="day" ...>`) collapse to just `.day-head` + `.day-note` with a "Show details" toggle. Everything else inside the section needs to live in a `<div class="day-body">…</div>` for this to work — copy that wrapper along with the stops if you add a new day section. Granularity is per-section, not per-sub-day: the Mon–Wed Steamboat section archives as one block once Wednesday passes.
+- **Watch-list items** (`<li data-until="...">` inside `.watch`) hide entirely once resolved, rather than collapsing — a reminder about Friday's altitude or Saturday's Red Mountain check is just noise once that day's gone, not something worth a "show details" toggle. If a reminder spans multiple days (e.g. "fuel in Durango Friday, fuel in Rifle Sunday"), give it the *last* relevant date so it stays up until it's actually done.
+
+Both use the same `isPast()`/`wireStatus()` machinery in the script block — a "N of M done, Show archived" line appears in the header for days and above the watch list for reminders, once at least one of each exists.
 
 ## Iterating with Claude
 

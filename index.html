@@ -200,6 +200,9 @@ nav a.done{opacity:.5}
   padding-top:4px;
 }
 .watch li p{margin:0;font-size:16px;color:#2A343C}
+.watch li.archived{display:none}
+.watch.show-archived li.archived{display:grid}
+.watch li.archived .k{color:var(--moss)}
 
 footer{
   margin-top:40px;font-size:14px;color:var(--slate);
@@ -780,17 +783,18 @@ footer{
 <!-- ============ WATCH LIST ============ -->
 <section class="watch">
   <h2>Before you go</h2>
+  <p class="trip-status watch-status" hidden></p>
   <ul>
-    <li><span class="k">Red Mtn</span><p>Check COtrip Saturday morning. It's the one link with no easy substitute — if it's closed, the detour runs back through Durango, Cortez and Dolores and adds about three hours. Heavy rain on the burn scar above the highway is what closes it.</p></li>
-    <li><span class="k">Fuel</span><p>Durango before you leave Friday. Rifle before you turn north Sunday. Those are the two that matter.</p></li>
-    <li><span class="k">Cash</span><p>The Ore House pet fee is cash at check-in, and check-in is contactless — so there's no front desk to sort it out at 6pm. Call ahead.</p></li>
-    <li><span class="k">Weather</span><p>Friday around 40% in the San Juans, Saturday up to 65% in the Colorado valley, Sunday 30–45%. Afternoon cells, mostly. Rifle Falls is better in rain; Harvey Gap isn't.</p></li>
-    <li><span class="k">Altitude</span><p>Silverton sits at 9,318 feet and most budget rooms have no A/C. Fine at a 50° low, but the first night at altitude after a week in Durango is usually the one that sleeps badly.</p></li>
-    <li><span class="k">Kitchens</span><p>Mountain towns close early. Silverton at 8 (Golden Block till 9), Meeker-sized towns at 8, Down Valley at 9. Plan dinner before the sunset drive, not after.</p></li>
-    <li><span class="k">Thu checkout</span><p>La Quinta Steamboat checks out Thursday morning, not Friday — the stay is 4 nights (Sun–Wed), not the 5 it might look like at a glance.</p></li>
-    <li><span class="k">Wolf Creek</span><p>Highway conditions can change fast at 10,857 feet even in August. Check COtrip Friday morning same as Red Mountain the Saturday before. Also: the eastside tunnel (mile point 174) is closed for maintenance May–early October 2026 — traffic runs on a paved bypass 24/7, 25mph work zone, brief delays expected. The summit picnic area is still the only paved pull-off worth using.</p></li>
-    <li><span class="k">Motel SOCO</span><p>Confirmed as Friday night's lodging again. Pet fee $30/night for one dog, $50 for two. Set time for the show is 7pm.</p></li>
-    <li><span class="k">Super 8, Friday night</span><p>The calendar booking covers Thursday <em>and</em> Friday nights in Buena Vista — but Friday night is now Motel SOCO instead. Worth checking whether that second Super 8 night is still needed, or cancelling it.</p></li>
+    <li data-until="2026-08-22"><span class="k">Red Mtn</span><p>Check COtrip Saturday morning. It's the one link with no easy substitute — if it's closed, the detour runs back through Durango, Cortez and Dolores and adds about three hours. Heavy rain on the burn scar above the highway is what closes it.</p></li>
+    <li data-until="2026-08-23"><span class="k">Fuel</span><p>Durango before you leave Friday. Rifle before you turn north Sunday. Those are the two that matter.</p></li>
+    <li data-until="2026-08-22"><span class="k">Cash</span><p>The Ore House pet fee is cash at check-in, and check-in is contactless — so there's no front desk to sort it out at 6pm. Call ahead.</p></li>
+    <li data-until="2026-08-23"><span class="k">Weather</span><p>Friday around 40% in the San Juans, Saturday up to 65% in the Colorado valley, Sunday 30–45%. Afternoon cells, mostly. Rifle Falls is better in rain; Harvey Gap isn't.</p></li>
+    <li data-until="2026-08-21"><span class="k">Altitude</span><p>Silverton sits at 9,318 feet and most budget rooms have no A/C. Fine at a 50° low, but the first night at altitude after a week in Durango is usually the one that sleeps badly.</p></li>
+    <li data-until="2026-08-23"><span class="k">Kitchens</span><p>Mountain towns close early. Silverton at 8 (Golden Block till 9), Meeker-sized towns at 8, Down Valley at 9. Plan dinner before the sunset drive, not after.</p></li>
+    <li data-until="2026-08-27"><span class="k">Thu checkout</span><p>La Quinta Steamboat checks out Thursday morning, not Friday — the stay is 4 nights (Sun–Wed), not the 5 it might look like at a glance.</p></li>
+    <li data-until="2026-08-28"><span class="k">Wolf Creek</span><p>Highway conditions can change fast at 10,857 feet even in August. Check COtrip Friday morning same as Red Mountain the Saturday before. Also: the eastside tunnel (mile point 174) is closed for maintenance May–early October 2026 — traffic runs on a paved bypass 24/7, 25mph work zone, brief delays expected. The summit picnic area is still the only paved pull-off worth using.</p></li>
+    <li data-until="2026-08-28"><span class="k">Motel SOCO</span><p>Confirmed as Friday night's lodging again. Pet fee $30/night for one dog, $50 for two. Set time for the show is 7pm.</p></li>
+    <li data-until="2026-08-28"><span class="k">Super 8, Friday night</span><p>The calendar booking covers Thursday <em>and</em> Friday nights in Buena Vista — but Friday night is now Motel SOCO instead. Worth checking whether that second Super 8 night is still needed, or cancelling it.</p></li>
   </ul>
 </section>
 
@@ -814,23 +818,45 @@ footer{
   window.addEventListener('scroll', sync, {passive:true});
   sync();
 
-  // ---- archive days before today (viewer's local clock) ----
+  // ---- archive anything with data-until once it's before today ----
+  // Single source of truth for "now": the viewer's own device clock, read fresh
+  // on every page load. Nothing on this page hardcodes a date — that's the point.
   var today = new Date(); today.setHours(0,0,0,0);
-  var allDays = Array.prototype.slice.call(document.querySelectorAll('.day[data-until]'));
-  var archived = [];
 
-  function setToggle(day, toggle, open){
+  function isPast(el){
+    return new Date(el.getAttribute('data-until') + 'T23:59:59') < today;
+  }
+
+  function wireStatus(el, items, total, itemLabel, buttonLabel, onToggle){
+    if (!items.length || !el) return;
+    el.hidden = false;
+    var text = document.createElement('span');
+    text.textContent = items.length + ' of ' + total + ' ' + itemLabel + '.';
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    var showText = 'Show ' + buttonLabel, hideText = 'Hide ' + buttonLabel;
+    btn.textContent = showText;
+    btn.addEventListener('click', function(){
+      var willShow = btn.textContent === showText;
+      onToggle(willShow);
+      btn.textContent = willShow ? hideText : showText;
+    });
+    el.appendChild(text);
+    el.appendChild(btn);
+  }
+
+  // Day sections: collapse to day-head + day-note, with a per-day toggle.
+  var allDays = Array.prototype.slice.call(document.querySelectorAll('.day[data-until]'));
+  var archivedDays = allDays.filter(isPast);
+
+  function setDayOpen(day, toggle, open){
     day.classList.toggle('expanded', open);
     toggle.textContent = open ? 'Hide details' : 'Show details';
     toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
   }
 
-  allDays.forEach(function(day){
-    var until = new Date(day.getAttribute('data-until') + 'T23:59:59');
-    if (until >= today) return;
-
+  archivedDays.forEach(function(day){
     day.classList.add('archived');
-    archived.push(day);
 
     var link = document.querySelector('nav a[href="#' + day.id + '"]');
     if (link) link.classList.add('done');
@@ -846,35 +872,41 @@ footer{
     var toggle = document.createElement('button');
     toggle.type = 'button';
     toggle.className = 'archive-toggle';
-    setToggle(day, toggle, false);
+    setDayOpen(day, toggle, false);
     toggle.addEventListener('click', function(){
-      setToggle(day, toggle, !day.classList.contains('expanded'));
+      setDayOpen(day, toggle, !day.classList.contains('expanded'));
     });
     var note = day.querySelector('.day-note');
     if (note) note.insertAdjacentElement('afterend', toggle);
   });
 
-  if (archived.length) {
-    var status = document.querySelector('.trip-status');
-    if (status) {
-      status.hidden = false;
-      var label = document.createElement('span');
-      label.textContent = archived.length + ' of ' + allDays.length + ' days done.';
-      var showAll = document.createElement('button');
-      showAll.type = 'button';
-      showAll.textContent = 'Show archived days';
-      showAll.addEventListener('click', function(){
-        var willShow = showAll.textContent === 'Show archived days';
-        archived.forEach(function(day){
-          var t = day.querySelector('.archive-toggle');
-          if (t) setToggle(day, t, willShow);
-        });
-        showAll.textContent = willShow ? 'Hide archived days' : 'Show archived days';
+  wireStatus(
+    document.querySelector('.trip-status:not(.watch-status)'),
+    archivedDays, allDays.length,
+    'days done',
+    'archived days',
+    function(show){
+      archivedDays.forEach(function(day){
+        var t = day.querySelector('.archive-toggle');
+        if (t) setDayOpen(day, t, show);
       });
-      status.appendChild(label);
-      status.appendChild(showAll);
     }
-  }
+  );
+
+  // Watch-list reminders: same idea, one flat list, hide once resolved.
+  var allWatch = Array.prototype.slice.call(document.querySelectorAll('.watch li[data-until]'));
+  var archivedWatch = allWatch.filter(isPast);
+  archivedWatch.forEach(function(li){ li.classList.add('archived'); });
+
+  wireStatus(
+    document.querySelector('.watch-status'),
+    archivedWatch, allWatch.length,
+    'reminders resolved',
+    'resolved',
+    function(show){
+      document.querySelector('.watch').classList.toggle('show-archived', show);
+    }
+  );
 })();
 </script>
 </body>

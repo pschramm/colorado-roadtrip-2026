@@ -29,6 +29,8 @@ The guide loads fonts from Google Fonts. Everything else is inline, so it render
 
 To retime a stop, edit the `<div class="t">` value. To add one, copy an adjacent `.stop` block. The elevation profile at the top is a hand-plotted SVG path — if the route changes materially, the path coordinates need updating too, or delete the block.
 
+**Archiving (added Aug 22).** Each day section carries a `data-until="YYYY-MM-DD"` attribute — the last date that day covers. A script at the bottom of the page compares that against the viewer's own device clock and collapses any day whose date has fully passed down to just its heading and note, with a "Show details" toggle. A "Show archived days" link appears in the header once at least one day is archived. Everything inside a day except `.day-head` and `.day-note` needs to live inside a `<div class="day-body">…</div>` for this to work — copy that wrapper along with the stops if you add a new day section. This is day-granularity only for now: the Mon–Wed Steamboat section archives as one block once Wednesday passes, not day-by-day within it.
+
 ## Iterating with Claude
 
 Paste this to pick up where the planning left off:

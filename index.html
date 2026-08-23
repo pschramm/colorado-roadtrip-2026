@@ -77,6 +77,19 @@ nav a{
 }
 nav a:focus-visible{outline:2px solid var(--oxide);outline-offset:-2px}
 nav a.on{color:var(--ink);border-bottom-color:var(--oxide)}
+nav a.done{opacity:.5}
+
+/* ---------- trip status (archive summary) ---------- */
+.trip-status{
+  margin:14px 0 0;font-family:"JetBrains Mono",monospace;font-size:11.5px;
+  letter-spacing:.03em;color:var(--slate);
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+}
+.trip-status button{
+  font:inherit;color:var(--oxide);background:none;border:1px solid var(--oxide);
+  border-radius:2px;padding:4px 10px;cursor:pointer;letter-spacing:.08em;
+  text-transform:uppercase;font-size:10.5px;
+}
 
 /* ---------- day ---------- */
 .day{padding-top:38px;scroll-margin-top:52px}
@@ -90,6 +103,28 @@ nav a.on{color:var(--ink);border-bottom-color:var(--oxide)}
   letter-spacing:.08em;text-transform:uppercase;color:var(--slate);
 }
 .day-note{margin:8px 0 22px;color:#2A343C;max-width:52ch}
+.done-badge{
+  display:inline-block;margin-left:2px;
+  font-family:"JetBrains Mono",monospace;font-size:9.5px;
+  letter-spacing:.1em;text-transform:uppercase;
+  color:var(--moss);border:1px solid var(--moss);
+  padding:2px 6px;border-radius:2px;vertical-align:1px;
+}
+
+/* ---------- archived days ---------- */
+.day.archived{opacity:.75}
+.day.archived .day-note{margin-bottom:14px}
+.archive-toggle{
+  display:none;margin:0 0 24px;
+  font-family:"JetBrains Mono",monospace;font-size:10.5px;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--oxide);
+  background:none;border:1px solid var(--oxide);border-radius:2px;
+  padding:6px 12px;cursor:pointer;
+}
+.day.archived .archive-toggle{display:inline-block}
+.day.archived .day-body{display:none}
+.day.archived.expanded .day-body{display:block}
+.day.archived.expanded{opacity:1}
 
 /* ---------- stops ---------- */
 .stop{
@@ -187,6 +222,7 @@ footer{
   <p class="eyebrow">Fri 21 – Fri 28 August · 781 miles · dog aboard</p>
   <h1>Durango <span class="arrow">→</span> Steamboat <span class="arrow">→</span> Pagosa</h1>
   <p class="standfirst">Three days in, three and a half spent based in Steamboat, then the way back south splits over two shorter days instead of one long push. You lose <em>6,400 feet</em> between Molas Pass and Grand Junction on the way up, cross Rabbit Ears and Fremont on the way to a Buena Vista layover, then Wolf Creek Pass down to a show in Pagosa Springs — with a bed waiting at the other end this time.</p>
+  <p class="trip-status" hidden></p>
 </header>
 
 <div class="profile" aria-label="Elevation profile of the route, from Durango at 6,512 feet, up over Red Mountain Pass at 11,018 feet, down to Grand Junction at 4,586 feet, then up to Steamboat Springs at 6,732 feet.">
@@ -234,13 +270,14 @@ footer{
 </nav>
 
 <!-- ============ FRIDAY ============ -->
-<section class="day" id="fri">
+<section class="day" id="fri" data-until="2026-08-21">
   <div class="day-head">
     <h2>Friday</h2>
     <span class="day-meta">85 mi · 2h10 driving · Altus Lodge</span>
   </div>
   <p class="day-note">The shortest day of the three and the only one with slack in it. Self check-in means no arrival window to hit, so the afternoon can run long — and the two lakes now bookend it.</p>
 
+  <div class="day-body">
   <div class="stop">
     <div class="t">12:00<span class="elev">6,512′</span></div>
     <div class="body">
@@ -322,16 +359,18 @@ footer{
       <p>Five minutes further up. Sun goes down around 7:50, looking east across Molas Lake to the Grenadiers. This is the 23mm frame of the trip. Back in town by 8:20; Alpine Tavern is open till 10.</p>
     </div>
   </div>
+  </div>
 </section>
 
 <!-- ============ SATURDAY ============ -->
-<section class="day" id="sat">
+<section class="day" id="sat" data-until="2026-08-22">
   <div class="day-head">
     <h2>Saturday</h2>
     <span class="day-meta">250 mi · ~5h driving · Ore House Inn</span>
   </div>
   <p class="day-note">The only real driving day, and it's front-loaded — the hardest 23 miles are behind you by nine. After Montrose it flattens into highway, and you drop 4,000 feet, so expect it 20° warmer when you arrive.</p>
 
+  <div class="day-body">
   <div class="stop light">
     <div class="t">8:00<span class="elev">11,018′</span></div>
     <div class="body">
@@ -411,16 +450,18 @@ footer{
       </div>
     </div>
   </div>
+  </div>
 </section>
 
 <!-- ============ SUNDAY ============ -->
-<section class="day" id="sun">
+<section class="day" id="sun" data-until="2026-08-23">
   <div class="day-head">
     <h2>Sunday</h2>
     <span class="day-meta">~175 mi · 3h20 driving · Steamboat check-in</span>
   </div>
   <p class="day-note">A Glenwood Springs morning bolted onto the front of what was otherwise the easiest driving day of the trip — brunch, a real hike, and the best beer on the route, all within fifteen minutes of the room. Still nothing to eat between Rifle and Craig, so eat before you leave.</p>
 
+  <div class="day-body">
   <div class="stop">
     <div class="t">8:00<span class="elev">5,760′</span></div>
     <div class="body">
@@ -471,16 +512,18 @@ footer{
       <p>42 miles east on US-40, about 45 minutes. Later than the original plan, but check-in has no fixed time and the evening's still wide open.</p>
     </div>
   </div>
+  </div>
 </section>
 
 <!-- ============ MON–THU: STEAMBOAT ============ -->
-<section class="day" id="week">
+<section class="day" id="week" data-until="2026-08-26">
   <div class="day-head">
     <h2>Mon–Wed</h2>
     <span class="day-meta">3 days · La Quinta Inn &amp; Suites, 3155 Ingles Ln</span>
   </div>
   <p class="day-note">No driving days left — the car stays parked except for errands. Three days, one town, dog off-leash more than he's been all trip. The pattern: a real hike in the morning while it's cool, water in the afternoon, a patio in the evening. Checkout is Thursday morning — this isn't a four-night stay.</p>
 
+  <div class="day-body">
   <div class="subday">Monday · easy warm-up</div>
 
   <div class="stop">
@@ -578,18 +621,18 @@ footer{
       </div>
     </div>
   </div>
-
-
+  </div>
 </section>
 
 <!-- ============ THURSDAY: BUENA VISTA ============ -->
-<section class="day" id="thu">
+<section class="day" id="thu" data-until="2026-08-27">
   <div class="day-head">
     <h2>Thursday</h2>
     <span class="day-meta">157 mi · ~2h54 driving · Super 8, Buena Vista</span>
   </div>
   <p class="day-note">Checkout day, but a short one — Buena Vista is barely half the distance of the old one-shot Friday push, which is the whole point of splitting it. Same first two passes as the original plan (Rabbit Ears, then Fremont), just stopping well short of Wolf Creek.</p>
 
+  <div class="day-body">
   <div class="profile" aria-label="Elevation profile of the drive from Steamboat Springs at 6,732 feet, over Rabbit Ears Pass at 9,426 feet, down to Kremmling, up over Fremont Pass at 11,318 feet, down to Buena Vista at 7,965 feet.">
     <svg viewBox="0 0 680 150" role="img">
       <defs>
@@ -659,16 +702,18 @@ footer{
       <p>Craft beer and whiskey in Buena Vista's old town jailhouse — a dozen taps, 100+ bottles. Dog-friendly both indoors and out, so no need to trade off who's on leash duty tonight.</p>
     </div>
   </div>
+  </div>
 </section>
 
 <!-- ============ FRIDAY: PAGOSA ============ -->
-<section class="day" id="pagosa">
+<section class="day" id="pagosa" data-until="2026-08-28">
   <div class="day-head">
     <h2>Friday</h2>
     <span class="day-meta">159 mi · ~2h50 driving · Motel SOCO, Pagosa Springs</span>
   </div>
   <p class="day-note">One-way this time — Motel SOCO is the bed again, not just the show. Buena Vista to Pagosa is 159 miles, ~2h50, one pass (Wolf Creek). Shorter and lower-stakes than the old single-day 317-mile push from Steamboat, with real slack before a fixed-time show instead of none.</p>
 
+  <div class="day-body">
   <div class="profile" aria-label="Elevation profile of the drive from Buena Vista at 7,965 feet, through Poncha Springs, up over Wolf Creek Pass at 10,857 feet, down to Pagosa Springs at 7,126 feet.">
     <svg viewBox="0 0 680 150" role="img">
       <defs>
@@ -729,6 +774,7 @@ footer{
       <p>Mike Dillon with Kris Myers and Brian Haas. Working assumption is a 7pm set. Dogs are fine on the property; whether he's in the room for the set itself is a call to make once you're there. No drive after — you're already home for the night.</p>
     </div>
   </div>
+  </div>
 </section>
 
 <!-- ============ WATCH LIST ============ -->
@@ -767,6 +813,68 @@ footer{
   }
   window.addEventListener('scroll', sync, {passive:true});
   sync();
+
+  // ---- archive days before today (viewer's local clock) ----
+  var today = new Date(); today.setHours(0,0,0,0);
+  var allDays = Array.prototype.slice.call(document.querySelectorAll('.day[data-until]'));
+  var archived = [];
+
+  function setToggle(day, toggle, open){
+    day.classList.toggle('expanded', open);
+    toggle.textContent = open ? 'Hide details' : 'Show details';
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+
+  allDays.forEach(function(day){
+    var until = new Date(day.getAttribute('data-until') + 'T23:59:59');
+    if (until >= today) return;
+
+    day.classList.add('archived');
+    archived.push(day);
+
+    var link = document.querySelector('nav a[href="#' + day.id + '"]');
+    if (link) link.classList.add('done');
+
+    var meta = day.querySelector('.day-meta');
+    if (meta) {
+      var badge = document.createElement('span');
+      badge.className = 'done-badge';
+      badge.textContent = 'Done';
+      meta.appendChild(badge);
+    }
+
+    var toggle = document.createElement('button');
+    toggle.type = 'button';
+    toggle.className = 'archive-toggle';
+    setToggle(day, toggle, false);
+    toggle.addEventListener('click', function(){
+      setToggle(day, toggle, !day.classList.contains('expanded'));
+    });
+    var note = day.querySelector('.day-note');
+    if (note) note.insertAdjacentElement('afterend', toggle);
+  });
+
+  if (archived.length) {
+    var status = document.querySelector('.trip-status');
+    if (status) {
+      status.hidden = false;
+      var label = document.createElement('span');
+      label.textContent = archived.length + ' of ' + allDays.length + ' days done.';
+      var showAll = document.createElement('button');
+      showAll.type = 'button';
+      showAll.textContent = 'Show archived days';
+      showAll.addEventListener('click', function(){
+        var willShow = showAll.textContent === 'Show archived days';
+        archived.forEach(function(day){
+          var t = day.querySelector('.archive-toggle');
+          if (t) setToggle(day, t, willShow);
+        });
+        showAll.textContent = willShow ? 'Hide archived days' : 'Show archived days';
+      });
+      status.appendChild(label);
+      status.appendChild(showAll);
+    }
+  }
 })();
 </script>
 </body>

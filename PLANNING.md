@@ -155,6 +155,7 @@ Saturday's storm was the reason the plan moved west rather than lingering in the
 
 One line per change, newest first. This replaced a separate CHANGELOG.md on Aug 22 — same content, one less file to update. For anything that needs real reasoning, put it in "Ruled out" or "Judgment calls" above and just link back to it here.
 
+- **Aug 22** — `index.html` now auto-archives days before today (viewer's local clock, via `data-until` on each `.day` section): collapses to day-head + day-note, with a "Show details" toggle per day and a "Show archived days" summary link in the header. Nav pills for archived days dim. First step toward this being a running trip app rather than a static plan — see the "planning app" note in the Aug 22 conversation if this gets picked up further (per-trip archiving, not just per-day, would be the next real step).
 - **Aug 22** — Sunday rebuilt: added a Glenwood Springs morning (Daily Bread brunch, Wulfsohn Trail, Casey Brewing) before the drive north. Aspen considered and ruled out — see "Ruled out." Mileage 751 → 781.
 
 - **Aug 22** — Merged CHANGELOG.md into this file. Added the "Right now" status block at the top.

@@ -79,7 +79,7 @@ nav a:focus-visible{outline:2px solid var(--oxide);outline-offset:-2px}
 nav a.on{color:var(--ink);border-bottom-color:var(--oxide)}
 nav a.done{opacity:.5}
 
-/* ---------- trip status (archive summary) ---------- */
+/* ---------- trip status ---------- */
 .trip-status{
   margin:14px 0 0;font-family:"JetBrains Mono",monospace;font-size:11.5px;
   letter-spacing:.03em;color:var(--slate);
@@ -91,8 +91,29 @@ nav a.done{opacity:.5}
   text-transform:uppercase;font-size:10.5px;
 }
 
-/* ---------- day ---------- */
-.day{padding-top:38px;scroll-margin-top:52px}
+/* ---------- timeline spine ---------- */
+.timeline{position:relative;margin-top:8px}
+.timeline::before{
+  content:"";position:absolute;left:7px;top:8px;bottom:8px;width:2px;
+  background:var(--rule);
+}
+.day{position:relative;padding:38px 0 0 34px;scroll-margin-top:52px}
+.day::before{
+  content:"";position:absolute;left:0;top:44px;width:16px;height:16px;
+  border-radius:50%;background:var(--ground);border:2px solid var(--slate);
+}
+.day.today::before{border-color:var(--oxide);background:var(--oxide)}
+.day.past::before{border-color:var(--moss);background:var(--moss)}
+.today-marker{
+  position:relative;margin:44px 0 -6px 34px;
+  font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:600;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--oxide);
+}
+.today-marker::before{
+  content:"";position:absolute;left:-34px;top:4px;width:16px;height:16px;
+  border-radius:50%;background:var(--oxide);
+  box-shadow:0 0 0 4px var(--ground),0 0 0 5px var(--oxide);
+}
 .day-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:4px}
 .day-head h2{
   font-family:"Bricolage Grotesque",sans-serif;
@@ -110,21 +131,15 @@ nav a.done{opacity:.5}
   color:var(--moss);border:1px solid var(--moss);
   padding:2px 6px;border-radius:2px;vertical-align:1px;
 }
+.day.past{opacity:.8}
 
-/* ---------- archived days ---------- */
-.day.archived{opacity:.75}
-.day.archived .day-note{margin-bottom:14px}
-.archive-toggle{
-  display:none;margin:0 0 24px;
-  font-family:"JetBrains Mono",monospace;font-size:10.5px;
-  letter-spacing:.08em;text-transform:uppercase;color:var(--oxide);
-  background:none;border:1px solid var(--oxide);border-radius:2px;
-  padding:6px 12px;cursor:pointer;
+/* ---------- inline photos ---------- */
+.photo{margin:10px 0 0;border-radius:2px;overflow:hidden;background:var(--ground-2)}
+.photo img{display:block;width:100%;height:auto}
+.photo-cap{
+  margin:5px 0 0;font-family:"JetBrains Mono",monospace;font-size:10px;
+  letter-spacing:.06em;color:var(--slate);
 }
-.day.archived .archive-toggle{display:inline-block}
-.day.archived .day-body{display:none}
-.day.archived.expanded .day-body{display:block}
-.day.archived.expanded{opacity:1}
 
 /* ---------- stops ---------- */
 .stop{
@@ -200,8 +215,7 @@ nav a.done{opacity:.5}
   padding-top:4px;
 }
 .watch li p{margin:0;font-size:16px;color:#2A343C}
-.watch li.archived{display:none}
-.watch.show-archived li.archived{display:grid}
+.watch li.archived{opacity:.5}
 .watch li.archived .k{color:var(--moss)}
 
 footer{
@@ -212,6 +226,11 @@ footer{
   .stop{grid-template-columns:50px 1fr;gap:0 12px}
   .watch li{grid-template-columns:1fr;gap:4px}
   .watch .k{padding-top:0}
+  .timeline::before{left:5px}
+  .day{padding-left:24px}
+  .day::before{left:0;width:14px;height:14px;top:42px}
+  .today-marker{margin-left:24px}
+  .today-marker::before{left:-24px;width:14px;height:14px}
 }
 @media (prefers-reduced-motion:no-preference){
   .day{transition:opacity .3s}
@@ -273,6 +292,8 @@ footer{
   <a href="#pagosa">Fri 28 · Pagosa</a>
 </nav>
 
+<div class="timeline">
+
 <!-- ============ DURANGO (PROLOGUE) ============ -->
 <section class="day" id="durango" data-until="2026-08-21">
   <div class="day-head">
@@ -308,6 +329,8 @@ footer{
       <h3>Animas River Trail &amp; Greenway<span class="tag">Golden hour</span></h3>
       <p class="addr">Near Santa Rita Park, 111 S Camino Del Rio</p>
       <p>An evening walk along the river the day you rolled in — cottonwoods, evening light on the bluffs across the water. Reconstructed the same way as the rest of the week: matched the photo's GPS to the trail corridor, not pinned to one exact park entrance.</p>
+      <div class="photo"><img src="img/durango-sun-river.jpg" alt="Rudy walking the rocky bank of the Animas River at golden hour, cottonwoods and a sunlit bluff behind him" loading="lazy"></div>
+      <p class="photo-cap">Aug 16, 7:43pm — from the actual photo this stop is sourced from</p>
     </div>
   </div>
 
@@ -341,6 +364,8 @@ footer{
       <h3>Anarchy Brewing Company<span class="tag moss">Animals welcome</span></h3>
       <p class="addr">225 E 8th Ave Unit C · 4.8★, 138 reviews</p>
       <p>Prayer flags over the patio, punk-adjacent crowd, "animals welcome" by name in the reviews. Food from a Chalkboard Kitchen trailer. Confirmed by matching the photo's GPS to the venue's listed address — same city block, not a guess.</p>
+      <div class="photo"><img src="img/durango-wed-anarchy.jpg" alt="Rudy sitting on the concrete floor at Anarchy Brewing, prayer flags and string lights overhead, a mountain mural on the wall" loading="lazy"></div>
+      <p class="photo-cap">Aug 19, 6:40pm — the photo that confirmed this stop</p>
     </div>
   </div>
 
@@ -352,6 +377,8 @@ footer{
       <h3>Dallabetta Park<span class="tag moss">Dogs allowed</span></h3>
       <p class="addr">La Posta Rd, along the Animas River · 4.4★</p>
       <p>An afternoon of Rudy in the water over rocks, red bluffs across the river. Also already in the family's Maps favorites — the pattern with Balcony Bar suggests these weren't random stops, just unrecorded ones until now.</p>
+      <div class="photo"><img src="img/durango-thu-dallabetta.jpg" alt="Rudy standing on the rocky bank of the Animas River at Dallabetta Park, condos and red bluffs on the far side" loading="lazy"></div>
+      <p class="photo-cap">Aug 20, 4:05pm — the photo that confirmed this stop</p>
     </div>
   </div>
   </div>
@@ -580,8 +607,8 @@ footer{
   <div class="stop">
     <div class="t">12:00<span class="elev">5,345′</span></div>
     <div class="body">
-      <h3>Back through New Castle to Rifle<span class="tag">Fuel</span></h3>
-      <p><strong>Fill the tank.</strong> CO-13 runs 88 miles to Craig through open country with essentially no services and patchy cell.</p>
+      <h3>I-70 west to Rifle<span class="tag">Fuel</span></h3>
+      <p>New Castle sits right on I-70 between here and Rifle — you'll pass it, not detour to it. <strong>Fill the tank in Rifle.</strong> CO-13 runs 88 miles to Craig through open country with essentially no services and patchy cell.</p>
     </div>
   </div>
 
@@ -865,6 +892,8 @@ footer{
   </div>
 </section>
 
+</div><!-- /.timeline -->
+
 <!-- ============ WATCH LIST ============ -->
 <section class="watch">
   <h2>Before you go</h2>
@@ -903,7 +932,7 @@ footer{
   window.addEventListener('scroll', sync, {passive:true});
   sync();
 
-  // ---- archive anything with data-until once it's before today ----
+  // ---- timeline: mark past/today, everything stays visible and scrollable ----
   // Single source of truth for "now": the viewer's own device clock, read fresh
   // on every page load. Nothing on this page hardcodes a date — that's the point.
   var today = new Date(); today.setHours(0,0,0,0);
@@ -912,86 +941,49 @@ footer{
     return new Date(el.getAttribute('data-until') + 'T23:59:59') < today;
   }
 
-  function wireStatus(el, items, total, itemLabel, buttonLabel, onToggle){
-    if (!items.length || !el) return;
-    el.hidden = false;
-    var text = document.createElement('span');
-    text.textContent = items.length + ' of ' + total + ' ' + itemLabel + '.';
-    var btn = document.createElement('button');
-    btn.type = 'button';
-    var showText = 'Show ' + buttonLabel, hideText = 'Hide ' + buttonLabel;
-    btn.textContent = showText;
-    btn.addEventListener('click', function(){
-      var willShow = btn.textContent === showText;
-      onToggle(willShow);
-      btn.textContent = willShow ? hideText : showText;
-    });
-    el.appendChild(text);
-    el.appendChild(btn);
-  }
-
-  // Day sections: collapse to day-head + day-note, with a per-day toggle.
   var allDays = Array.prototype.slice.call(document.querySelectorAll('.day[data-until]'));
-  var archivedDays = allDays.filter(isPast);
+  var markerPlaced = false;
+  var pastCount = 0;
 
-  function setDayOpen(day, toggle, open){
-    day.classList.toggle('expanded', open);
-    toggle.textContent = open ? 'Hide details' : 'Show details';
-    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-  }
-
-  archivedDays.forEach(function(day){
-    day.classList.add('archived');
-
-    var link = document.querySelector('nav a[href="#' + day.id + '"]');
-    if (link) link.classList.add('done');
-
-    var meta = day.querySelector('.day-meta');
-    if (meta) {
-      var badge = document.createElement('span');
-      badge.className = 'done-badge';
-      badge.textContent = 'Done';
-      meta.appendChild(badge);
+  allDays.forEach(function(day){
+    if (isPast(day)) {
+      pastCount++;
+      day.classList.add('past');
+      var link = document.querySelector('nav a[href="#' + day.id + '"]');
+      if (link) link.classList.add('done');
+      var meta = day.querySelector('.day-meta');
+      if (meta) {
+        var badge = document.createElement('span');
+        badge.className = 'done-badge';
+        badge.textContent = 'Done';
+        meta.appendChild(badge);
+      }
+    } else if (!markerPlaced) {
+      day.classList.add('today');
+      var marker = document.createElement('div');
+      marker.className = 'today-marker';
+      marker.textContent = 'Today · ' + today.toLocaleDateString(undefined, {weekday:'long', month:'short', day:'numeric'});
+      day.parentNode.insertBefore(marker, day);
+      markerPlaced = true;
     }
-
-    var toggle = document.createElement('button');
-    toggle.type = 'button';
-    toggle.className = 'archive-toggle';
-    setDayOpen(day, toggle, false);
-    toggle.addEventListener('click', function(){
-      setDayOpen(day, toggle, !day.classList.contains('expanded'));
-    });
-    var note = day.querySelector('.day-note');
-    if (note) note.insertAdjacentElement('afterend', toggle);
   });
 
-  wireStatus(
-    document.querySelector('.trip-status:not(.watch-status)'),
-    archivedDays, allDays.length,
-    'days done',
-    'archived days',
-    function(show){
-      archivedDays.forEach(function(day){
-        var t = day.querySelector('.archive-toggle');
-        if (t) setDayOpen(day, t, show);
-      });
-    }
-  );
+  var status = document.querySelector('.trip-status:not(.watch-status)');
+  if (status && pastCount) {
+    status.hidden = false;
+    status.textContent = pastCount + ' of ' + allDays.length + ' days done — scroll up any time, nothing here is hidden.';
+  }
 
-  // Watch-list reminders: same idea, one flat list, hide once resolved.
+  // Watch-list reminders: dim once resolved, never hidden.
   var allWatch = Array.prototype.slice.call(document.querySelectorAll('.watch li[data-until]'));
-  var archivedWatch = allWatch.filter(isPast);
-  archivedWatch.forEach(function(li){ li.classList.add('archived'); });
+  var resolvedWatch = allWatch.filter(isPast);
+  resolvedWatch.forEach(function(li){ li.classList.add('archived'); });
 
-  wireStatus(
-    document.querySelector('.watch-status'),
-    archivedWatch, allWatch.length,
-    'reminders resolved',
-    'resolved',
-    function(show){
-      document.querySelector('.watch').classList.toggle('show-archived', show);
-    }
-  );
+  var watchStatus = document.querySelector('.watch-status');
+  if (watchStatus && resolvedWatch.length) {
+    watchStatus.hidden = false;
+    watchStatus.textContent = resolvedWatch.length + ' of ' + allWatch.length + ' resolved (dimmed below).';
+  }
 })();
 </script>
 </body>

@@ -9,8 +9,7 @@ An eight-day trip guide — three days driving in, three and a half based in Ste
 | File | What it is |
 |---|---|
 | `index.html` | The guide. Self-contained — one file, no build step, no dependencies except web fonts. |
-| `PLANNING.md` | The decision log. Constraints, what got ruled out, and why. Read this before changing the route. |
-| `CHANGELOG.md` | What changed between revisions of the plan. |
+| `PLANNING.md` | Everything else. Starts with a **"Right now" status table** — the only part worth reading on the road. Below that: constraints, what got ruled out and why, and a one-line-per-change log (this used to be a separate CHANGELOG.md; merged Aug 22 because two files was one too many to keep in sync from a phone). |
 
 ## Publishing
 
@@ -22,7 +21,7 @@ The guide loads fonts from Google Fonts. Everything else is inline, so it render
 
 `index.html` is hand-written HTML with a `<style>` block at the top. Structure:
 
-- Each day is a `<section class="day" id="fri|sat|sun">`
+- Each day is a `<section class="day" id="fri|sat|sun|week|thu|pagosa">`
 - Each stop is a `<div class="stop">` with a time/elevation column and a body column
 - `class="stop light"` marks a golden-hour or sunset stop (renders the heading in oxide red)
 - `<span class="tag">` for a short label; add `moss` for the green variant
@@ -34,11 +33,13 @@ To retime a stop, edit the `<div class="t">` value. To add one, copy an adjacent
 
 Paste this to pick up where the planning left off:
 
-> I'm planning a road trip and tracking it in a repo. Here's the current state — read PLANNING.md for the constraints and decision log, and index.html for the itinerary. [paste both]
+> I'm planning a road trip and tracking it in a repo. Here's the current state — read PLANNING.md (start with "Right now" at the top) and index.html for the itinerary. [paste both]
 >
 > Hard constraints: dog along, paved roads only, fixed lodging. Don't re-propose anything in the "Ruled out" section without saying why the reason no longer holds.
 
 The last line matters. Without it the same rejected options resurface every session.
+
+**On the road, keep it light.** A correction ("I'm actually staying at X instead") only needs the "Right now" table and `index.html` updated immediately, plus one line in the Log. It doesn't need a full "Ruled out" writeup in the same breath — that can happen later, once, in a batch. Trying to fully reason through every change in real time from a phone is what made this hard to keep up to date in the first place.
 
 ## Post-trip
 

@@ -2,6 +2,25 @@
 
 The itinerary is in `index.html`. This file is why it looks the way it does.
 
+## Right now
+
+*Last updated Aug 22. This is the one block worth reading on the road — everything below is the reasoning archive, not the status.*
+
+| Night | Where | Status |
+|---|---|---|
+| Fri 21 | Altus Lodge, Silverton | done |
+| Sat 22 | Ore House Inn, New Castle | done |
+| Sun 23 – Wed 26 | La Quinta, Steamboat Springs (3155 Ingles Ln) | checkout Thu morning |
+| Thu 27 | Super 8, Buena Vista (530 N US-24) | confirmed |
+| Fri 28 | Motel SOCO, Pagosa Springs (651 W US Hwy 160) | confirmed |
+
+**Fixed points:** Thu 27, ~6pm — Carlos, The Slammer, Buena Vista. Fri 28, 7pm — Mike Dillon Band, Motel SOCO.
+
+**Open items:**
+- Super 8 Buena Vista's calendar booking still covers Thu *and* Fri nights, but Fri night is now Motel SOCO — check whether that second Super 8 night needs cancelling.
+
+**Updating this on the road:** tell me what changed (a new booking, a cancelled plan, a corrected time). I'll update this table and `index.html` right away. Full reasoning in the sections below gets added when there's time — it doesn't have to happen in the same message.
+
 ## Fixed constraints
 
 These drove every decision. Changing one invalidates a lot of what follows.
@@ -128,3 +147,18 @@ Re-run this same check the morning of Aug 28 specifically — a precheck a week 
 | Steamboat | — | 40% | 30% |
 
 Saturday's storm was the reason the plan moved west rather than lingering in the mountains.
+
+## Log
+
+One line per change, newest first. This replaced a separate CHANGELOG.md on Aug 22 — same content, one less file to update. For anything that needs real reasoning, put it in "Ruled out" or "Judgment calls" above and just link back to it here.
+
+- **Aug 22** — Merged CHANGELOG.md into this file. Added the "Right now" status block at the top.
+- **Aug 21** — Friday reverts to overnight at Motel SOCO (one-way, 159mi/2h50). The round-trip version below lasted a few hours before the user corrected it. Mileage: 910 → 751.
+- **Aug 21** — Friday split into two days via Buena Vista (see "Ruled out" — briefly a round trip). Thursday added: Steamboat → Buena Vista, meet Carlos at The Slammer. Twin Lakes moved Fri→Thu.
+- **Aug 21** — COtrip precheck for all four passes. New finding: Wolf Creek's eastside tunnel closed for maintenance through early October — added to the guide.
+- **Aug 21** — Butcherknife Brewing confirmed open (was a call-ahead flag).
+- **Aug 21** — Backcountry Provisions patio confirmed dog-friendly via BringFido.
+- **Aug 21** — Live music added to the Steamboat week: Timber & Torch (Mon), Snow Bowl Wednesday Sessions (Wed). Steamboat Art Museum added as an optional Thursday stop.
+- **Aug 21** — Show time corrected 8pm → 7pm.
+- **Aug 21** — Trip extended: Steamboat week (Mon–Thu) and the Aug 28 Pagosa leg added, including the Mike Dillon Band tentpole.
+- **Before this repo existed** (exact dates not tracked — drafted in an earlier conversation, then exported in as the repo's first commit): Haviland Lake added to Friday, Andrews Lake moved to the Molas Pass sunset run; Ore House Inn settled over La Quinta Rifle; Silverton chosen for Friday night (Telluride and Glenwood Springs dropped as a result); first full draft was Durango → Fruita → Meeker → Steamboat, killed by the Palisade Peach Festival, the paved-only constraint, and rain.

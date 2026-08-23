@@ -8,6 +8,8 @@ The itinerary is in `index.html`. This file is why it looks the way it does.
 
 | Night | Where | Status |
 |---|---|---|
+| Sat 15 | Motel 6, Clovis, NM (1616 Mabry Dr) | done |
+| Sun 16 – Fri 21 | La Quinta, Durango (125 Mercury Village Dr) | done, 6 nights |
 | Fri 21 | Altus Lodge, Silverton | done |
 | Sat 22 | Ore House Inn, New Castle | done |
 | Sun 23 – Wed 26 | La Quinta, Steamboat Springs (3155 Ingles Ln) | checkout Thu morning |
@@ -18,6 +20,8 @@ The itinerary is in `index.html`. This file is why it looks the way it does.
 
 **Open items:**
 - Super 8 Buena Vista's calendar booking still covers Thu *and* Fri nights, but Fri night is now Motel SOCO — check whether that second Super 8 night needs cancelling.
+- The Durango week (Aug 16–21) has real lodging dates but no day-to-day content — no restaurants, hikes, or activities recorded anywhere searched. Added to the guide as a deliberately thin placeholder rather than invented. Fill in from memory/photos if it's worth having for next year. (Two calendar entries in that window — "taos?" and a show at "Vacancy" — were initially pulled in as trip content and then removed: both were logged in Central time, not Mountain, meaning they're unrelated personal calendar entries that happened to fall in the same date range, not part of this trip. Don't re-pull calendar events into the guide without checking timezone/location match the trip first.)
+- Expense tracking: user asked about linking a Capital One login to track meal/gas spend. Declined — no banking connector available, and entering financial credentials isn't something this assistant does regardless. Offered two alternatives, neither set up yet: (1) a manual running log the user texts amounts to, (2) parsing a bank-exported CSV the user provides directly (no credentials involved). Pick one if this is still wanted.
 
 **Updating this on the road:** tell me what changed (a new booking, a cancelled plan, a corrected time). I'll update this table and `index.html` right away. Full reasoning in the sections below gets added when there's time — it doesn't have to happen in the same message.
 
@@ -155,6 +159,7 @@ Saturday's storm was the reason the plan moved west rather than lingering in the
 
 One line per change, newest first. This replaced a separate CHANGELOG.md on Aug 22 — same content, one less file to update. For anything that needs real reasoning, put it in "Ruled out" or "Judgment calls" above and just link back to it here.
 
+- **Aug 22** — Added the missing Durango prologue (Aug 15 Clovis, Aug 16–21 Durango lodging) to the guide and "Right now" table — the trip always started here, but the guide never did. First draft wrongly included two unrelated personal calendar entries ("taos?", a show at "Vacancy") that just happened to fall in the same date window; caught because they were logged in Central time, not Mountain, and removed. Only verified hotel bookings are in the guide now.
 - **Aug 22** — `index.html` now auto-archives days before today (viewer's local clock, via `data-until` on each `.day` section): collapses to day-head + day-note, with a "Show details" toggle per day and a "Show archived days" summary link in the header. Nav pills for archived days dim.
 - **Aug 22** — Extended the same date-driven system to the Watch List: the day-archiving logic was already fully computed from the viewer's real clock (never hardcoded), but the Watch List below it was still plain static HTML — Friday/Saturday-specific reminders (altitude, Red Mountain check, Ore House cash) kept showing after those days passed, which was the actual clutter once the trip was underway. Every `<li>` now carries its own `data-until`; resolved reminders hide with the same "N of M, Show" pattern as the day sections, sharing one `isPast()`/`wireStatus()` helper in the script rather than duplicating the logic. Nothing on the page hardcodes a date anywhere now — it's all computed against the viewer's device clock at load time. This is the shape any future date-scoped content on the page should follow.
 - **Aug 22** — Sunday rebuilt: added a Glenwood Springs morning (Daily Bread brunch, Wulfsohn Trail, Casey Brewing) before the drive north. Aspen considered and ruled out — see "Ruled out." Mileage 751 → 781.

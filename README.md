@@ -1,6 +1,6 @@
-# Durango → Steamboat → Pagosa, Aug 21–28 2026
+# Durango → Steamboat → Pagosa → Durango, Aug 15–30 2026
 
-An eight-day trip guide — three days driving in, three and a half based in Steamboat, then the way back splits over two shorter days via a Buena Vista layover to a show in Pagosa Springs — built to be read on a phone with no signal.
+A trip guide covering a Durango prologue, three days driving north, three and a half based in Steamboat, then the way back splits over two shorter days via a Buena Vista layover to a show in Pagosa Springs, then one more short hop back to Durango to close the loop — built to be read on a phone with no signal.
 
 **Live guide:** `https://<username>.github.io/<repo>/`
 
@@ -27,13 +27,13 @@ The guide loads fonts from Google Fonts. Everything else is inline, so it render
 - `<span class="tag">` for a short label; add `moss` for the green variant
 - `<div class="swap">` for an inline alternative or caveat
 
-To retime a stop, edit the `<div class="t">` value. To add one, copy an adjacent `.stop` block. The elevation profile at the top is a hand-plotted SVG path — if the route changes materially, the path coordinates need updating too, or delete the block.
+To retime a stop, edit the `<div class="t">` value. To add one, copy an adjacent `.stop` block. The elevation profile at the top of most day sections is a hand-plotted SVG path — if the route changes materially, the path coordinates need updating too, or just leave the block out (the return-to-Durango section has none, since there's no confirmed pass on that leg worth inventing coordinates for).
 
-**Archiving (added Aug 22, extended same day).** Anything tagged `data-until="YYYY-MM-DD"` gets checked against the viewer's own device clock on every page load and archived once that date has fully passed — nothing on the page hardcodes "today." Two things carry this attribute:
-- **Day sections** (`<section class="day" ...>`) collapse to just `.day-head` + `.day-note` with a "Show details" toggle. Everything else inside the section needs to live in a `<div class="day-body">…</div>` for this to work — copy that wrapper along with the stops if you add a new day section. Granularity is per-section, not per-sub-day: the Mon–Wed Steamboat section archives as one block once Wednesday passes.
-- **Watch-list items** (`<li data-until="...">` inside `.watch`) hide entirely once resolved, rather than collapsing — a reminder about Friday's altitude or Saturday's Red Mountain check is just noise once that day's gone, not something worth a "show details" toggle. If a reminder spans multiple days (e.g. "fuel in Durango Friday, fuel in Rifle Sunday"), give it the *last* relevant date so it stays up until it's actually done.
+**Timeline (replaced the old collapse/archive UI on Aug 24).** All `<section class="day" ...>` elements live inside one `<div class="timeline">…</div>` and are always fully visible, photos and all — nothing on the page hides itself anymore. `data-until="YYYY-MM-DD"` is still on every day section and on each `<li>` in the watch list, but it now only drives two lightweight, always-reversible things, computed fresh against the viewer's own device clock on every page load (nothing hardcodes "today"):
+- **Day sections** get a `.past` class (dims the timeline marker dot to moss) once their date has fully elapsed, a `.today` class on the current day (oxide marker), and a small "done" badge. The first non-past day also gets a `.today-marker` divider inserted just above it.
+- **Watch-list items** get `.archived` once resolved, which just dims them via CSS opacity — they stay in the DOM and readable, never disappear.
 
-Both use the same `isPast()`/`wireStatus()` machinery in the script block — a "N of M done, Show archived" line appears in the header for days and above the watch list for reminders, once at least one of each exists.
+Both passes share the same `today = new Date()` computed once per load, plus a shared `isPast()` helper, in the script block at the end of the file.
 
 ## Iterating with Claude
 

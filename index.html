@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Durango → Steamboat → Pagosa</title>
+<title>Durango → Steamboat → Pagosa → Durango</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -59,9 +59,40 @@ h1 .arrow{color:var(--oxide);font-weight:400}
   display:flex;justify-content:space-between;margin-top:8px;
 }
 
+/* ---------- right-now bar ---------- */
+.now-bar{
+  position:sticky;top:0;z-index:20;
+  display:flex;align-items:center;gap:10px;
+  width:100%;height:52px;margin:0;padding:0 20px;
+  background:var(--oxide);color:var(--bone);
+  border:none;border-bottom:1px solid rgba(0,0,0,.15);
+  font-family:inherit;text-align:left;cursor:pointer;
+  -webkit-appearance:none;appearance:none;
+}
+.now-bar[hidden]{display:none}
+.now-bar:focus-visible{outline:2px solid var(--bone);outline-offset:-3px}
+.now-dot{
+  flex:0 0 auto;width:8px;height:8px;border-radius:50%;
+  background:var(--bone);box-shadow:0 0 0 3px rgba(241,240,234,.28);
+}
+.now-label{display:flex;flex-direction:column;overflow:hidden;flex:1 1 auto;min-width:0}
+.now-label strong{
+  font-family:"JetBrains Mono",monospace;font-size:10.5px;font-weight:600;
+  letter-spacing:.12em;text-transform:uppercase;line-height:1.3;
+}
+.now-label span{
+  font-family:"Newsreader",Georgia,serif;font-size:14.5px;line-height:1.25;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.now-cta{
+  flex:0 0 auto;font-family:"JetBrains Mono",monospace;font-size:10px;
+  letter-spacing:.08em;text-transform:uppercase;opacity:.85;white-space:nowrap;
+}
+.now-bar.done-state{background:var(--moss)}
+
 /* ---------- nav ---------- */
 nav{
-  position:sticky;top:0;z-index:10;
+  position:sticky;top:52px;z-index:10;
   background:var(--ground);
   border-bottom:1px solid var(--rule);
   display:flex;gap:0;margin:18px -20px 0;padding:0 20px;
@@ -97,7 +128,7 @@ nav a.done{opacity:.5}
   content:"";position:absolute;left:7px;top:8px;bottom:8px;width:2px;
   background:var(--rule);
 }
-.day{position:relative;padding:38px 0 0 34px;scroll-margin-top:52px}
+.day{position:relative;padding:38px 0 0 34px;scroll-margin-top:104px}
 .day::before{
   content:"";position:absolute;left:0;top:44px;width:16px;height:16px;
   border-radius:50%;background:var(--ground);border:2px solid var(--slate);
@@ -179,7 +210,7 @@ nav a.done{opacity:.5}
 
 /* ---------- sub-day divider (multi-day sections) ---------- */
 .subday{
-  margin:36px 0 2px;padding-top:22px;
+  margin:36px 0 2px;padding-top:22px;scroll-margin-top:104px;
   border-top:1px dashed var(--rule);
   font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:600;
   letter-spacing:.14em;text-transform:uppercase;color:var(--oxide);
@@ -223,6 +254,8 @@ footer{
   font-family:"JetBrains Mono",monospace;line-height:1.6;
 }
 @media (max-width:420px){
+  .now-bar{padding:0 16px;gap:8px}
+  .now-cta{display:none}
   .stop{grid-template-columns:50px 1fr;gap:0 12px}
   .watch li{grid-template-columns:1fr;gap:4px}
   .watch .k{padding-top:0}
@@ -238,6 +271,14 @@ footer{
 </style>
 </head>
 <body>
+<button type="button" class="now-bar" id="nowBar" hidden>
+  <span class="now-dot" aria-hidden="true"></span>
+  <span class="now-label">
+    <strong id="nowWeekday"></strong>
+    <span id="nowWhat"></span>
+  </span>
+  <span class="now-cta" id="nowCta">Jump to today ↓</span>
+</button>
 <div class="wrap">
 
 <header>
@@ -1016,6 +1057,49 @@ footer{
   if (watchStatus && resolvedWatch.length) {
     watchStatus.hidden = false;
     watchStatus.textContent = resolvedWatch.length + ' of ' + allWatch.length + ' resolved (dimmed below).';
+  }
+
+  // ---- sticky "right now" bar: always-visible answer to "where am I today" ----
+  // Reuses the .day.today element the loop above already found, so the bar and
+  // the inline marker can never disagree about which day is current.
+  var nowBar = document.getElementById('nowBar');
+  var currentDay = document.querySelector('.day.today');
+
+  if (nowBar && currentDay) {
+    var weekdayName = today.toLocaleDateString('en-US', {weekday:'long'});
+    var dateLabel = today.toLocaleDateString('en-US', {month:'short', day:'numeric'});
+    var target = currentDay;
+    var whatText = '';
+
+    // Multi-day sections (the Durango prologue, the Mon-Wed Steamboat block)
+    // have their own .subday dividers — find today's specifically, so the bar
+    // points at "Wednesday · water day", not just the whole three-day block.
+    var subdays = Array.prototype.slice.call(currentDay.querySelectorAll('.subday'));
+    var matchedSub = null;
+    for (var i = 0; i < subdays.length; i++) {
+      if (subdays[i].textContent.indexOf(weekdayName) === 0) { matchedSub = subdays[i]; break; }
+    }
+
+    if (matchedSub) {
+      target = matchedSub;
+      whatText = matchedSub.textContent.replace(weekdayName, '').replace(/^[\s·-]+/, '');
+    } else {
+      var meta = currentDay.querySelector('.day-meta');
+      whatText = meta ? meta.textContent : '';
+    }
+
+    document.getElementById('nowWeekday').textContent = weekdayName + ' · ' + dateLabel;
+    document.getElementById('nowWhat').textContent = whatText;
+    nowBar.hidden = false;
+    nowBar.addEventListener('click', function(){
+      target.scrollIntoView({behavior:'smooth', block:'start'});
+    });
+  } else if (nowBar && allDays.length && pastCount === allDays.length) {
+    document.getElementById('nowWeekday').textContent = 'Trip complete';
+    document.getElementById('nowWhat').textContent = 'All ' + allDays.length + ' days done — home free.';
+    document.getElementById('nowCta').textContent = '';
+    nowBar.classList.add('done-state');
+    nowBar.hidden = false;
   }
 })();
 </script>

@@ -35,6 +35,8 @@ To retime a stop, edit the `<div class="t">` value. To add one, copy an adjacent
 
 Both passes share the same `today = new Date()` computed once per load, plus a shared `isPast()` helper, in the script block at the end of the file.
 
+**Right-now bar (added Aug 26).** A sticky bar (`#nowBar`) pinned above `<nav>` always shows the current weekday/date and what's on, and jumps straight there on tap. For multi-day sections it matches the real weekday against that section's `.subday` divider text (e.g. lands on "Wednesday · water day" inside the Mon–Wed block, not just the block itself) — so if you add a new multi-day section, keep `.subday` text starting with the actual weekday name (`"Wednesday · ..."`), or the match silently falls back to the whole-section `.day-meta` text instead. Logic lives at the end of the script block, right after the today/past marking loop — it reuses the same `.day.today` element rather than recomputing "today" a second way.
+
 ## Iterating with Claude
 
 Paste this to pick up where the planning left off:

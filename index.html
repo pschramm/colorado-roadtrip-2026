@@ -1091,8 +1091,9 @@ footer{
     document.getElementById('nowWeekday').textContent = weekdayName + ' · ' + dateLabel;
     document.getElementById('nowWhat').textContent = whatText;
     nowBar.hidden = false;
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     nowBar.addEventListener('click', function(){
-      target.scrollIntoView({behavior:'smooth', block:'start'});
+      target.scrollIntoView({behavior: reduceMotion ? 'auto' : 'smooth', block:'start'});
     });
   } else if (nowBar && allDays.length && pastCount === allDays.length) {
     document.getElementById('nowWeekday').textContent = 'Trip complete';

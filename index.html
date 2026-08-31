@@ -32,25 +32,24 @@ body{
 }
 .wrap{max-width:720px;margin:0 auto;padding:0 20px 80px}
 
+/* ---------- brand strip ---------- */
+.brandbar{padding:14px 20px 0}
+.pop2-logo{width:56px;height:auto;display:block;filter:drop-shadow(2px 3px 0 var(--rule))}
+
 /* ---------- hero ---------- */
-header{padding:36px 0 8px}
-.pop2-logo{width:84px;height:auto;display:block;margin:0 0 16px;filter:drop-shadow(2px 3px 0 var(--rule))}
-.eyebrow{
-  font-family:"JetBrains Mono",monospace;
-  font-size:11px;letter-spacing:.18em;text-transform:uppercase;
-  color:var(--slate);margin:0 0 14px;
+header{padding:18px 0 10px}
+.stats{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 12px}
+.stat{
+  font-family:"JetBrains Mono",monospace;font-size:10px;font-weight:600;
+  letter-spacing:.1em;padding:4px 10px;border-radius:20px;
+  background:var(--ink);color:var(--bone);
 }
 h1{
   font-family:"Bricolage Grotesque",system-ui,sans-serif;
-  font-weight:800;font-size:clamp(38px,11vw,64px);
-  line-height:.92;letter-spacing:-.03em;margin:0 0 6px;
+  font-weight:800;font-size:clamp(26px,7.5vw,40px);
+  line-height:1.02;letter-spacing:-.02em;margin:0;
 }
 h1 .arrow{color:var(--oxide);font-weight:400}
-.standfirst{
-  font-size:19px;line-height:1.45;margin:16px 0 0;max-width:46ch;
-  color:#2A2F3E;
-}
-.standfirst em{font-style:italic;color:var(--oxide)}
 
 /* ---------- elevation profile ---------- */
 .profile{margin:30px 0 6px}
@@ -307,17 +306,7 @@ footer{
 </style>
 </head>
 <body>
-<button type="button" class="now-bar" id="nowBar" hidden>
-  <span class="now-dot" aria-hidden="true"></span>
-  <span class="now-label">
-    <strong id="nowWeekday"></strong>
-    <span id="nowWhat"></span>
-  </span>
-  <span class="now-cta" id="nowCta">Jump to today ↓</span>
-</button>
-<div class="wrap">
-
-<header>
+<div class="brandbar">
   <svg class="pop2-logo" viewBox="0 0 132 92" role="img" aria-label="Population 2 road-trip badge">
     <rect x="3" y="3" width="126" height="86" rx="6" fill="var(--bone)" stroke="var(--ink)" stroke-width="3"/>
     <circle cx="14" cy="14" r="3.5" fill="var(--ink)"/>
@@ -333,46 +322,26 @@ footer{
       <ellipse cx="18" cy="5" rx="3.4" ry="4.2"/>
     </g>
   </svg>
-  <p class="eyebrow">Sat 15 Aug – Sat 5 Sep · 1,054 miles from Durango on · dog aboard</p>
+</div>
+<button type="button" class="now-bar" id="nowBar" hidden>
+  <span class="now-dot" aria-hidden="true"></span>
+  <span class="now-label">
+    <strong id="nowWeekday"></strong>
+    <span id="nowWhat"></span>
+  </span>
+  <span class="now-cta" id="nowCta">Jump to today ↓</span>
+</button>
+<div class="wrap">
+
+<header>
+  <div class="stats">
+    <span class="stat">SAT 15 AUG – SAT 5 SEP</span>
+    <span class="stat">1,054 MI</span>
+    <span class="stat">DOG ABOARD</span>
+  </div>
   <h1>Durango <span class="arrow">→</span> Steamboat <span class="arrow">→</span> Pagosa <span class="arrow">→</span> Durango <span class="arrow">→</span> Santa Fe</h1>
-  <p class="standfirst">Three days in, three and a half spent based in Steamboat, then the way back south splits over two shorter days instead of one long push. You lose <em>6,400 feet</em> between Molas Pass and Grand Junction on the way up, cross Rabbit Ears and Fremont on the way to a Buena Vista layover, then Wolf Creek Pass down to a show in Pagosa Springs — with a bed waiting at the other end this time. A longer-than-planned stretch back in Durango, then one more drive south to Santa Fe for a free Cactus Lee set — what happens after that show isn't decided yet.</p>
   <p class="trip-status" hidden></p>
 </header>
-
-<div class="profile" aria-label="Elevation profile of the route, from Durango at 6,512 feet, up over Red Mountain Pass at 11,018 feet, down to Grand Junction at 4,586 feet, then up to Steamboat Springs at 6,732 feet.">
-<svg viewBox="0 0 680 150" role="img">
-  <defs>
-    <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#BE3B10" stop-opacity=".22"/>
-      <stop offset="100%" stop-color="#BE3B10" stop-opacity="0"/>
-    </linearGradient>
-  </defs>
-  <!-- day dividers -->
-  <line x1="170" y1="8" x2="170" y2="126" stroke="#1A1F2E" stroke-opacity=".18" stroke-dasharray="2 4"/>
-  <line x1="510" y1="8" x2="510" y2="126" stroke="#1A1F2E" stroke-opacity=".18" stroke-dasharray="2 4"/>
-  <!-- profile -->
-  <path d="M0,86 L60,52 L120,20 L170,44 L215,14 L260,10 L320,56 L370,72 L430,100 L470,126 L540,110 L580,92 L620,98 L680,80"
-        fill="none" stroke="#BE3B10" stroke-width="2.5" stroke-linejoin="round"/>
-  <path d="M0,86 L60,52 L120,20 L170,44 L215,14 L260,10 L320,56 L370,72 L430,100 L470,126 L540,110 L580,92 L620,98 L680,80 L680,150 L0,150 Z"
-        fill="url(#fade)"/>
-  <!-- markers -->
-  <circle cx="0" cy="86" r="3.5" fill="#1A1F2E"/>
-  <circle cx="170" cy="44" r="3.5" fill="#1A1F2E"/>
-  <circle cx="260" cy="10" r="3.5" fill="#BE3B10"/>
-  <circle cx="470" cy="126" r="3.5" fill="#35597A"/>
-  <circle cx="540" cy="110" r="3.5" fill="#1A1F2E"/>
-  <circle cx="680" cy="80" r="3.5" fill="#1A1F2E"/>
-  <g font-family="JetBrains Mono, monospace" font-size="9.5" fill="#35597A">
-    <text x="0" y="142">Durango</text>
-    <text x="140" y="142">Silverton</text>
-    <text x="228" y="6" fill="#BE3B10">Red Mtn 11,018</text>
-    <text x="424" y="142">Grand Jct 4,586</text>
-    <text x="512" y="142">New Castle</text>
-    <text x="620" y="142">Steamboat</text>
-  </g>
-</svg>
-  <div class="profile-caption"><span>Friday</span><span>Saturday</span><span>Sunday</span></div>
-</div>
 
 <div class="tripmap" aria-label="Schematic map of the whole trip, Durango to Steamboat to Buena Vista to Pagosa Springs, back to Durango, then Santa Fe. Not to scale, but positioned to match real relative geography. Tap a stop to jump there.">
 <svg viewBox="0 0 320 500" role="img">
@@ -413,6 +382,41 @@ footer{
 </svg>
 </div>
 <p class="tripmap-caption">Roughly to real geography, not to scale · tap a stop to jump there</p>
+
+<div class="profile" aria-label="Elevation profile of the route, from Durango at 6,512 feet, up over Red Mountain Pass at 11,018 feet, down to Grand Junction at 4,586 feet, then up to Steamboat Springs at 6,732 feet.">
+<svg viewBox="0 0 680 150" role="img">
+  <defs>
+    <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#BE3B10" stop-opacity=".22"/>
+      <stop offset="100%" stop-color="#BE3B10" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <!-- day dividers -->
+  <line x1="170" y1="8" x2="170" y2="126" stroke="#1A1F2E" stroke-opacity=".18" stroke-dasharray="2 4"/>
+  <line x1="510" y1="8" x2="510" y2="126" stroke="#1A1F2E" stroke-opacity=".18" stroke-dasharray="2 4"/>
+  <!-- profile -->
+  <path d="M0,86 L60,52 L120,20 L170,44 L215,14 L260,10 L320,56 L370,72 L430,100 L470,126 L540,110 L580,92 L620,98 L680,80"
+        fill="none" stroke="#BE3B10" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M0,86 L60,52 L120,20 L170,44 L215,14 L260,10 L320,56 L370,72 L430,100 L470,126 L540,110 L580,92 L620,98 L680,80 L680,150 L0,150 Z"
+        fill="url(#fade)"/>
+  <!-- markers -->
+  <circle cx="0" cy="86" r="3.5" fill="#1A1F2E"/>
+  <circle cx="170" cy="44" r="3.5" fill="#1A1F2E"/>
+  <circle cx="260" cy="10" r="3.5" fill="#BE3B10"/>
+  <circle cx="470" cy="126" r="3.5" fill="#35597A"/>
+  <circle cx="540" cy="110" r="3.5" fill="#1A1F2E"/>
+  <circle cx="680" cy="80" r="3.5" fill="#1A1F2E"/>
+  <g font-family="JetBrains Mono, monospace" font-size="9.5" fill="#35597A">
+    <text x="0" y="142">Durango</text>
+    <text x="140" y="142">Silverton</text>
+    <text x="228" y="6" fill="#BE3B10">Red Mtn 11,018</text>
+    <text x="424" y="142">Grand Jct 4,586</text>
+    <text x="512" y="142">New Castle</text>
+    <text x="620" y="142">Steamboat</text>
+  </g>
+</svg>
+  <div class="profile-caption"><span>Friday</span><span>Saturday</span><span>Sunday</span></div>
+</div>
 
 <nav>
   <a href="#durango">Aug 15–21 · Durango</a>

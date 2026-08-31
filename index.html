@@ -11,15 +11,15 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <style>
 :root{
-  --ground:#F7EAD2;
-  --ground-2:#EEDBB0;
-  --ink:#1A1F2E;
-  --oxide:#BE3B10;
-  --slate:#35597A;
-  --bone:#FBF3E3;
-  --moss:#0E7A5F;
-  --gold:#D9932A;
-  --rule:rgba(26,31,46,.16);
+  --ground:#C7E8F3;
+  --ground-2:#A8E8C7;
+  --ink:#12151A;
+  --oxide:#C93412;
+  --slate:#255873;
+  --bone:#F3FBF7;
+  --moss:#0C7A54;
+  --gold:#FFD23F;
+  --rule:rgba(18,21,26,.18);
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
@@ -35,35 +35,25 @@ body{
 }
 .wrap{max-width:720px;margin:0 auto;padding:0 20px 80px}
 
-/* ---------- brand strip ---------- */
-.brandbar{padding:14px 20px 0}
-.pop2-logo{width:56px;height:auto;display:block;filter:drop-shadow(2px 3px 0 var(--rule))}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
-/* ---------- hero ---------- */
-header{
-  position:relative;
-  margin:0 -20px;padding:22px 20px 20px;
+/* ---------- top bar: logo + trip stats, sticky, tap to scroll to top ---------- */
+.topbar{
+  position:sticky;top:0;z-index:30;
+  display:flex;align-items:center;justify-content:center;gap:12px;
+  width:100%;height:52px;padding:0 20px;
+  background:var(--ink);border:none;border-bottom:1px solid rgba(251,243,227,.15);
+  cursor:pointer;
 }
-header::before{
-  content:"";position:absolute;top:0;bottom:0;left:50%;width:100vw;
-  margin-left:-50vw;background:linear-gradient(135deg, var(--oxide) 0%, #7A2A10 65%, var(--ink) 100%);
-  z-index:-1;
+.topbar:focus-visible{outline:2px solid var(--gold);outline-offset:-3px}
+.pop2-logo-sm{width:34px;height:auto;flex:0 0 auto}
+.topbar-stats{display:flex;flex-wrap:wrap;gap:6px;justify-content:center}
+.topbar .stat{
+  font-family:"JetBrains Mono",monospace;font-size:9.5px;font-weight:600;
+  letter-spacing:.08em;padding:3px 9px;border-radius:20px;
+  background:rgba(251,243,227,.14);color:var(--bone);
+  border:1px solid rgba(251,243,227,.25);white-space:nowrap;
 }
-.stats{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 12px}
-.stat{
-  font-family:"JetBrains Mono",monospace;font-size:10px;font-weight:600;
-  letter-spacing:.1em;padding:4px 10px;border-radius:20px;
-  background:rgba(251,243,227,.16);color:var(--bone);
-  border:1px solid rgba(251,243,227,.3);
-}
-h1{
-  font-family:"Bricolage Grotesque",system-ui,sans-serif;
-  font-weight:800;font-size:clamp(26px,7.5vw,40px);
-  line-height:1.02;letter-spacing:-.02em;margin:0;
-  color:var(--bone);
-}
-h1 .arrow{color:var(--gold);font-weight:400}
-header .trip-status{color:rgba(251,243,227,.75)}
 
 /* ---------- elevation profile ---------- */
 .profile{margin:30px 0 6px}
@@ -76,11 +66,11 @@ header .trip-status{color:rgba(251,243,227,.75)}
 
 /* ---------- right-now bar ---------- */
 .now-bar{
-  position:sticky;top:0;z-index:20;
+  position:sticky;top:52px;z-index:20;
   display:flex;align-items:center;gap:10px;
   width:100%;height:52px;margin:0;padding:0 20px;
   background:var(--oxide);color:var(--bone);
-  border:none;border-bottom:1px solid rgba(0,0,0,.15);
+  border:none;border-bottom:2.5px solid var(--ink);
   font-family:inherit;text-align:left;cursor:pointer;
   -webkit-appearance:none;appearance:none;
 }
@@ -120,8 +110,8 @@ header .trip-status{color:rgba(251,243,227,.75)}
 .tm-pin{
   width:26px;height:26px;border-radius:50% 50% 50% 0;
   transform:rotate(-45deg);
-  background:var(--slate);border:2px solid var(--bone);
-  box-shadow:0 1px 3px rgba(26,31,46,.4);
+  background:var(--slate);border:2.5px solid var(--ink);
+  box-shadow:2px 2px 0 var(--ink);
 }
 .tm-pin.past{background:var(--moss)}
 .tm-pin.today{background:var(--oxide);width:32px;height:32px}
@@ -133,8 +123,8 @@ header .trip-status{color:rgba(251,243,227,.75)}
 }
 .tm-pin.today span{line-height:28px;font-size:14px}
 .leaflet-popup-content-wrapper{
-  background:var(--bone);border-radius:8px;
-  box-shadow:0 3px 10px rgba(26,31,46,.25);
+  background:var(--bone);border-radius:3px;
+  border:2.5px solid var(--ink);box-shadow:4px 4px 0 var(--ink);
 }
 .leaflet-popup-tip{background:var(--bone)}
 .tm-popup{font-family:"Newsreader",Georgia,serif;min-width:150px}
@@ -147,12 +137,12 @@ header .trip-status{color:rgba(251,243,227,.75)}
 .tm-popup button{
   display:block;margin-top:8px;width:100%;
   font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;
-  background:var(--oxide);color:var(--bone);border:none;border-radius:20px;padding:6px 10px;cursor:pointer;
+  background:var(--oxide);color:var(--bone);border:2px solid var(--ink);border-radius:20px;padding:6px 10px;cursor:pointer;
 }
 
 /* ---------- nav ---------- */
 nav{
-  position:sticky;top:52px;z-index:10;
+  position:sticky;top:104px;z-index:10;
   background:var(--ground);
   border-bottom:2px solid var(--ink);
   display:flex;flex-wrap:wrap;gap:6px;margin:18px -20px 0;padding:10px 20px 12px;
@@ -163,10 +153,10 @@ nav a{
   font-family:"JetBrains Mono",monospace;font-size:10.5px;
   letter-spacing:.1em;text-transform:uppercase;
   color:var(--ink);text-decoration:none;white-space:nowrap;
-  border:1.5px solid transparent;
+  border:1.5px solid var(--ink);
 }
 nav a:focus-visible{outline:2px solid var(--oxide);outline-offset:1px}
-nav a.on{background:var(--oxide);color:var(--bone);font-weight:600}
+nav a.on{background:var(--oxide);color:var(--bone);font-weight:600;box-shadow:2px 2px 0 var(--ink)}
 nav a.done{background:transparent;border-color:var(--rule);color:var(--slate);opacity:.7}
 
 /* ---------- trip status ---------- */
@@ -187,7 +177,7 @@ nav a.done{background:transparent;border-color:var(--rule);color:var(--slate);op
   content:"";position:absolute;left:7px;top:8px;bottom:8px;width:2px;
   background:var(--rule);
 }
-.day{position:relative;padding:38px 0 0 34px;scroll-margin-top:104px}
+.day{position:relative;padding:38px 0 0 34px;scroll-margin-top:156px}
 .day::before{
   content:"";position:absolute;left:0;top:44px;width:16px;height:16px;
   border-radius:50%;background:var(--ground);border:2px solid var(--slate);
@@ -206,12 +196,12 @@ nav a.done{background:transparent;border-color:var(--rule);color:var(--slate);op
 }
 .day-head{
   display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;
-  margin:0 0 10px;padding:12px 16px;
-  background:var(--ground-2);border-radius:10px 10px 0 4px;
-  border-left:4px solid var(--slate);
+  margin:0 0 14px;padding:12px 16px;
+  background:var(--ground-2);border:2.5px solid var(--ink);border-radius:3px;
+  box-shadow:4px 4px 0 var(--ink);
 }
-.day.today .day-head{border-left-color:var(--oxide)}
-.day.past .day-head{border-left-color:var(--moss)}
+.day.today .day-head{background:var(--gold)}
+.day.past .day-head{background:var(--bone)}
 .day-head h2{
   font-family:"Bricolage Grotesque",sans-serif;
   font-weight:800;font-size:26px;letter-spacing:-.02em;margin:0;
@@ -221,7 +211,7 @@ nav a.done{background:transparent;border-color:var(--rule);color:var(--slate);op
   letter-spacing:.08em;text-transform:uppercase;color:var(--slate);
   font-weight:600;
 }
-.day-note{margin:8px 0 22px;color:#2A2F3E;max-width:52ch}
+.day-note{margin:8px 0 22px;color:#22252A;max-width:52ch}
 .done-badge{
   display:inline-block;margin-left:2px;
   font-family:"JetBrains Mono",monospace;font-size:9.5px;
@@ -245,25 +235,28 @@ nav a.done{background:transparent;border-color:var(--rule);color:var(--slate);op
   display:grid;
   grid-template-columns:58px 1fr;
   gap:0 16px;
-  padding:16px 40px 16px 16px;
-  margin:0 0 8px;
+  padding:19px 40px 16px 16px;
+  margin:0 0 14px;
   background:var(--bone);
-  border-radius:4px 8px 8px 8px;
-  border-left:4px solid var(--rule);
-  box-shadow:0 1px 3px rgba(26,31,46,.08);
+  border:2.5px solid var(--ink);
+  border-top-width:7px;
+  border-top-color:var(--slate);
+  border-radius:3px;
+  box-shadow:4px 4px 0 var(--ink);
 }
 .stop-ico{
-  position:absolute;top:12px;right:12px;width:19px;height:19px;
-  color:var(--slate);opacity:.55;
+  position:absolute;top:14px;right:12px;width:19px;height:19px;
+  color:var(--ink);opacity:.7;
 }
-.stop.k-stay{border-left-color:var(--ink)}
-.stop.k-stay .stop-ico{color:var(--ink);opacity:.8}
-.stop.k-eat{border-left-color:var(--gold)}
-.stop.k-eat .stop-ico{color:var(--gold);opacity:.9}
-.stop.k-work{border-left-color:var(--moss)}
-.stop.k-work .stop-ico{color:var(--moss);opacity:.9}
-.stop.k-drive{background:transparent;box-shadow:none;border-left-color:transparent;padding-left:16px}
-.stop.k-drive .stop-ico{opacity:.35}
+.stop.k-stay{border-top-color:var(--ink)}
+.stop.k-eat{border-top-color:var(--gold)}
+.stop.k-work{border-top-color:var(--moss)}
+.stop.k-see{border-top-color:var(--slate)}
+.stop.k-drive{
+  background:transparent;box-shadow:none;border:none;border-radius:0;
+  padding:10px 40px 10px 16px;margin:0 0 6px;
+}
+.stop.k-drive .stop-ico{opacity:.4}
 .day-body{padding-bottom:4px}
 .t{
   font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:600;
@@ -282,22 +275,22 @@ nav a.done{background:transparent;border-color:var(--rule);color:var(--slate);op
   font-family:"JetBrains Mono",monospace;font-size:11px;
   color:var(--slate);margin:0 0 7px;
 }
-.body p{margin:0;font-size:16.5px;line-height:1.5;color:#2A2F3E}
+.body p{margin:0;font-size:16.5px;line-height:1.5;color:#22252A}
 .tag{
   display:inline-block;vertical-align:2px;margin-left:7px;
   font-family:"JetBrains Mono",monospace;font-size:9px;font-weight:600;
   letter-spacing:.08em;text-transform:uppercase;
-  padding:2.5px 8px;border-radius:20px;
+  padding:2px 8px;border-radius:20px;border:1.5px solid var(--ink);
   background:var(--oxide);color:var(--bone);
 }
 .tag.moss{background:var(--moss)}
 .tag.gold{background:var(--gold);color:var(--ink)}
-.stop.light{background:#FDEADD}
+.stop.light{background:#FFDDCF}
 .stop.light .body h3{color:var(--oxide)}
 
 /* ---------- sub-day divider (multi-day sections) ---------- */
 .subday{
-  margin:36px 0 2px;padding-top:22px;scroll-margin-top:104px;
+  margin:36px 0 2px;padding-top:22px;scroll-margin-top:156px;
   border-top:1px dashed var(--rule);
   font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:600;
   letter-spacing:.14em;text-transform:uppercase;color:var(--oxide);
@@ -307,8 +300,8 @@ nav a.done{background:transparent;border-color:var(--rule);color:var(--slate);op
 /* ---------- asides ---------- */
 .swap{
   margin:16px 0 0;padding:14px 16px;
-  background:var(--ground-2);border-left:3px solid var(--moss);
-  border-radius:2px 8px 8px 2px;
+  background:var(--ground-2);border:2px solid var(--ink);
+  border-radius:3px;
 }
 .swap .lbl{
   font-family:"JetBrains Mono",monospace;font-size:10px;
@@ -325,8 +318,9 @@ nav a.done{background:transparent;border-color:var(--rule);color:var(--slate);op
 }
 .watch ul{list-style:none;margin:0;padding:0}
 .watch li{
-  padding:13px 14px;margin:0 0 6px;
-  background:var(--bone);border-radius:8px;
+  padding:13px 14px;margin:0 0 10px;
+  background:var(--bone);border:2px solid var(--ink);border-radius:3px;
+  box-shadow:3px 3px 0 var(--ink);
   display:grid;grid-template-columns:88px 1fr;gap:14px;align-items:start;
 }
 .watch .k{
@@ -334,7 +328,7 @@ nav a.done{background:transparent;border-color:var(--rule);color:var(--slate);op
   letter-spacing:.1em;text-transform:uppercase;color:var(--oxide);
   padding-top:4px;
 }
-.watch li p{margin:0;font-size:16px;color:#2A2F3E}
+.watch li p{margin:0;font-size:16px;color:#22252A}
 .watch li.archived{opacity:.5}
 .watch li.archived .k{color:var(--moss)}
 
@@ -403,8 +397,9 @@ footer{
     <circle cx="12" cy="19.5" r="1.2" fill="currentColor"/>
   </symbol>
 </svg>
-<div class="brandbar">
-  <svg class="pop2-logo" viewBox="0 0 132 92" role="img" aria-label="Population 2 road-trip badge">
+<h1 class="sr-only">Durango → Steamboat → Pagosa → Durango → Santa Fe — a Population 2 road trip guide</h1>
+<button type="button" class="topbar" id="scrollTopBtn" aria-label="Scroll to top, Population 2 road trip">
+  <svg class="pop2-logo pop2-logo-sm" viewBox="0 0 132 92" aria-hidden="true">
     <rect x="3" y="3" width="126" height="86" rx="6" fill="var(--bone)" stroke="var(--ink)" stroke-width="3"/>
     <circle cx="14" cy="14" r="3.5" fill="var(--ink)"/>
     <circle cx="118" cy="14" r="3.5" fill="var(--ink)"/>
@@ -419,7 +414,12 @@ footer{
       <ellipse cx="18" cy="5" rx="3.4" ry="4.2"/>
     </g>
   </svg>
-</div>
+  <span class="topbar-stats">
+    <span class="stat">Sat 15 Aug – Sat 5 Sep</span>
+    <span class="stat">1,054 mi</span>
+    <span class="stat">Dog aboard</span>
+  </span>
+</button>
 <button type="button" class="now-bar" id="nowBar" hidden>
   <span class="now-dot" aria-hidden="true"></span>
   <span class="now-label">
@@ -429,16 +429,6 @@ footer{
   <span class="now-cta" id="nowCta">Jump to today ↓</span>
 </button>
 <div class="wrap">
-
-<header>
-  <div class="stats">
-    <span class="stat">SAT 15 AUG – SAT 5 SEP</span>
-    <span class="stat">1,054 MI</span>
-    <span class="stat">DOG ABOARD</span>
-  </div>
-  <h1>Durango <span class="arrow">→</span> Steamboat <span class="arrow">→</span> Pagosa <span class="arrow">→</span> Durango <span class="arrow">→</span> Santa Fe</h1>
-  <p class="trip-status" hidden></p>
-</header>
 
 <div class="tripmap-wrap">
   <div id="realmap" role="img" aria-label="Real map of the whole trip route, Durango to Steamboat to Buena Vista to Pagosa Springs, back to Durango, then Santa Fe. Pins show status and open with date, elevation, and a jump-to-day button."></div>
@@ -986,22 +976,22 @@ footer{
     <svg viewBox="0 0 680 150" role="img">
       <defs>
         <linearGradient id="fade3" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#BE3B10" stop-opacity=".22"/>
-          <stop offset="100%" stop-color="#BE3B10" stop-opacity="0"/>
+          <stop offset="0%" stop-color="#C93412" stop-opacity=".22"/>
+          <stop offset="100%" stop-color="#C93412" stop-opacity="0"/>
         </linearGradient>
       </defs>
       <path d="M0,121 L95,57 L247,106 L498,12 L680,92"
-            fill="none" stroke="#BE3B10" stroke-width="2.5" stroke-linejoin="round"/>
+            fill="none" stroke="#C93412" stroke-width="2.5" stroke-linejoin="round"/>
       <path d="M0,121 L95,57 L247,106 L498,12 L680,92 L680,150 L0,150 Z"
             fill="url(#fade3)"/>
-      <circle cx="0" cy="121" r="3.5" fill="#1A1F2E"/>
-      <circle cx="95" cy="57" r="3.5" fill="#1A1F2E"/>
-      <circle cx="247" cy="106" r="3.5" fill="#1A1F2E"/>
-      <circle cx="498" cy="12" r="3.5" fill="#BE3B10"/>
-      <circle cx="680" cy="92" r="3.5" fill="#1A1F2E"/>
-      <g font-family="JetBrains Mono, monospace" font-size="9.5" fill="#35597A">
+      <circle cx="0" cy="121" r="3.5" fill="#12151A"/>
+      <circle cx="95" cy="57" r="3.5" fill="#12151A"/>
+      <circle cx="247" cy="106" r="3.5" fill="#12151A"/>
+      <circle cx="498" cy="12" r="3.5" fill="#C93412"/>
+      <circle cx="680" cy="92" r="3.5" fill="#12151A"/>
+      <g font-family="JetBrains Mono, monospace" font-size="9.5" fill="#255873">
         <text x="10" y="47">Rabbit Ears 9,426</text>
-        <text x="440" y="6" fill="#BE3B10">Fremont Pass 11,318</text>
+        <text x="440" y="6" fill="#C93412">Fremont Pass 11,318</text>
         <text x="0" y="142">Steamboat</text>
         <text x="195" y="142">Kremmling</text>
         <text x="612" y="142">Buena Vista</text>
@@ -1082,21 +1072,21 @@ footer{
     <svg viewBox="0 0 680 150" role="img">
       <defs>
         <linearGradient id="fade2" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#BE3B10" stop-opacity=".22"/>
-          <stop offset="100%" stop-color="#BE3B10" stop-opacity="0"/>
+          <stop offset="0%" stop-color="#C93412" stop-opacity=".22"/>
+          <stop offset="100%" stop-color="#C93412" stop-opacity="0"/>
         </linearGradient>
       </defs>
       <path d="M0,92 L107,104 L556,93 L641,23 L680,112"
-            fill="none" stroke="#BE3B10" stroke-width="2.5" stroke-linejoin="round"/>
+            fill="none" stroke="#C93412" stroke-width="2.5" stroke-linejoin="round"/>
       <path d="M0,92 L107,104 L556,93 L641,23 L680,112 L680,150 L0,150 Z"
             fill="url(#fade2)"/>
-      <circle cx="0" cy="92" r="3.5" fill="#1A1F2E"/>
-      <circle cx="107" cy="104" r="3.5" fill="#1A1F2E"/>
-      <circle cx="556" cy="93" r="3.5" fill="#1A1F2E"/>
-      <circle cx="641" cy="23" r="3.5" fill="#BE3B10"/>
-      <circle cx="680" cy="112" r="3.5" fill="#35597A"/>
-      <g font-family="JetBrains Mono, monospace" font-size="9.5" fill="#35597A">
-        <text x="560" y="15" fill="#BE3B10">Wolf Creek 10,857</text>
+      <circle cx="0" cy="92" r="3.5" fill="#12151A"/>
+      <circle cx="107" cy="104" r="3.5" fill="#12151A"/>
+      <circle cx="556" cy="93" r="3.5" fill="#12151A"/>
+      <circle cx="641" cy="23" r="3.5" fill="#C93412"/>
+      <circle cx="680" cy="112" r="3.5" fill="#255873"/>
+      <g font-family="JetBrains Mono, monospace" font-size="9.5" fill="#255873">
+        <text x="560" y="15" fill="#C93412">Wolf Creek 10,857</text>
         <text x="0" y="142">Buena Vista</text>
         <text x="72" y="130">Poncha Springs</text>
         <text x="460" y="130">South Fork</text>
@@ -1356,6 +1346,15 @@ footer{
   window.addEventListener('scroll', sync, {passive:true});
   sync();
 
+  // ---- top bar: logo + stats, tap to scroll back to the top/map overview ----
+  var scrollTopBtn = document.getElementById('scrollTopBtn');
+  if (scrollTopBtn) {
+    var topReduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    scrollTopBtn.addEventListener('click', function(){
+      window.scrollTo({top:0, behavior: topReduceMotion ? 'auto' : 'smooth'});
+    });
+  }
+
   // ---- timeline: mark past/today, everything stays visible and scrollable ----
   // Single source of truth for "now": the viewer's own device clock, read fresh
   // on every page load. Nothing on this page hardcodes a date — that's the point.
@@ -1392,11 +1391,6 @@ footer{
     }
   });
 
-  var status = document.querySelector('.trip-status:not(.watch-status)');
-  if (status && pastCount) {
-    status.hidden = false;
-    status.textContent = pastCount + ' of ' + allDays.length + ' days done — scroll up any time, nothing here is hidden.';
-  }
 
   // Watch-list reminders: dim once resolved, never hidden.
   var allWatch = Array.prototype.slice.call(document.querySelectorAll('.watch li[data-until]'));
@@ -1433,7 +1427,7 @@ footer{
     }).addTo(map);
 
     var latlngs = stops.map(function(s){ return [s.lat, s.lon]; });
-    L.polyline(latlngs, {color:'#35597A', weight:2.5, opacity:.65, dashArray:'6 6'}).addTo(map);
+    L.polyline(latlngs, {color:'#255873', weight:2.5, opacity:.65, dashArray:'6 6'}).addTo(map);
     map.fitBounds(latlngs, {padding:[28,28]});
 
     var mapMarked = false;
@@ -1504,6 +1498,10 @@ footer{
     nowBar.addEventListener('click', function(){
       target.scrollIntoView({behavior: reduceMotion ? 'auto' : 'smooth', block:'start'});
     });
+    // Land on today by default rather than making it something to hunt for in
+    // the middle of a long chronological list — instant, not animated, so
+    // there's no jarring flash-of-top-then-slide-down on first paint.
+    target.scrollIntoView({behavior:'auto', block:'start'});
   } else if (nowBar && allDays.length && pastCount === allDays.length) {
     document.getElementById('nowWeekday').textContent = 'Trip complete';
     document.getElementById('nowWhat').textContent = 'All ' + allDays.length + ' days done — home free.';

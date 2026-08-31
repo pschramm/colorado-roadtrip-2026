@@ -1505,12 +1505,22 @@ footer{
     // to after web fonts finish loading: firing this while text is still set
     // in a fallback font measurably shifts every section's height once the
     // real fonts swap in, landing the scroll hundreds of pixels short/long.
+    var userScrolled = false;
+    ['wheel', 'touchmove', 'keydown'].forEach(function(evt){
+      window.addEventListener(evt, function(){ userScrolled = true; }, {passive:true, once:true});
+    });
     function landOnToday(){ target.scrollIntoView({behavior:'auto', block:'start'}); }
     if (document.fonts && document.fonts.ready) {
       document.fonts.ready.then(landOnToday);
     } else {
       setTimeout(landOnToday, 150);
     }
+    // Belt and suspenders: the map (tiles load async over the network) and
+    // other late layout settling can still shift things after fonts are
+    // ready. One corrective re-scroll a beat later catches the residual —
+    // but only if the visitor hasn't already started scrolling themselves,
+    // since yanking them back mid-scroll would be worse than the drift.
+    setTimeout(function(){ if (!userScrolled) landOnToday(); }, 700);
   } else if (nowBar && allDays.length && pastCount === allDays.length) {
     document.getElementById('nowWeekday').textContent = 'Trip complete';
     document.getElementById('nowWhat').textContent = 'All ' + allDays.length + ' days done — home free.';

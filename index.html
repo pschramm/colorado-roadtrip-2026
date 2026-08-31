@@ -1501,8 +1501,16 @@ footer{
     });
     // Land on today by default rather than making it something to hunt for in
     // the middle of a long chronological list — instant, not animated, so
-    // there's no jarring flash-of-top-then-slide-down on first paint.
-    target.scrollIntoView({behavior:'auto', block:'start'});
+    // there's no jarring flash-of-top-then-slide-down on first paint. Deferred
+    // to after web fonts finish loading: firing this while text is still set
+    // in a fallback font measurably shifts every section's height once the
+    // real fonts swap in, landing the scroll hundreds of pixels short/long.
+    function landOnToday(){ target.scrollIntoView({behavior:'auto', block:'start'}); }
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(landOnToday);
+    } else {
+      setTimeout(landOnToday, 150);
+    }
   } else if (nowBar && allDays.length && pastCount === allDays.length) {
     document.getElementById('nowWeekday').textContent = 'Trip complete';
     document.getElementById('nowWhat').textContent = 'All ' + allDays.length + ' days done — home free.';

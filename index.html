@@ -9,14 +9,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --ground:#DCE0D8;
-  --ground-2:#D2D7CD;
-  --ink:#1B2228;
-  --oxide:#93402C;
-  --slate:#4A5A66;
-  --bone:#F1F0EA;
-  --moss:#6B7A5A;
-  --rule:rgba(27,34,40,.16);
+  --ground:#F7EAD2;
+  --ground-2:#EEDBB0;
+  --ink:#1A1F2E;
+  --oxide:#BE3B10;
+  --slate:#35597A;
+  --bone:#FBF3E3;
+  --moss:#0E7A5F;
+  --gold:#D9932A;
+  --rule:rgba(26,31,46,.16);
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
@@ -33,6 +34,7 @@ body{
 
 /* ---------- hero ---------- */
 header{padding:36px 0 8px}
+.pop2-logo{width:84px;height:auto;display:block;margin:0 0 16px;filter:drop-shadow(2px 3px 0 var(--rule))}
 .eyebrow{
   font-family:"JetBrains Mono",monospace;
   font-size:11px;letter-spacing:.18em;text-transform:uppercase;
@@ -46,7 +48,7 @@ h1{
 h1 .arrow{color:var(--oxide);font-weight:400}
 .standfirst{
   font-size:19px;line-height:1.45;margin:16px 0 0;max-width:46ch;
-  color:#2A343C;
+  color:#2A2F3E;
 }
 .standfirst em{font-style:italic;color:var(--oxide)}
 
@@ -113,21 +115,20 @@ h1 .arrow{color:var(--oxide);font-weight:400}
 nav{
   position:sticky;top:52px;z-index:10;
   background:var(--ground);
-  border-bottom:1px solid var(--rule);
-  display:flex;gap:0;margin:18px -20px 0;padding:0 20px;
-  overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;
+  border-bottom:2px solid var(--ink);
+  display:flex;flex-wrap:wrap;gap:6px;margin:18px -20px 0;padding:10px 20px 12px;
 }
-nav::-webkit-scrollbar{display:none}
 nav a{
-  flex:0 0 auto;text-align:center;padding:13px 14px 11px;
-  font-family:"JetBrains Mono",monospace;font-size:11.5px;
-  letter-spacing:.12em;text-transform:uppercase;
-  color:var(--slate);text-decoration:none;white-space:nowrap;
-  border-bottom:2px solid transparent;
+  flex:0 0 auto;text-align:center;padding:6px 12px;
+  border-radius:20px;background:var(--ground-2);
+  font-family:"JetBrains Mono",monospace;font-size:10.5px;
+  letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink);text-decoration:none;white-space:nowrap;
+  border:1.5px solid transparent;
 }
-nav a:focus-visible{outline:2px solid var(--oxide);outline-offset:-2px}
-nav a.on{color:var(--ink);border-bottom-color:var(--oxide)}
-nav a.done{opacity:.5}
+nav a:focus-visible{outline:2px solid var(--oxide);outline-offset:1px}
+nav a.on{background:var(--oxide);color:var(--bone);font-weight:600}
+nav a.done{background:transparent;border-color:var(--rule);color:var(--slate);opacity:.7}
 
 /* ---------- trip status ---------- */
 .trip-status{
@@ -164,16 +165,24 @@ nav a.done{opacity:.5}
   border-radius:50%;background:var(--oxide);
   box-shadow:0 0 0 4px var(--ground),0 0 0 5px var(--oxide);
 }
-.day-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:4px}
+.day-head{
+  display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;
+  margin:0 0 10px;padding:12px 16px;
+  background:var(--ground-2);border-radius:10px 10px 0 4px;
+  border-left:4px solid var(--slate);
+}
+.day.today .day-head{border-left-color:var(--oxide)}
+.day.past .day-head{border-left-color:var(--moss)}
 .day-head h2{
   font-family:"Bricolage Grotesque",sans-serif;
-  font-weight:800;font-size:30px;letter-spacing:-.02em;margin:0;
+  font-weight:800;font-size:26px;letter-spacing:-.02em;margin:0;
 }
 .day-meta{
-  font-family:"JetBrains Mono",monospace;font-size:11px;
+  font-family:"JetBrains Mono",monospace;font-size:10.5px;
   letter-spacing:.08em;text-transform:uppercase;color:var(--slate);
+  font-weight:600;
 }
-.day-note{margin:8px 0 22px;color:#2A343C;max-width:52ch}
+.day-note{margin:8px 0 22px;color:#2A2F3E;max-width:52ch}
 .done-badge{
   display:inline-block;margin-left:2px;
   font-family:"JetBrains Mono",monospace;font-size:9.5px;
@@ -196,10 +205,13 @@ nav a.done{opacity:.5}
   display:grid;
   grid-template-columns:58px 1fr;
   gap:0 16px;
-  padding:18px 0;
-  border-top:1px solid var(--rule);
+  padding:16px;
+  margin:0 0 8px;
+  background:var(--bone);
+  border-radius:4px 8px 8px 8px;
+  box-shadow:0 1px 3px rgba(26,31,46,.08);
 }
-.stop:last-child{border-bottom:1px solid var(--rule)}
+.day-body{padding-bottom:4px}
 .t{
   font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:600;
   color:var(--ink);padding-top:3px;letter-spacing:-.02em;
@@ -217,14 +229,17 @@ nav a.done{opacity:.5}
   font-family:"JetBrains Mono",monospace;font-size:11px;
   color:var(--slate);margin:0 0 7px;
 }
-.body p{margin:0;font-size:16.5px;line-height:1.5;color:#2A343C}
+.body p{margin:0;font-size:16.5px;line-height:1.5;color:#2A2F3E}
 .tag{
   display:inline-block;vertical-align:2px;margin-left:7px;
-  font-family:"JetBrains Mono",monospace;font-size:9.5px;
-  letter-spacing:.1em;text-transform:uppercase;
-  padding:2px 6px;border:1px solid var(--oxide);color:var(--oxide);
+  font-family:"JetBrains Mono",monospace;font-size:9px;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;
+  padding:2.5px 8px;border-radius:20px;
+  background:var(--oxide);color:var(--bone);
 }
-.tag.moss{border-color:var(--moss);color:var(--moss)}
+.tag.moss{background:var(--moss)}
+.tag.gold{background:var(--gold);color:var(--ink)}
+.stop.light{background:#FDEADD}
 .stop.light .body h3{color:var(--oxide)}
 
 /* ---------- sub-day divider (multi-day sections) ---------- */
@@ -239,7 +254,8 @@ nav a.done{opacity:.5}
 /* ---------- asides ---------- */
 .swap{
   margin:16px 0 0;padding:14px 16px;
-  background:var(--ground-2);border-left:2px solid var(--moss);
+  background:var(--ground-2);border-left:3px solid var(--moss);
+  border-radius:2px 8px 8px 2px;
 }
 .swap .lbl{
   font-family:"JetBrains Mono",monospace;font-size:10px;
@@ -256,15 +272,16 @@ nav a.done{opacity:.5}
 }
 .watch ul{list-style:none;margin:0;padding:0}
 .watch li{
-  padding:13px 0;border-bottom:1px solid var(--rule);
+  padding:13px 14px;margin:0 0 6px;
+  background:var(--bone);border-radius:8px;
   display:grid;grid-template-columns:88px 1fr;gap:14px;align-items:start;
 }
 .watch .k{
-  font-family:"JetBrains Mono",monospace;font-size:10px;
+  font-family:"JetBrains Mono",monospace;font-size:10px;font-weight:600;
   letter-spacing:.1em;text-transform:uppercase;color:var(--oxide);
   padding-top:4px;
 }
-.watch li p{margin:0;font-size:16px;color:#2A343C}
+.watch li p{margin:0;font-size:16px;color:#2A2F3E}
 .watch li.archived{opacity:.5}
 .watch li.archived .k{color:var(--moss)}
 
@@ -301,6 +318,21 @@ footer{
 <div class="wrap">
 
 <header>
+  <svg class="pop2-logo" viewBox="0 0 132 92" role="img" aria-label="Population 2 road-trip badge">
+    <rect x="3" y="3" width="126" height="86" rx="6" fill="var(--bone)" stroke="var(--ink)" stroke-width="3"/>
+    <circle cx="14" cy="14" r="3.5" fill="var(--ink)"/>
+    <circle cx="118" cy="14" r="3.5" fill="var(--ink)"/>
+    <circle cx="14" cy="78" r="3.5" fill="var(--ink)"/>
+    <circle cx="118" cy="78" r="3.5" fill="var(--ink)"/>
+    <text x="66" y="26" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" font-weight="600" letter-spacing="2" fill="var(--ink)">POPULATION</text>
+    <text x="52" y="72" text-anchor="middle" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="46" fill="var(--oxide)">2</text>
+    <g fill="var(--gold)" transform="translate(88,50)">
+      <ellipse cx="10" cy="18" rx="9" ry="7.5"/>
+      <ellipse cx="2" cy="5" rx="3.4" ry="4.2"/>
+      <ellipse cx="10" cy="1" rx="3.6" ry="4.4"/>
+      <ellipse cx="18" cy="5" rx="3.4" ry="4.2"/>
+    </g>
+  </svg>
   <p class="eyebrow">Sat 15 Aug – Sat 5 Sep · 1,054 miles from Durango on · dog aboard</p>
   <h1>Durango <span class="arrow">→</span> Steamboat <span class="arrow">→</span> Pagosa <span class="arrow">→</span> Durango <span class="arrow">→</span> Santa Fe</h1>
   <p class="standfirst">Three days in, three and a half spent based in Steamboat, then the way back south splits over two shorter days instead of one long push. You lose <em>6,400 feet</em> between Molas Pass and Grand Junction on the way up, cross Rabbit Ears and Fremont on the way to a Buena Vista layover, then Wolf Creek Pass down to a show in Pagosa Springs — with a bed waiting at the other end this time. A longer-than-planned stretch back in Durango, then one more drive south to Santa Fe for a free Cactus Lee set — what happens after that show isn't decided yet.</p>
@@ -311,29 +343,29 @@ footer{
 <svg viewBox="0 0 680 150" role="img">
   <defs>
     <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#93402C" stop-opacity=".22"/>
-      <stop offset="100%" stop-color="#93402C" stop-opacity="0"/>
+      <stop offset="0%" stop-color="#BE3B10" stop-opacity=".22"/>
+      <stop offset="100%" stop-color="#BE3B10" stop-opacity="0"/>
     </linearGradient>
   </defs>
   <!-- day dividers -->
-  <line x1="170" y1="8" x2="170" y2="126" stroke="#1B2228" stroke-opacity=".18" stroke-dasharray="2 4"/>
-  <line x1="510" y1="8" x2="510" y2="126" stroke="#1B2228" stroke-opacity=".18" stroke-dasharray="2 4"/>
+  <line x1="170" y1="8" x2="170" y2="126" stroke="#1A1F2E" stroke-opacity=".18" stroke-dasharray="2 4"/>
+  <line x1="510" y1="8" x2="510" y2="126" stroke="#1A1F2E" stroke-opacity=".18" stroke-dasharray="2 4"/>
   <!-- profile -->
   <path d="M0,86 L60,52 L120,20 L170,44 L215,14 L260,10 L320,56 L370,72 L430,100 L470,126 L540,110 L580,92 L620,98 L680,80"
-        fill="none" stroke="#93402C" stroke-width="2.5" stroke-linejoin="round"/>
+        fill="none" stroke="#BE3B10" stroke-width="2.5" stroke-linejoin="round"/>
   <path d="M0,86 L60,52 L120,20 L170,44 L215,14 L260,10 L320,56 L370,72 L430,100 L470,126 L540,110 L580,92 L620,98 L680,80 L680,150 L0,150 Z"
         fill="url(#fade)"/>
   <!-- markers -->
-  <circle cx="0" cy="86" r="3.5" fill="#1B2228"/>
-  <circle cx="170" cy="44" r="3.5" fill="#1B2228"/>
-  <circle cx="260" cy="10" r="3.5" fill="#93402C"/>
-  <circle cx="470" cy="126" r="3.5" fill="#4A5A66"/>
-  <circle cx="540" cy="110" r="3.5" fill="#1B2228"/>
-  <circle cx="680" cy="80" r="3.5" fill="#1B2228"/>
-  <g font-family="JetBrains Mono, monospace" font-size="9.5" fill="#4A5A66">
+  <circle cx="0" cy="86" r="3.5" fill="#1A1F2E"/>
+  <circle cx="170" cy="44" r="3.5" fill="#1A1F2E"/>
+  <circle cx="260" cy="10" r="3.5" fill="#BE3B10"/>
+  <circle cx="470" cy="126" r="3.5" fill="#35597A"/>
+  <circle cx="540" cy="110" r="3.5" fill="#1A1F2E"/>
+  <circle cx="680" cy="80" r="3.5" fill="#1A1F2E"/>
+  <g font-family="JetBrains Mono, monospace" font-size="9.5" fill="#35597A">
     <text x="0" y="142">Durango</text>
     <text x="140" y="142">Silverton</text>
-    <text x="228" y="6" fill="#93402C">Red Mtn 11,018</text>
+    <text x="228" y="6" fill="#BE3B10">Red Mtn 11,018</text>
     <text x="424" y="142">Grand Jct 4,586</text>
     <text x="512" y="142">New Castle</text>
     <text x="620" y="142">Steamboat</text>
@@ -854,22 +886,22 @@ footer{
     <svg viewBox="0 0 680 150" role="img">
       <defs>
         <linearGradient id="fade3" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#93402C" stop-opacity=".22"/>
-          <stop offset="100%" stop-color="#93402C" stop-opacity="0"/>
+          <stop offset="0%" stop-color="#BE3B10" stop-opacity=".22"/>
+          <stop offset="100%" stop-color="#BE3B10" stop-opacity="0"/>
         </linearGradient>
       </defs>
       <path d="M0,121 L95,57 L247,106 L498,12 L680,92"
-            fill="none" stroke="#93402C" stroke-width="2.5" stroke-linejoin="round"/>
+            fill="none" stroke="#BE3B10" stroke-width="2.5" stroke-linejoin="round"/>
       <path d="M0,121 L95,57 L247,106 L498,12 L680,92 L680,150 L0,150 Z"
             fill="url(#fade3)"/>
-      <circle cx="0" cy="121" r="3.5" fill="#1B2228"/>
-      <circle cx="95" cy="57" r="3.5" fill="#1B2228"/>
-      <circle cx="247" cy="106" r="3.5" fill="#1B2228"/>
-      <circle cx="498" cy="12" r="3.5" fill="#93402C"/>
-      <circle cx="680" cy="92" r="3.5" fill="#1B2228"/>
-      <g font-family="JetBrains Mono, monospace" font-size="9.5" fill="#4A5A66">
+      <circle cx="0" cy="121" r="3.5" fill="#1A1F2E"/>
+      <circle cx="95" cy="57" r="3.5" fill="#1A1F2E"/>
+      <circle cx="247" cy="106" r="3.5" fill="#1A1F2E"/>
+      <circle cx="498" cy="12" r="3.5" fill="#BE3B10"/>
+      <circle cx="680" cy="92" r="3.5" fill="#1A1F2E"/>
+      <g font-family="JetBrains Mono, monospace" font-size="9.5" fill="#35597A">
         <text x="10" y="47">Rabbit Ears 9,426</text>
-        <text x="440" y="6" fill="#93402C">Fremont Pass 11,318</text>
+        <text x="440" y="6" fill="#BE3B10">Fremont Pass 11,318</text>
         <text x="0" y="142">Steamboat</text>
         <text x="195" y="142">Kremmling</text>
         <text x="612" y="142">Buena Vista</text>
@@ -935,21 +967,21 @@ footer{
     <svg viewBox="0 0 680 150" role="img">
       <defs>
         <linearGradient id="fade2" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#93402C" stop-opacity=".22"/>
-          <stop offset="100%" stop-color="#93402C" stop-opacity="0"/>
+          <stop offset="0%" stop-color="#BE3B10" stop-opacity=".22"/>
+          <stop offset="100%" stop-color="#BE3B10" stop-opacity="0"/>
         </linearGradient>
       </defs>
       <path d="M0,92 L107,104 L556,93 L641,23 L680,112"
-            fill="none" stroke="#93402C" stroke-width="2.5" stroke-linejoin="round"/>
+            fill="none" stroke="#BE3B10" stroke-width="2.5" stroke-linejoin="round"/>
       <path d="M0,92 L107,104 L556,93 L641,23 L680,112 L680,150 L0,150 Z"
             fill="url(#fade2)"/>
-      <circle cx="0" cy="92" r="3.5" fill="#1B2228"/>
-      <circle cx="107" cy="104" r="3.5" fill="#1B2228"/>
-      <circle cx="556" cy="93" r="3.5" fill="#1B2228"/>
-      <circle cx="641" cy="23" r="3.5" fill="#93402C"/>
-      <circle cx="680" cy="112" r="3.5" fill="#4A5A66"/>
-      <g font-family="JetBrains Mono, monospace" font-size="9.5" fill="#4A5A66">
-        <text x="560" y="15" fill="#93402C">Wolf Creek 10,857</text>
+      <circle cx="0" cy="92" r="3.5" fill="#1A1F2E"/>
+      <circle cx="107" cy="104" r="3.5" fill="#1A1F2E"/>
+      <circle cx="556" cy="93" r="3.5" fill="#1A1F2E"/>
+      <circle cx="641" cy="23" r="3.5" fill="#BE3B10"/>
+      <circle cx="680" cy="112" r="3.5" fill="#35597A"/>
+      <g font-family="JetBrains Mono, monospace" font-size="9.5" fill="#35597A">
+        <text x="560" y="15" fill="#BE3B10">Wolf Creek 10,857</text>
         <text x="0" y="142">Buena Vista</text>
         <text x="72" y="130">Poncha Springs</text>
         <text x="460" y="130">South Fork</text>

@@ -90,6 +90,25 @@ h1 .arrow{color:var(--oxide);font-weight:400}
 }
 .now-bar.done-state{background:var(--moss)}
 
+/* ---------- trip map ---------- */
+.tripmap{margin:26px 0 0}
+.tripmap svg{width:100%;height:auto;display:block;overflow:visible}
+.tripmap-caption{
+  font-family:"JetBrains Mono",monospace;font-size:10.5px;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--slate);
+  margin:6px 0 0;
+}
+.tm-route{fill:none;stroke:var(--rule);stroke-width:2;stroke-dasharray:4 3}
+.tm-node{cursor:pointer}
+.tm-node circle{fill:var(--ground);stroke:var(--slate);stroke-width:2;transition:r .15s}
+.tm-node text{font-family:"JetBrains Mono",monospace;font-size:9.5px;fill:var(--slate)}
+.tm-node.past circle{fill:var(--moss);stroke:var(--moss)}
+.tm-node.past text{fill:var(--moss)}
+.tm-node.today circle{fill:var(--oxide);stroke:var(--oxide);r:7}
+.tm-node.today text{fill:var(--oxide);font-weight:600}
+.tm-node:hover circle{r:7}
+.tm-pulse{fill:none;stroke:var(--oxide);stroke-width:1.5;opacity:.5}
+
 /* ---------- nav ---------- */
 nav{
   position:sticky;top:52px;z-index:10;
@@ -322,6 +341,46 @@ footer{
 </svg>
   <div class="profile-caption"><span>Friday</span><span>Saturday</span><span>Sunday</span></div>
 </div>
+
+<div class="tripmap" aria-label="Schematic map of the whole trip, Durango to Steamboat to Buena Vista to Pagosa Springs, back to Durango, then Santa Fe. Not to scale, but positioned to match real relative geography. Tap a stop to jump there.">
+<svg viewBox="0 0 320 500" role="img">
+  <path class="tm-route" d="M40,320 L67,272 L83,113 L170,30 L256,179 L148,321 L48,332 L280,466"/>
+
+  <g class="tm-node" data-until="2026-08-21" data-target="durango">
+    <circle cx="40" cy="320" r="5.5"/>
+    <text x="30" y="323" text-anchor="end">Durango</text>
+  </g>
+  <g class="tm-node" data-until="2026-08-21" data-target="fri">
+    <circle cx="67" cy="272" r="5.5"/>
+    <text x="77" y="275" text-anchor="start">Silverton</text>
+  </g>
+  <g class="tm-node" data-until="2026-08-22" data-target="sat">
+    <circle cx="83" cy="113" r="5.5"/>
+    <text x="93" y="116" text-anchor="start">New Castle</text>
+  </g>
+  <g class="tm-node" data-until="2026-08-26" data-target="sun">
+    <circle cx="170" cy="30" r="5.5"/>
+    <text x="180" y="34" text-anchor="start">Steamboat</text>
+  </g>
+  <g class="tm-node" data-until="2026-08-27" data-target="thu">
+    <circle cx="256" cy="179" r="5.5"/>
+    <text x="266" y="182" text-anchor="start">Buena Vista</text>
+  </g>
+  <g class="tm-node" data-until="2026-08-28" data-target="pagosa">
+    <circle cx="148" cy="321" r="5.5"/>
+    <text x="148" y="303" text-anchor="middle">Pagosa Springs</text>
+  </g>
+  <g class="tm-node" data-until="2026-09-03" data-target="return">
+    <circle cx="48" cy="332" r="5.5"/>
+    <text x="48" y="352" text-anchor="middle">Durango again</text>
+  </g>
+  <g class="tm-node" data-until="2026-09-05" data-target="santafe">
+    <circle cx="280" cy="466" r="5.5"/>
+    <text x="270" y="469" text-anchor="end">Santa Fe</text>
+  </g>
+</svg>
+</div>
+<p class="tripmap-caption">Roughly to real geography, not to scale · tap a stop to jump there</p>
 
 <nav>
   <a href="#durango">Aug 15–21 · Durango</a>
@@ -999,6 +1058,15 @@ footer{
       <p class="addr">Carver Brewing Co. — 1022 Main Ave · Durango's original brewpub, patio seating</p>
     </div>
   </div>
+
+  <div class="stop">
+    <div class="t">–</div>
+    <div class="body">
+      <h3>Durfield Dispersed<span class="tag moss">Good signal</span></h3>
+      <p class="addr">US-160, near Bayfield · 37.226597, -107.695009 · ~25min from Durango</p>
+      <p>If Wednesday ends up another night here rather than an early Santa Fe departure: real work-from-the-car option on BLM/San Juan NF land, halfway between Durango and Pagosa. Gravel access road, rough in sections but manageable for a regular car — this is the one exception to paved-only, agreed Aug 31, since it's parking to work rather than driving anywhere rough. Reviews report 3–4 bars Verizon, 4G/5G AT&T, usable T-Mobile — genuinely good, not just "one bar and hope."</p>
+    </div>
+  </div>
   </div>
 </section>
 
@@ -1019,6 +1087,10 @@ footer{
       <div class="swap">
         <span class="lbl">Once you're on fresh ground</span>
         <p><strong>Rio Chama Espresso</strong>, Chama, NM — 614 Terrace Ave, dog-friendly coffeehouse with outdoor tables, right after the state line. <strong>Cafe Abiquiu</strong>, at the Abiquiu Inn — dog-friendly patio, open 7am–9pm, roughly the midpoint of the New Mexico stretch.</p>
+      </div>
+      <div class="swap">
+        <span class="lbl">If Wednesday means an early start instead</span>
+        <p><strong>Echo Amphitheater Campground</strong><span class="tag moss">Good signal</span> — Carson National Forest, US-84, 17mi northwest of Abiquiu. A real developed USFS campground right off the highway (not a forest-road detour), electric hookups, picnic tables, set against a dramatic red-rock amphitheater. Reports: good T-Mobile, workable Verizon (1–2 bars, better with a booster). A legitimate work-from-here stop if the day starts in Durango and ends in Santa Fe with hours to spare in between.</p>
       </div>
     </div>
   </div>
@@ -1148,6 +1220,25 @@ footer{
     watchStatus.hidden = false;
     watchStatus.textContent = resolvedWatch.length + ' of ' + allWatch.length + ' resolved (dimmed below).';
   }
+
+  // ---- trip map: color nodes past/today, tap to jump ----
+  // Same isPast()/today source of truth as everything else on the page.
+  var mapReduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var mapMarked = false;
+  Array.prototype.slice.call(document.querySelectorAll('.tm-node[data-until]')).forEach(function(node){
+    if (isPast(node)) {
+      node.classList.add('past');
+    } else if (!mapMarked) {
+      node.classList.add('today');
+      mapMarked = true;
+    }
+    var dest = document.getElementById(node.getAttribute('data-target'));
+    if (dest) {
+      node.addEventListener('click', function(){
+        dest.scrollIntoView({behavior: mapReduceMotion ? 'auto' : 'smooth', block:'start'});
+      });
+    }
+  });
 
   // ---- sticky "right now" bar: always-visible answer to "where am I today" ----
   // Reuses the .day.today element the loop above already found, so the bar and

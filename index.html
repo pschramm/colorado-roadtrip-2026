@@ -25,6 +25,7 @@
 html{-webkit-text-size-adjust:100%}
 body{
   margin:0;
+  overflow-x:hidden;
   background:var(--ground);
   color:var(--ink);
   font-family:"Newsreader",Georgia,serif;
@@ -40,8 +41,13 @@ body{
 
 /* ---------- hero ---------- */
 header{
+  position:relative;
   margin:0 -20px;padding:22px 20px 20px;
-  background:linear-gradient(135deg, var(--oxide) 0%, #7A2A10 65%, var(--ink) 100%);
+}
+header::before{
+  content:"";position:absolute;top:0;bottom:0;left:50%;width:100vw;
+  margin-left:-50vw;background:linear-gradient(135deg, var(--oxide) 0%, #7A2A10 65%, var(--ink) 100%);
+  z-index:-1;
 }
 .stats{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 12px}
 .stat{

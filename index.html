@@ -229,15 +229,29 @@ nav a.done{background:transparent;border-color:var(--rule);color:var(--slate);op
 
 /* ---------- stops ---------- */
 .stop{
+  position:relative;
   display:grid;
   grid-template-columns:58px 1fr;
   gap:0 16px;
-  padding:16px;
+  padding:16px 40px 16px 16px;
   margin:0 0 8px;
   background:var(--bone);
   border-radius:4px 8px 8px 8px;
+  border-left:4px solid var(--rule);
   box-shadow:0 1px 3px rgba(26,31,46,.08);
 }
+.stop-ico{
+  position:absolute;top:12px;right:12px;width:19px;height:19px;
+  color:var(--slate);opacity:.55;
+}
+.stop.k-stay{border-left-color:var(--ink)}
+.stop.k-stay .stop-ico{color:var(--ink);opacity:.8}
+.stop.k-eat{border-left-color:var(--gold)}
+.stop.k-eat .stop-ico{color:var(--gold);opacity:.9}
+.stop.k-work{border-left-color:var(--moss)}
+.stop.k-work .stop-ico{color:var(--moss);opacity:.9}
+.stop.k-drive{background:transparent;box-shadow:none;border-left-color:transparent;padding-left:16px}
+.stop.k-drive .stop-ico{opacity:.35}
 .day-body{padding-bottom:4px}
 .t{
   font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:600;
@@ -334,6 +348,32 @@ footer{
 </style>
 </head>
 <body>
+<svg style="display:none" aria-hidden="true">
+  <symbol id="i-stay" viewBox="0 0 24 24">
+    <path d="M3 18v-8a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v3M3 18v3M3 18h18v3M11 13h8a2 2 0 0 1 2 2v3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="6.5" cy="11.5" r="1.2" fill="currentColor"/>
+  </symbol>
+  <symbol id="i-eat" viewBox="0 0 24 24">
+    <path d="M5 4h11v8a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4V4z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+    <path d="M16 7h1.5a2.5 2.5 0 0 1 0 5H16" fill="none" stroke="currentColor" stroke-width="1.8"/>
+    <line x1="4" y1="20" x2="16" y2="20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="i-see" viewBox="0 0 24 24">
+    <path d="M2 19l6.5-10 4 6 2.5-3.5L21 19H2z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+    <circle cx="16.5" cy="6.5" r="1.8" fill="none" stroke="currentColor" stroke-width="1.8"/>
+  </symbol>
+  <symbol id="i-drive" viewBox="0 0 24 24">
+    <path d="M9 4L4 20M15 4l5 16M11 4h2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    <line x1="12" y1="8" x2="12" y2="11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    <line x1="12" y1="14" x2="12" y2="17" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="i-work" viewBox="0 0 24 24">
+    <path d="M3 8.5a14 14 0 0 1 18 0" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    <path d="M6.5 12.5a9 9 0 0 1 11 0" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    <path d="M10 16.3a4 4 0 0 1 4 0" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    <circle cx="12" cy="19.5" r="1.2" fill="currentColor"/>
+  </symbol>
+</svg>
 <div class="brandbar">
   <svg class="pop2-logo" viewBox="0 0 132 92" role="img" aria-label="Population 2 road-trip badge">
     <rect x="3" y="3" width="126" height="86" rx="6" fill="var(--bone)" stroke="var(--ink)" stroke-width="3"/>
@@ -399,7 +439,8 @@ footer{
   <p class="day-note">This guide always started cold at "Leave Durango," like the trip began there. It didn't — six nights in Durango, bookended by a drive in, are the real prologue. Lodging from hotel bookings; every day below reconstructed from geotagged photos, matching each one's GPS against the actual venue rather than guessed from memory.</p>
 
   <div class="day-body">
-  <div class="stop">
+  <div class="stop k-stay">
+    <svg class="stop-ico" aria-hidden="true"><use href="#i-stay"></use></svg>
     <div class="t">Aug 15</div>
     <div class="body">
       <h3>Motel 6, Clovis, NM</h3>
@@ -408,7 +449,8 @@ footer{
     </div>
   </div>
 
-  <div class="stop">
+  <div class="stop k-stay">
+    <svg class="stop-ico" aria-hidden="true"><use href="#i-stay"></use></svg>
     <div class="t">Aug 16–21</div>
     <div class="body">
       <h3>La Quinta Inn &amp; Suites by Wyndham Durango</h3>
@@ -419,7 +461,8 @@ footer{
 
   <div class="subday">Sunday · arrival</div>
 
-  <div class="stop light">
+  <div class="stop light k-see">
+    <svg class="stop-ico" aria-hidden="true"><use href="#i-see"></use></svg>
     <div class="t">Aug 16<span class="elev">~7:43pm</span></div>
     <div class="body">
       <h3>Animas River Trail &amp; Greenway<span class="tag">Golden hour</span></h3>
@@ -432,7 +475,8 @@ footer{
 
   <div class="subday">Monday · live music</div>
 
-  <div class="stop light">
+  <div class="stop light k-eat">
+    <svg class="stop-ico" aria-hidden="true"><use href="#i-eat"></use></svg>
     <div class="t">Aug 17<span class="elev">~8:30pm</span></div>
     <div class="body">
       <h3>Balcony Bar &amp; Grill<span class="tag">Live music</span></h3>
@@ -443,7 +487,8 @@ footer{
 
   <div class="subday">Tuesday · food trucks</div>
 
-  <div class="stop">
+  <div class="stop k-see">
+    <svg class="stop-ico" aria-hidden="true"><use href="#i-see"></use></svg>
     <div class="t">Aug 18<span class="elev">~7:48pm</span></div>
     <div class="body">
       <h3>Avalanche Bowl Company<span class="tag moss">11th Street Station</span></h3>
@@ -454,7 +499,8 @@ footer{
 
   <div class="subday">Wednesday · downtown</div>
 
-  <div class="stop">
+  <div class="stop k-eat">
+    <svg class="stop-ico" aria-hidden="true"><use href="#i-eat"></use></svg>
     <div class="t">Aug 19<span class="elev">~6:40pm</span></div>
     <div class="body">
       <h3>Anarchy Brewing Company<span class="tag moss">Animals welcome</span></h3>
@@ -467,7 +513,8 @@ footer{
 
   <div class="subday">Thursday · the river</div>
 
-  <div class="stop">
+  <div class="stop k-see">
+    <svg class="stop-ico" aria-hidden="true"><use href="#i-see"></use></svg>
     <div class="t">Aug 20<span class="elev">~4:05pm</span></div>
     <div class="body">
       <h3>Dallabetta Park<span class="tag moss">Dogs allowed</span></h3>
@@ -489,7 +536,8 @@ footer{
   <p class="day-note">The shortest day of the three and the only one with slack in it. Self check-in means no arrival window to hit, so the afternoon can run long — and the two lakes now bookend it.</p>
 
   <div class="day-body">
-  <div class="stop">
+  <div class="stop k-drive">
+    <svg class="stop-ico" aria-hidden="true"><use href="#i-drive"></use></svg>
     <div class="t">12:00<span class="elev">6,512′</span></div>
     <div class="body">
       <h3>Leave Durango</h3>
@@ -497,7 +545,8 @@ footer{
     </div>
   </div>
 
-  <div class="stop">
+  <div class="stop k-see">
+    <svg class="stop-ico" aria-hidden="true"><use href="#i-see"></use></svg>
     <div class="t">12:25<span class="elev">8,100′</span></div>
     <div class="body">
       <h3>Haviland Lake<span class="tag moss">Dog swim</span></h3>
@@ -506,7 +555,8 @@ footer{
     </div>
   </div>
 
-  <div class="stop">
+  <div class="stop k-eat">
+    <svg class="stop-ico" aria-hidden="true"><use href="#i-eat"></use></svg>
     <div class="t">1:15<span class="elev">~8,800′</span></div>
     <div class="body">
       <h3>The Nugget Mountain Bar</h3>
@@ -515,7 +565,8 @@ footer{
     </div>
   </div>
 
-  <div class="stop">
+  <div class="stop k-see">
+    <svg class="stop-ico" aria-hidden="true"><use href="#i-see"></use></svg>
     <div class="t">2:30<span class="elev">10,640′</span></div>
     <div class="body">
       <h3>Engineer Mountain Trailhead</h3>
@@ -528,7 +579,8 @@ footer{
     </div>
   </div>
 
-  <div class="stop">
+  <div class="stop k-stay">
+    <svg class="stop-ico" aria-hidden="true"><use href="#i-stay"></use></svg>
     <div class="t">3:45<span class="elev">9,318′</span></div>
     <div class="body">
       <h3>Drop bags · Altus Lodge</h3>
@@ -537,7 +589,8 @@ footer{
     </div>
   </div>
 
-  <div class="stop">
+  <div class="stop k-eat">
+    <svg class="stop-ico" aria-hidden="true"><use href="#i-eat"></use></svg>
     <div class="t">5:00<span class="elev">9,318′</span></div>
     <div class="body">
       <h3>Avalanche Brewing</h3>
@@ -546,7 +599,8 @@ footer{
     </div>
   </div>
 
-  <div class="stop">
+  <div class="stop k-eat">
+    <svg class="stop-ico" aria-hidden="true"><use href="#i-eat"></use></svg>
     <div class="t">5:45<span class="elev">9,318′</span></div>
     <div class="body">
       <h3>Golden Block Brewery</h3>
@@ -555,7 +609,8 @@ footer{
     </div>
   </div>
 
-  <div class="stop light">
+  <div class="stop light k-see">
+    <svg class="stop-ico" aria-hidden="true"><use href="#i-see"></use></svg>
     <div class="t">6:50<span class="elev">10,750′</span></div>
     <div class="body">
       <h3>Andrews Lake<span class="tag">Golden hour</span></h3>
@@ -563,7 +618,8 @@ footer{
     </div>
   </div>
 
-  <div class="stop light">
+  <div class="stop light k-see">
+    <svg class="stop-ico" aria-hidden="true"><use href="#i-see"></use></svg>
     <div class="t">7:20<span class="elev">10,910′</span></div>
     <div class="body">
       <h3>Molas Pass<span class="tag">Sunset</span></h3>
@@ -582,7 +638,8 @@ footer{
   <p class="day-note">The only real driving day, and it's front-loaded — the hardest 23 miles are behind you by nine. After Montrose it flattens into highway, and you drop 4,000 feet, so expect it 20° warmer when you arrive.</p>
 
   <div class="day-body">
-  <div class="stop light">
+  <div class="stop light k-see">
+    <svg class="stop-ico" aria-hidden="true"><use href="#i-see"></use></svg>
     <div class="t">8:00<span class="elev">11,018′</span></div>
     <div class="body">
       <h3>Red Mountain Pass north<span class="tag">Photos</span></h3>
@@ -590,7 +647,8 @@ footer{
     </div>
   </div>
 
-  <div class="stop">
+  <div class="stop k-see">
+    <svg class="stop-ico" aria-hidden="true"><use href="#i-see"></use></svg>
     <div class="t">9:15<span class="elev">7,792′</span></div>
     <div class="body">
       <h3>Ouray Perimeter Trail</h3>
@@ -598,7 +656,8 @@ footer{
     </div>
   </div>
 
-  <div class="stop">
+  <div class="stop k-eat">
+    <svg class="stop-ico" aria-hidden="true"><use href="#i-eat"></use></svg>
     <div class="t">11:00<span class="elev">7,792′</span></div>
     <div class="body">
       <h3>Coffee or second breakfast, Ouray</h3>
@@ -606,7 +665,8 @@ footer{
     </div>
   </div>
 
-  <div class="stop">
+  <div class="stop k-eat">
+    <svg class="stop-ico" aria-hidden="true"><use href="#i-eat"></use></svg>
     <div class="t">12:30<span class="elev">5,807′</span></div>
     <div class="body">
       <h3>Horsefly Brewing<span class="tag moss">Dog patio</span></h3>
@@ -615,7 +675,8 @@ footer{
     </div>
   </div>
 
-  <div class="stop">
+  <div class="stop k-drive">
+    <svg class="stop-ico" aria-hidden="true"><use href="#i-drive"></use></svg>
     <div class="t">1:30<span class="elev">4,586′</span></div>
     <div class="body">
       <h3>Montrose → Grand Junction → I-70</h3>
@@ -623,7 +684,8 @@ footer{
     </div>
   </div>
 
-  <div class="stop">
+  <div class="stop k-see">
+    <svg class="stop-ico" aria-hidden="true"><use href="#i-see"></use></svg>
     <div class="t">3:45<span class="elev">6,600′</span></div>
     <div class="body">
       <h3>Rifle Falls State Park</h3>
@@ -632,7 +694,8 @@ footer{
     </div>
   </div>
 
-  <div class="stop">
+  <div class="stop k-see">
+    <svg class="stop-ico" aria-hidden="true"><use href="#i-see"></use></svg>
     <div class="t">4:45<span class="elev">6,400′</span></div>
     <div class="body">
       <h3>Harvey Gap State Park<span class="tag moss">Dog swim</span></h3>
@@ -640,7 +703,8 @@ footer{
     </div>
   </div>
 
-  <div class="stop">
+  <div class="stop k-stay">
+    <svg class="stop-ico" aria-hidden="true"><use href="#i-stay"></use></svg>
     <div class="t">5:45<span class="elev">5,600′</span></div>
     <div class="body">
       <h3>Ore House Inn</h3>
@@ -649,7 +713,8 @@ footer{
     </div>
   </div>
 
-  <div class="stop">
+  <div class="stop k-eat">
+    <svg class="stop-ico" aria-hidden="true"><use href="#i-eat"></use></svg>
     <div class="t">7:00<span class="elev">5,600′</span></div>
     <div class="body">
       <h3>Down Valley Brewing</h3>
@@ -673,7 +738,8 @@ footer{
   <p class="day-note">A Glenwood Springs morning bolted onto the front of what was otherwise the easiest driving day of the trip — brunch, a real hike, and the best beer on the route, all within fifteen minutes of the room. Still nothing to eat between Rifle and Craig, so eat before you leave.</p>
 
   <div class="day-body">
-  <div class="stop">
+  <div class="stop k-eat">
+    <svg class="stop-ico" aria-hidden="true"><use href="#i-eat"></use></svg>
     <div class="t">8:00<span class="elev">5,760′</span></div>
     <div class="body">
       <h3>Daily Bread<span class="tag moss">Dog patio</span></h3>
@@ -682,7 +748,8 @@ footer{
     </div>
   </div>
 
-  <div class="stop">
+  <div class="stop k-see">
+    <svg class="stop-ico" aria-hidden="true"><use href="#i-see"></use></svg>
     <div class="t">9:15<span class="elev">5,900′</span></div>
     <div class="body">
       <h3>Wulfsohn Trail<span class="tag moss">Leash</span></h3>
@@ -691,7 +758,8 @@ footer{
     </div>
   </div>
 
-  <div class="stop">
+  <div class="stop k-eat">
+    <svg class="stop-ico" aria-hidden="true"><use href="#i-eat"></use></svg>
     <div class="t">11:00<span class="elev">5,760′</span></div>
     <div class="body">
       <h3>Casey Brewing Taproom<span class="tag">Best beer on the route</span></h3>
@@ -700,7 +768,8 @@ footer{
     </div>
   </div>
 
-  <div class="stop">
+  <div class="stop k-drive">
+    <svg class="stop-ico" aria-hidden="true"><use href="#i-drive"></use></svg>
     <div class="t">12:00<span class="elev">5,345′</span></div>
     <div class="body">
       <h3>I-70 west to Rifle<span class="tag">Fuel</span></h3>
@@ -708,7 +777,8 @@ footer{
     </div>
   </div>
 
-  <div class="stop">
+  <div class="stop k-drive">
+    <svg class="stop-ico" aria-hidden="true"><use href="#i-drive"></use></svg>
     <div class="t">12:30<span class="elev">~6,600′</span></div>
     <div class="body">
       <h3>CO-13 north to Craig</h3>
@@ -716,7 +786,8 @@ footer{
     </div>
   </div>
 
-  <div class="stop">
+  <div class="stop k-see">
+    <svg class="stop-ico" aria-hidden="true"><use href="#i-see"></use></svg>
     <div class="t">3:00<span class="elev">6,732′</span></div>
     <div class="body">
       <h3>Steamboat Springs</h3>
@@ -737,7 +808,8 @@ footer{
   <div class="day-body">
   <div class="subday">Monday · easy warm-up</div>
 
-  <div class="stop">
+  <div class="stop k-see">
+    <svg class="stop-ico" aria-hidden="true"><use href="#i-see"></use></svg>
     <div class="t">9:00<span class="elev">6,900′</span></div>
     <div class="body">
       <h3>Fish Creek Falls<span class="tag moss">Paved · leash</span></h3>
@@ -750,7 +822,8 @@ footer{
     </div>
   </div>
 
-  <div class="stop">
+  <div class="stop k-see">
+    <svg class="stop-ico" aria-hidden="true"><use href="#i-see"></use></svg>
     <div class="t">11:00<span class="elev">6,732′</span></div>
     <div class="body">
       <h3>Lincoln Ave, downtown</h3>
@@ -758,7 +831,8 @@ footer{
     </div>
   </div>
 
-  <div class="stop">
+  <div class="stop k-eat">
+    <svg class="stop-ico" aria-hidden="true"><use href="#i-eat"></use></svg>
     <div class="t">5:30<span class="elev">6,900′</span></div>
     <div class="body">
       <h3>Timber &amp; Torch<span class="tag">Live music</span><span class="tag moss">Dog patio</span></h3>
@@ -773,7 +847,8 @@ footer{
 
   <div class="subday">Tuesday · the real hike</div>
 
-  <div class="stop">
+  <div class="stop k-see">
+    <svg class="stop-ico" aria-hidden="true"><use href="#i-see"></use></svg>
     <div class="t">8:30<span class="elev">7,200′</span></div>
     <div class="body">
       <h3>Emerald Mountain via Blackmer Trail<span class="tag moss">Leash</span></h3>
@@ -782,7 +857,8 @@ footer{
     </div>
   </div>
 
-  <div class="stop">
+  <div class="stop k-see">
+    <svg class="stop-ico" aria-hidden="true"><use href="#i-see"></use></svg>
     <div class="t">1:00<span class="elev">6,732′</span></div>
     <div class="body">
       <h3>The "D" hole<span class="tag moss">Dog swim</span></h3>
@@ -791,7 +867,8 @@ footer{
     </div>
   </div>
 
-  <div class="stop">
+  <div class="stop k-eat">
+    <svg class="stop-ico" aria-hidden="true"><use href="#i-eat"></use></svg>
     <div class="t">6:00<span class="elev">6,732′</span></div>
     <div class="body">
       <h3>Mountain Tap Brewery<span class="tag moss">Dog patio</span></h3>
@@ -802,7 +879,8 @@ footer{
 
   <div class="subday">Wednesday · water day</div>
 
-  <div class="stop">
+  <div class="stop k-see">
+    <svg class="stop-ico" aria-hidden="true"><use href="#i-see"></use></svg>
     <div class="t">9:00<span class="elev">6,760′</span></div>
     <div class="body">
       <h3>Spring Creek Trail → dog park pond<span class="tag moss">Off-leash swim</span></h3>
@@ -811,7 +889,8 @@ footer{
     </div>
   </div>
 
-  <div class="stop">
+  <div class="stop k-eat">
+    <svg class="stop-ico" aria-hidden="true"><use href="#i-eat"></use></svg>
     <div class="t">12:00<span class="elev">6,732′</span></div>
     <div class="body">
       <h3>Backcountry Provisions<span class="tag moss">Dog patio</span></h3>
@@ -820,7 +899,8 @@ footer{
     </div>
   </div>
 
-  <div class="stop light">
+  <div class="stop light k-eat">
+    <svg class="stop-ico" aria-hidden="true"><use href="#i-eat"></use></svg>
     <div class="t">6:00<span class="elev">6,900′</span></div>
     <div class="body">
       <h3>Snow Bowl Wednesday Sessions<span class="tag">Live music</span><span class="tag moss">Dog Bowl</span></h3>
@@ -871,7 +951,8 @@ footer{
     </svg>
   </div>
 
-  <div class="stop">
+  <div class="stop k-stay">
+    <svg class="stop-ico" aria-hidden="true"><use href="#i-stay"></use></svg>
     <div class="t">9:00<span class="elev">6,732′</span></div>
     <div class="body">
       <h3>Checkout, La Quinta</h3>
@@ -879,7 +960,8 @@ footer{
     </div>
   </div>
 
-  <div class="stop">
+  <div class="stop k-drive">
+    <svg class="stop-ico" aria-hidden="true"><use href="#i-drive"></use></svg>
     <div class="t">11:45<span class="elev">11,318′</span></div>
     <div class="body">
       <h3>Rabbit Ears + Fremont Passes</h3>
@@ -887,7 +969,8 @@ footer{
     </div>
   </div>
 
-  <div class="stop">
+  <div class="stop k-see">
+    <svg class="stop-ico" aria-hidden="true"><use href="#i-see"></use></svg>
     <div class="t">12:45<span class="elev">9,200′</span></div>
     <div class="body">
       <h3>Twin Lakes<span class="tag moss">Dog break</span></h3>
@@ -896,7 +979,8 @@ footer{
     </div>
   </div>
 
-  <div class="stop">
+  <div class="stop k-stay">
+    <svg class="stop-ico" aria-hidden="true"><use href="#i-stay"></use></svg>
     <div class="t">1:15<span class="elev">7,965′</span></div>
     <div class="body">
       <h3>Super 8 by Wyndham Buena Vista</h3>
@@ -905,7 +989,8 @@ footer{
     </div>
   </div>
 
-  <div class="stop light">
+  <div class="stop light k-eat">
+    <svg class="stop-ico" aria-hidden="true"><use href="#i-eat"></use></svg>
     <div class="t">6:00<span class="elev">7,965′</span></div>
     <div class="body">
       <h3>The Slammer<span class="tag">Meet Carlos</span><span class="tag moss">Dog friendly</span></h3>
@@ -952,7 +1037,8 @@ footer{
     </svg>
   </div>
 
-  <div class="stop">
+  <div class="stop k-drive">
+    <svg class="stop-ico" aria-hidden="true"><use href="#i-drive"></use></svg>
     <div class="t">12:00<span class="elev">7,965′</span></div>
     <div class="body">
       <h3>Leave Buena Vista</h3>
@@ -960,7 +1046,8 @@ footer{
     </div>
   </div>
 
-  <div class="stop light">
+  <div class="stop light k-drive">
+    <svg class="stop-ico" aria-hidden="true"><use href="#i-drive"></use></svg>
     <div class="t">2:15<span class="elev">10,857′</span></div>
     <div class="body">
       <h3>Wolf Creek Pass<span class="tag">Dog break</span></h3>
@@ -968,7 +1055,8 @@ footer{
     </div>
   </div>
 
-  <div class="stop">
+  <div class="stop k-stay">
+    <svg class="stop-ico" aria-hidden="true"><use href="#i-stay"></use></svg>
     <div class="t">3:00<span class="elev">7,126′</span></div>
     <div class="body">
       <h3>Motel SOCO</h3>
@@ -977,7 +1065,8 @@ footer{
     </div>
   </div>
 
-  <div class="stop light">
+  <div class="stop light k-see">
+    <svg class="stop-ico" aria-hidden="true"><use href="#i-see"></use></svg>
     <div class="t">7:00<span class="elev">7,126′</span></div>
     <div class="body">
       <h3>The Mike Dillon Band<span class="tag">El Camino Lounge</span></h3>
@@ -997,7 +1086,8 @@ footer{
   <p class="day-note">Pagosa Springs back to Durango on US-160 W, with two real photo stops on the way, then a longer stay than originally planned — through Wednesday night, to line up with the Santa Fe leg below. Only the first night is actually booked; see the watch list for the gap.</p>
 
   <div class="day-body">
-  <div class="stop">
+  <div class="stop k-eat">
+    <svg class="stop-ico" aria-hidden="true"><use href="#i-eat"></use></svg>
     <div class="t">–</div>
     <div class="body">
       <h3>Breakfast, Pagosa Springs<span class="tag">Confirm name</span></h3>
@@ -1006,7 +1096,8 @@ footer{
     </div>
   </div>
 
-  <div class="stop">
+  <div class="stop k-see">
+    <svg class="stop-ico" aria-hidden="true"><use href="#i-see"></use></svg>
     <div class="t">–</div>
     <div class="body">
       <h3>Chimney Rock overlook<span class="tag moss">Paved</span></h3>
@@ -1014,7 +1105,8 @@ footer{
     </div>
   </div>
 
-  <div class="stop">
+  <div class="stop k-see">
+    <svg class="stop-ico" aria-hidden="true"><use href="#i-see"></use></svg>
     <div class="t">–</div>
     <div class="body">
       <h3>Yellowjacket Pass<span class="elev">7,785′</span></h3>
@@ -1022,7 +1114,8 @@ footer{
     </div>
   </div>
 
-  <div class="stop">
+  <div class="stop k-stay">
+    <svg class="stop-ico" aria-hidden="true"><use href="#i-stay"></use></svg>
     <div class="t">3:00</div>
     <div class="body">
       <h3>Baymont by Wyndham Durango</h3>
@@ -1034,7 +1127,8 @@ footer{
     </div>
   </div>
 
-  <div class="stop">
+  <div class="stop k-stay">
+    <svg class="stop-ico" aria-hidden="true"><use href="#i-stay"></use></svg>
     <div class="t">–</div>
     <div class="body">
       <h3>La Quinta Inn &amp; Suites by Wyndham Durango<span class="tag moss">Confirmed</span></h3>
@@ -1043,7 +1137,8 @@ footer{
     </div>
   </div>
 
-  <div class="stop">
+  <div class="stop k-eat">
+    <svg class="stop-ico" aria-hidden="true"><use href="#i-eat"></use></svg>
     <div class="t">–</div>
     <div class="body">
       <h3>Not-yet-visited coffee &amp; bars, Durango</h3>
@@ -1053,7 +1148,8 @@ footer{
     </div>
   </div>
 
-  <div class="stop">
+  <div class="stop k-work">
+    <svg class="stop-ico" aria-hidden="true"><use href="#i-work"></use></svg>
     <div class="t">–</div>
     <div class="body">
       <h3>Durfield Dispersed<span class="tag moss">Good signal</span></h3>
@@ -1073,7 +1169,8 @@ footer{
   <p class="day-note">Added Aug 26: Cactus Lee is touring through the Southwest that week — Lubbock (534mi, crosses into Central time), Trinidad (258mi), and Santa Fe (212mi) were all on the table; Santa Fe won on distance without giving up the show. Lodging ended up being La Quinta (booked Aug 31 with points), not El Rey Court — El Rey Court is still where the show is, just a short drive from the room instead of the same address.</p>
 
   <div class="day-body">
-  <div class="stop">
+  <div class="stop k-drive">
+    <svg class="stop-ico" aria-hidden="true"><use href="#i-drive"></use></svg>
     <div class="t">–</div>
     <div class="body">
       <h3>Durango → Santa Fe</h3>
@@ -1089,7 +1186,8 @@ footer{
     </div>
   </div>
 
-  <div class="stop">
+  <div class="stop k-stay">
+    <svg class="stop-ico" aria-hidden="true"><use href="#i-stay"></use></svg>
     <div class="t">–</div>
     <div class="body">
       <h3>La Quinta Inn by Wyndham Santa Fe<span class="tag moss">Confirmed</span></h3>
@@ -1098,7 +1196,8 @@ footer{
     </div>
   </div>
 
-  <div class="stop">
+  <div class="stop k-eat">
+    <svg class="stop-ico" aria-hidden="true"><use href="#i-eat"></use></svg>
     <div class="t">–</div>
     <div class="body">
       <h3>Coffee &amp; a bar, Santa Fe</h3>
@@ -1107,7 +1206,8 @@ footer{
     </div>
   </div>
 
-  <div class="stop light">
+  <div class="stop light k-see">
+    <svg class="stop-ico" aria-hidden="true"><use href="#i-see"></use></svg>
     <div class="t">6:00<span class="elev">Fri Sep 4</span></div>
     <div class="body">
       <h3>Cactus Lee / Swarming Branch<span class="tag moss">Free</span><span class="tag moss">Dogs on leash</span></h3>

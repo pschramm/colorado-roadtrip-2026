@@ -39,19 +39,25 @@ body{
 .pop2-logo{width:56px;height:auto;display:block;filter:drop-shadow(2px 3px 0 var(--rule))}
 
 /* ---------- hero ---------- */
-header{padding:18px 0 10px}
+header{
+  margin:0 -20px;padding:22px 20px 20px;
+  background:linear-gradient(135deg, var(--oxide) 0%, #7A2A10 65%, var(--ink) 100%);
+}
 .stats{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 12px}
 .stat{
   font-family:"JetBrains Mono",monospace;font-size:10px;font-weight:600;
   letter-spacing:.1em;padding:4px 10px;border-radius:20px;
-  background:var(--ink);color:var(--bone);
+  background:rgba(251,243,227,.16);color:var(--bone);
+  border:1px solid rgba(251,243,227,.3);
 }
 h1{
   font-family:"Bricolage Grotesque",system-ui,sans-serif;
   font-weight:800;font-size:clamp(26px,7.5vw,40px);
   line-height:1.02;letter-spacing:-.02em;margin:0;
+  color:var(--bone);
 }
-h1 .arrow{color:var(--oxide);font-weight:400}
+h1 .arrow{color:var(--gold);font-weight:400}
+header .trip-status{color:rgba(251,243,227,.75)}
 
 /* ---------- elevation profile ---------- */
 .profile{margin:30px 0 6px}
@@ -344,6 +350,23 @@ footer{
 }
 @media (prefers-reduced-motion:no-preference){
   .day{transition:opacity .3s}
+}
+
+/* ---------- wide screens: use the width instead of one long column ---------- */
+@media (min-width:860px){
+  .wrap{max-width:1180px}
+  .brandbar{padding-left:calc((100% - 1180px) / 2 + 20px);padding-right:20px}
+  .now-bar{padding-left:calc((100% - 1180px) / 2 + 20px);padding-right:calc((100% - 1180px) / 2 + 20px)}
+  #realmap{height:460px}
+  .day-body{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(320px, 1fr));
+    gap:0 14px;
+    align-items:start;
+  }
+  .day-body .stop{margin:0 0 14px}
+  .day-body .subday{grid-column:1 / -1}
+  .day-body .stop.k-drive{grid-column:1 / -1}
 }
 </style>
 </head>

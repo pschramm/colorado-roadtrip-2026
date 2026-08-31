@@ -7,6 +7,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <style>
 :root{
   --ground:#F7EAD2;
@@ -91,24 +93,50 @@ h1 .arrow{color:var(--oxide);font-weight:400}
 }
 .now-bar.done-state{background:var(--moss)}
 
-/* ---------- trip map ---------- */
-.tripmap{margin:26px 0 0}
-.tripmap svg{width:100%;height:auto;display:block;overflow:visible}
+/* ---------- trip map (real, Leaflet) ---------- */
+.tripmap-wrap{margin:20px -20px 0}
+#realmap{
+  height:min(60vh,440px);width:100%;
+  background:var(--ground-2);
+  font-family:"Newsreader",Georgia,serif;
+}
 .tripmap-caption{
   font-family:"JetBrains Mono",monospace;font-size:10.5px;
   letter-spacing:.08em;text-transform:uppercase;color:var(--slate);
-  margin:6px 0 0;
+  margin:8px 20px 0;
 }
-.tm-route{fill:none;stroke:var(--rule);stroke-width:2;stroke-dasharray:4 3}
-.tm-node{cursor:pointer}
-.tm-node circle{fill:var(--ground);stroke:var(--slate);stroke-width:2;transition:r .15s}
-.tm-node text{font-family:"JetBrains Mono",monospace;font-size:9.5px;fill:var(--slate)}
-.tm-node.past circle{fill:var(--moss);stroke:var(--moss)}
-.tm-node.past text{fill:var(--moss)}
-.tm-node.today circle{fill:var(--oxide);stroke:var(--oxide);r:7}
-.tm-node.today text{fill:var(--oxide);font-weight:600}
-.tm-node:hover circle{r:7}
-.tm-pulse{fill:none;stroke:var(--oxide);stroke-width:1.5;opacity:.5}
+.tm-pin{
+  width:26px;height:26px;border-radius:50% 50% 50% 0;
+  transform:rotate(-45deg);
+  background:var(--slate);border:2px solid var(--bone);
+  box-shadow:0 1px 3px rgba(26,31,46,.4);
+}
+.tm-pin.past{background:var(--moss)}
+.tm-pin.today{background:var(--oxide);width:32px;height:32px}
+.tm-pin span{
+  display:block;transform:rotate(45deg);
+  width:100%;height:100%;
+  color:var(--bone);font-size:12px;font-weight:700;
+  text-align:center;line-height:22px;font-family:"Bricolage Grotesque",sans-serif;
+}
+.tm-pin.today span{line-height:28px;font-size:14px}
+.leaflet-popup-content-wrapper{
+  background:var(--bone);border-radius:8px;
+  box-shadow:0 3px 10px rgba(26,31,46,.25);
+}
+.leaflet-popup-tip{background:var(--bone)}
+.tm-popup{font-family:"Newsreader",Georgia,serif;min-width:150px}
+.tm-popup .k{
+  display:block;font-family:"JetBrains Mono",monospace;font-size:9.5px;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--slate);margin-bottom:2px;
+}
+.tm-popup h4{margin:0 0 4px;font-family:"Bricolage Grotesque",sans-serif;font-size:16px}
+.tm-popup .elev{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--oxide);display:inline-block;margin-top:4px}
+.tm-popup button{
+  display:block;margin-top:8px;width:100%;
+  font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;
+  background:var(--oxide);color:var(--bone);border:none;border-radius:20px;padding:6px 10px;cursor:pointer;
+}
 
 /* ---------- nav ---------- */
 nav{
@@ -343,80 +371,10 @@ footer{
   <p class="trip-status" hidden></p>
 </header>
 
-<div class="tripmap" aria-label="Schematic map of the whole trip, Durango to Steamboat to Buena Vista to Pagosa Springs, back to Durango, then Santa Fe. Not to scale, but positioned to match real relative geography. Tap a stop to jump there.">
-<svg viewBox="0 0 320 500" role="img">
-  <path class="tm-route" d="M40,320 L67,272 L83,113 L170,30 L256,179 L148,321 L48,332 L280,466"/>
-
-  <g class="tm-node" data-until="2026-08-21" data-target="durango">
-    <circle cx="40" cy="320" r="5.5"/>
-    <text x="30" y="323" text-anchor="end">Durango</text>
-  </g>
-  <g class="tm-node" data-until="2026-08-21" data-target="fri">
-    <circle cx="67" cy="272" r="5.5"/>
-    <text x="77" y="275" text-anchor="start">Silverton</text>
-  </g>
-  <g class="tm-node" data-until="2026-08-22" data-target="sat">
-    <circle cx="83" cy="113" r="5.5"/>
-    <text x="93" y="116" text-anchor="start">New Castle</text>
-  </g>
-  <g class="tm-node" data-until="2026-08-26" data-target="sun">
-    <circle cx="170" cy="30" r="5.5"/>
-    <text x="180" y="34" text-anchor="start">Steamboat</text>
-  </g>
-  <g class="tm-node" data-until="2026-08-27" data-target="thu">
-    <circle cx="256" cy="179" r="5.5"/>
-    <text x="266" y="182" text-anchor="start">Buena Vista</text>
-  </g>
-  <g class="tm-node" data-until="2026-08-28" data-target="pagosa">
-    <circle cx="148" cy="321" r="5.5"/>
-    <text x="148" y="303" text-anchor="middle">Pagosa Springs</text>
-  </g>
-  <g class="tm-node" data-until="2026-09-03" data-target="return">
-    <circle cx="48" cy="332" r="5.5"/>
-    <text x="48" y="352" text-anchor="middle">Durango again</text>
-  </g>
-  <g class="tm-node" data-until="2026-09-05" data-target="santafe">
-    <circle cx="280" cy="466" r="5.5"/>
-    <text x="270" y="469" text-anchor="end">Santa Fe</text>
-  </g>
-</svg>
+<div class="tripmap-wrap">
+  <div id="realmap" role="img" aria-label="Real map of the whole trip route, Durango to Steamboat to Buena Vista to Pagosa Springs, back to Durango, then Santa Fe. Pins show status and open with date, elevation, and a jump-to-day button."></div>
 </div>
-<p class="tripmap-caption">Roughly to real geography, not to scale · tap a stop to jump there</p>
-
-<div class="profile" aria-label="Elevation profile of the route, from Durango at 6,512 feet, up over Red Mountain Pass at 11,018 feet, down to Grand Junction at 4,586 feet, then up to Steamboat Springs at 6,732 feet.">
-<svg viewBox="0 0 680 150" role="img">
-  <defs>
-    <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#BE3B10" stop-opacity=".22"/>
-      <stop offset="100%" stop-color="#BE3B10" stop-opacity="0"/>
-    </linearGradient>
-  </defs>
-  <!-- day dividers -->
-  <line x1="170" y1="8" x2="170" y2="126" stroke="#1A1F2E" stroke-opacity=".18" stroke-dasharray="2 4"/>
-  <line x1="510" y1="8" x2="510" y2="126" stroke="#1A1F2E" stroke-opacity=".18" stroke-dasharray="2 4"/>
-  <!-- profile -->
-  <path d="M0,86 L60,52 L120,20 L170,44 L215,14 L260,10 L320,56 L370,72 L430,100 L470,126 L540,110 L580,92 L620,98 L680,80"
-        fill="none" stroke="#BE3B10" stroke-width="2.5" stroke-linejoin="round"/>
-  <path d="M0,86 L60,52 L120,20 L170,44 L215,14 L260,10 L320,56 L370,72 L430,100 L470,126 L540,110 L580,92 L620,98 L680,80 L680,150 L0,150 Z"
-        fill="url(#fade)"/>
-  <!-- markers -->
-  <circle cx="0" cy="86" r="3.5" fill="#1A1F2E"/>
-  <circle cx="170" cy="44" r="3.5" fill="#1A1F2E"/>
-  <circle cx="260" cy="10" r="3.5" fill="#BE3B10"/>
-  <circle cx="470" cy="126" r="3.5" fill="#35597A"/>
-  <circle cx="540" cy="110" r="3.5" fill="#1A1F2E"/>
-  <circle cx="680" cy="80" r="3.5" fill="#1A1F2E"/>
-  <g font-family="JetBrains Mono, monospace" font-size="9.5" fill="#35597A">
-    <text x="0" y="142">Durango</text>
-    <text x="140" y="142">Silverton</text>
-    <text x="228" y="6" fill="#BE3B10">Red Mtn 11,018</text>
-    <text x="424" y="142">Grand Jct 4,586</text>
-    <text x="512" y="142">New Castle</text>
-    <text x="620" y="142">Steamboat</text>
-  </g>
-</svg>
-  <div class="profile-caption"><span>Friday</span><span>Saturday</span><span>Sunday</span></div>
-</div>
+<p class="tripmap-caption">Tap a pin for dates, elevation, and a jump straight to that day</p>
 
 <nav>
   <a href="#durango">Aug 15–21 · Durango</a>
@@ -1257,24 +1215,64 @@ footer{
     watchStatus.textContent = resolvedWatch.length + ' of ' + allWatch.length + ' resolved (dimmed below).';
   }
 
-  // ---- trip map: color nodes past/today, tap to jump ----
-  // Same isPast()/today source of truth as everything else on the page.
+  // ---- trip map: real Leaflet map, tap a pin to jump ----
+  // Same today/past logic as everywhere else on the page - dates inlined here
+  // rather than reusing isPast() since these aren't DOM elements with attributes.
   var mapReduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var mapMarked = false;
-  Array.prototype.slice.call(document.querySelectorAll('.tm-node[data-until]')).forEach(function(node){
-    if (isPast(node)) {
-      node.classList.add('past');
-    } else if (!mapMarked) {
-      node.classList.add('today');
-      mapMarked = true;
-    }
-    var dest = document.getElementById(node.getAttribute('data-target'));
-    if (dest) {
-      node.addEventListener('click', function(){
-        dest.scrollIntoView({behavior: mapReduceMotion ? 'auto' : 'smooth', block:'start'});
+  var mapEl = document.getElementById('realmap');
+  if (mapEl && window.L) {
+    var stops = [
+      {lat:37.2753, lon:-107.8801, name:'Durango', dates:'Aug 15–21', elev:'6,512′', until:'2026-08-21', target:'durango'},
+      {lat:37.8119, lon:-107.6640, name:'Silverton', dates:'Fri Aug 21', elev:'9,318′', until:'2026-08-21', target:'fri'},
+      {lat:39.5744, lon:-107.5322, name:'New Castle', dates:'Sat Aug 22', elev:'5,588′', until:'2026-08-22', target:'sat'},
+      {lat:40.4850, lon:-106.8317, name:'Steamboat Springs', dates:'Sun 23–Wed 26', elev:'6,732′', until:'2026-08-26', target:'sun'},
+      {lat:38.8422, lon:-106.1311, name:'Buena Vista', dates:'Thu Aug 27', elev:'7,965′', until:'2026-08-27', target:'thu'},
+      {lat:37.2696, lon:-107.0098, name:'Pagosa Springs', dates:'Fri Aug 28', elev:'7,126′', until:'2026-08-28', target:'pagosa'},
+      {lat:37.2913, lon:-107.8801, name:'Durango, again', dates:'Aug 29–Sep 2', elev:'6,512′', until:'2026-09-03', target:'return'},
+      {lat:35.6870, lon:-105.9378, name:'Santa Fe', dates:'Sep 3–5', elev:'7,199′', until:'2026-09-05', target:'santafe'}
+    ];
+
+    var map = L.map('realmap', {scrollWheelZoom:false});
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom:16,
+      attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    var latlngs = stops.map(function(s){ return [s.lat, s.lon]; });
+    L.polyline(latlngs, {color:'#35597A', weight:2.5, opacity:.65, dashArray:'6 6'}).addTo(map);
+    map.fitBounds(latlngs, {padding:[28,28]});
+
+    var mapMarked = false;
+    stops.forEach(function(s, i){
+      var past = new Date(s.until + 'T23:59:59') < today;
+      var isToday = !past && !mapMarked;
+      if (isToday) mapMarked = true;
+      var size = isToday ? 32 : 26;
+      var cls = 'tm-pin' + (past ? ' past' : isToday ? ' today' : '');
+      var icon = L.divIcon({
+        className:'',
+        html:'<div class="' + cls + '"><span>' + (i + 1) + '</span></div>',
+        iconSize:[size, size],
+        iconAnchor:[size / 2, size]
       });
-    }
-  });
+      var marker = L.marker([s.lat, s.lon], {icon:icon}).addTo(map);
+      marker.bindPopup(
+        '<div class="tm-popup">' +
+          '<span class="k">' + s.dates + '</span>' +
+          '<h4>' + s.name + '</h4>' +
+          '<span class="elev">' + s.elev + '</span>' +
+          '<button type="button" data-target="' + s.target + '">Jump to this day ↓</button>' +
+        '</div>'
+      );
+      marker.on('popupopen', function(e){
+        var btn = e.popup.getElement().querySelector('button');
+        if (btn) btn.addEventListener('click', function(){
+          var dest = document.getElementById(this.getAttribute('data-target'));
+          if (dest) dest.scrollIntoView({behavior: mapReduceMotion ? 'auto' : 'smooth', block:'start'});
+        });
+      });
+    });
+  }
 
   // ---- sticky "right now" bar: always-visible answer to "where am I today" ----
   // Reuses the .day.today element the loop above already found, so the bar and

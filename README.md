@@ -1,6 +1,6 @@
-# Durango → Steamboat → Pagosa → Durango, Aug 15–30 2026
+# Durango → Steamboat → Pagosa → Durango → Santa Fe, Aug 15 – Sep 5 2026
 
-A trip guide covering a Durango prologue, three days driving north, three and a half based in Steamboat, then the way back splits over two shorter days via a Buena Vista layover to a show in Pagosa Springs, then one more short hop back to Durango to close the loop — built to be read on a phone with no signal.
+A trip guide covering a Durango prologue, three days driving north, three and a half based in Steamboat, a two-day split back through Buena Vista to a show in Pagosa Springs, an extended stretch back in Durango, then one more drive south to Santa Fe for a second show — built to be read on a phone with no signal.
 
 **Live guide:** `https://<username>.github.io/<repo>/`
 
@@ -28,6 +28,8 @@ The guide loads fonts from Google Fonts. Everything else is inline, so it render
 - `<div class="swap">` for an inline alternative or caveat
 
 To retime a stop, edit the `<div class="t">` value. To add one, copy an adjacent `.stop` block. The elevation profile at the top of most day sections is a hand-plotted SVG path — if the route changes materially, the path coordinates need updating too, or just leave the block out (the return-to-Durango section has none, since there's no confirmed pass on that leg worth inventing coordinates for).
+
+**Colors (redesigned Aug 31).** All in the `:root` custom properties at the top of the `<style>` block: `--ground`/`--ground-2` (warm sand, page/card-2 background), `--ink` (deep navy, primary text), `--oxide` (burnt vermillion, the main accent — today markers, highlighted stops, filled tags), `--moss` (pine teal, done/dog-friendly), `--slate` (dusty blue, secondary text/meta), `--bone` (warm off-white, card fill), `--gold` (warm amber, reserved for the logo and `.tag.gold` — not used elsewhere yet). If you change any of these, re-check contrast — every current pairing is checked against WCAG AA (4.5:1) for text-on-color use, and it's easy to pick something that looks fine but fails as small bold tag text specifically (that's what happened with the first accent pick here). Three colors are **also hardcoded as literal hex** inside the elevation-profile SVGs, written before this file started using `var(--x)` inside SVG attributes (which does work fine — the trip-map and the Population 2 logo both do it) — nobody's gone back and converted the older profiles. If you change `--oxide`, `--ink`, or `--slate` in `:root`, grep the file for the old hex values and update those too, or the SVGs will drift from the rest of the page.
 
 **Timeline (replaced the old collapse/archive UI on Aug 24).** All `<section class="day" ...>` elements live inside one `<div class="timeline">…</div>` and are always fully visible, photos and all — nothing on the page hides itself anymore. `data-until="YYYY-MM-DD"` is still on every day section and on each `<li>` in the watch list, but it now only drives two lightweight, always-reversible things, computed fresh against the viewer's own device clock on every page load (nothing hardcodes "today"):
 - **Day sections** get a `.past` class (dims the timeline marker dot to moss) once their date has fully elapsed, a `.today` class on the current day (oxide marker), and a small "done" badge. The first non-past day also gets a `.today-marker` divider inserted just above it.

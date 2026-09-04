@@ -22,7 +22,7 @@ The itinerary is in `index.html`. This file is why it looks the way it does.
 | Sat 5 | Microtel Inn & Suites, Sweetwater (9416 N I-20) | confirmed, #85582EE037752, non-refundable, checkout date unclear — see open items |
 | Sun 6 | Home — Austin, TX 78723 | trip ends here |
 
-**Fixed points:** Thu 27, ~6pm — Carlos, The Slammer, Buena Vista. Fri 28, 7pm — Mike Dillon Band, Motel SOCO. Fri Sep 4, 6–10pm — Cactus Lee / Swarming Branch, El Rey Court Event Lawn, Santa Fe (free, 11min from the Santa Fe room — El Rey Court is the show venue only, not where they're staying).
+**Fixed points:** Thu 27, ~6pm — Carlos, The Slammer, Buena Vista. Fri 28, 7pm — Mike Dillon Band, Motel SOCO. Fri Sep 4, El Rey Court Event Lawn open 6–10pm (venue's own listing, no set-level breakdown), Cactus Lee / Swarming Branch's own set at 7 or 8pm within that window per direct confirmation — El Rey Court is the show venue only, not where they're staying, 11min from the Santa Fe room.
 
 **Open items:**
 - Super 8 Buena Vista's calendar booking still covers Thu *and* Fri nights, but Fri night is now Motel SOCO — check whether that second Super 8 night needs cancelling.
@@ -108,6 +108,9 @@ Free, dawn–dusk, right by the river trail. Dogs aren't allowed on the garden p
 
 **Old Town Hot Springs (Steamboat week).**
 No published dog policy found, but pools are near-certainly no-dog, same as every other hot springs on this trip. Not worth a special trip to confirm by phone unless the plan changes.
+
+**Randall Davey Audubon Center (Santa Fe, Friday Sep 4).**
+135-acre wildlife sanctuary a few miles up Upper Canyon Rd — would've been a nice quiet-nature alternative to a second Cross of the Martyrs visit, but checked directly: dogs and pets are explicitly not permitted anywhere on the property or trails, no exceptions besides service animals. Ruled out on the dog constraint alone, not distance or timing.
 
 **Howelsen Hill / gondola (Steamboat week).**
 Dogs aren't allowed inside the ski area boundary per the town's official uphill-access policy. Rules out the gondola as a stop.
@@ -195,6 +198,12 @@ Saturday's storm was the reason the plan moved west rather than lingering in the
 ## Log
 
 One line per change, newest first. This replaced a separate CHANGELOG.md on Aug 22 — same content, one less file to update. For anything that needs real reasoning, put it in "Ruled out" or "Judgment calls" above and just link back to it here.
+
+- **Sep 3 (later still)** — Swapped Cross of the Martyrs out of Friday's early-afternoon slot — user's already been. Replaced with the NM State Capitol/Roundhouse and its free sculpture garden (490 Old Santa Fe Trail), right by Loretto Chapel so it costs no real detour. Only round state capitol in the country, real outdoor sculpture collection. Dog policy on the grounds not confirmed anywhere found — flagged as a maybe rather than assumed. **Ruled out for this slot:** Randall Davey Audubon Center (1800 Upper Canyon Rd) — checked directly, dogs are explicitly not permitted anywhere on the property or trails, no exceptions found; don't re-propose it for this trip.
+
+- **Sep 3 (later same day)** — User corrected the Cactus Lee timing: their own set is 7 or 8pm, not 6pm — the 6–10pm figure was El Rey Court's overall Event Lawn window, not the band's set time (the venue page doesn't break that out, confirmed by re-checking it directly). Freed up more of Friday afternoon, so added: Kowboyz (345 W Manhattan Ave, Railyard, right by Double Take) for western wear/boots — real selection (5,000+ pairs of boots, wides/half sizes carried) but "tall" sizing specifically isn't confirmed by anything found online, flagged as a call-ahead-or-check-in-person item; Santa Fe Vintage (7501 Avenger Way, near the airport) added as a `.swap` aside for tall/hard-to-find western pieces specifically — appointment-only, ~15min off the day's downtown/Railyard loop, only worth it if Kowboyz doesn't pan out. Also added Plaza Cafe Downtown (54 Lincoln Ave, dog-friendly patio, Santa Fe's oldest restaurant) as lunch, placed right after the Plaza/Cathedral/Loretto Chapel walk since it's on the Plaza itself — no extra drive.
+
+- **Sep 3** — Filled in Friday (Sep 4) as a full day off before the Cactus Lee show, since not much work is planned that day. Added a `.subday` split (Thursday · arrival / Friday · coffee, vintage & sightseeing) inside the `#santafe` section and eight new stops: Counter Culture Cafe (930 Baca St, dog patio, cash only) for morning coffee; Double Take (321 S Guadalupe St, Railyard) and Santa Fe Vintage Outpost (202 E Palace Ave) for vintage shopping — both flagged with the same "dog policy inside unconfirmed, duck-in solo" caveat used for the Steamboat Art Museum; Railyard Park & SITE Santa Fe (332 Read St, confirmed dog-friendly, public art) and Cross of the Martyrs (601 Paseo de Peralta, 0.6mi, leashed dogs explicitly fine, city-skyline photo) for sightseeing/photos; the Plaza/Cathedral Basilica/Loretto Chapel downtown walk (exteriors only — active church and paid chapel, dogs unlikely welcome inside); Canyon Road (100+ galleries, marked `.light` since sources agree late afternoon is its best light, timed right before the show) and Downtown Subscription (376 Garcia St, dog patio) as the last coffee stop before driving to El Rey Court. All addresses/hours/dog policies pulled from live web search, not memory — Counter Culture and Double Take's hours are sourced and current; Santa Fe Vintage Outpost's hours weren't confirmed, so none are stated.
 
 - **Sep 2** — Pulled the real Microtel Sweetwater confirmation (booked same day). Corrected the phone number in the guide, which had come from a web aggregator and didn't match the actual confirmation. Flagged two things the pre-booking research didn't surface: it's a non-refundable prepaid rate (unlike every other hotel this trip), and the checkout-date discrepancy showed up a fourth time. Also resolved the pet-weight-cap concern entirely — user has a service animal accommodation as a fallback, doesn't want to lead with it but isn't at real risk either way. Removed it as an open item.
 
